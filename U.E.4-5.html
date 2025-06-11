@@ -4,15 +4,66 @@
   <meta charset="UTF-8">
   <title>U.E.4-5 – Administrer et Surveiller un système d'information sécurisé</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
   <meta name="description" content="Portfolio détaillé de l'unité d'enseignement U.E.4-5 : Administrer et Surveiller un SI sécurisé - Eric Petersen, IUT R&T Cyber.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Fond synthwave animé -->
+  <div class="synthwave-bg" aria-hidden="true" style="pointer-events:none;">
+    <svg class="miami-sun" viewBox="0 0 480 180" width="480" height="180" aria-label="Coucher de soleil synthwave">
+      <defs>
+        <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffe7fd"/>
+          <stop offset="90%" stop-color="#ff62d6"/>
+        </linearGradient>
+        <linearGradient id="horizonGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#2cd8fd"/>
+          <stop offset="100%" stop-color="#6b47ff"/>
+        </linearGradient>
+        <linearGradient id="mountainGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#0ffbf9"/>
+          <stop offset="100%" stop-color="#ff62d6"/>
+        </linearGradient>
+      </defs>
+      <g>
+        <circle cx="240" cy="95" r="54" fill="url(#sunGrad)" opacity="0.93"/>
+        <g class="scanlines-sun">
+          <rect x="186" y="78" width="108" height="7" fill="#18152b" opacity="0.17"/>
+          <rect x="186" y="92" width="108" height="7" fill="#18152b" opacity="0.22"/>
+          <rect x="186" y="106" width="108" height="7" fill="#18152b" opacity="0.13"/>
+          <rect x="186" y="120" width="108" height="7" fill="#18152b" opacity="0.18"/>
+        </g>
+        <ellipse cx="240" cy="108" rx="70" ry="24" fill="#ff62d6" opacity="0.18"/>
+      </g>
+      <g class="mountains">
+        <polygon points="100,170 180,120 250,145 330,115 410,170" fill="url(#mountainGrad)" opacity="0.67"/>
+        <polygon points="0,180 100,170 410,170 480,180" fill="url(#horizonGrad)" opacity="0.73"/>
+        <polygon points="180,170 230,135 270,170" fill="#ff62d6" opacity="0.22"/>
+      </g>
+    </svg>
+    <canvas id="tronGrid"></canvas>
+    <div id="starfield"></div>
+    <div class="scanlines"></div>
+  </div>
+
+  <!-- Menu rétro synthwave -->
+  <nav class="retro-menu" role="navigation" aria-label="Navigation principale">
+    <div class="retro-title">
+      <i class="fas fa-sun"></i> Eric<span class="vice-glitch">Petersen</span>
+    </div>
+    <ul>
+      <li><a href="index.html#about"><i class="fas fa-user"></i> À propos</a></li>
+      <li><a href="index.html#skills"><i class="fas fa-laptop-code"></i> Compétences</a></li>
+    </ul>
+  </nav>
+
   <main>
     <!-- Fenêtre principale UE 4-5 -->
-    <section class="retro-window">
+    <section class="retro-window" style="margin-top: 3em;">
       <div class="window-bar">
-        <span class="window-title">[U.E.4-5] Administrer et Surveiller un système d'information sécurisé</span>
+        <span class="window-title"><i class="fas fa-shield-alt"></i> [U.E.4-5] Administrer et Surveiller un système d'information sécurisé</span>
         <span class="window-buttons">
           <span class="win-btn close"></span>
           <span class="win-btn min"></span>
@@ -20,48 +71,65 @@
         </span>
       </div>
       <div class="window-body">
-        <h2>Préambule</h2>
-        <p>
-          L'objectif de cette page de Portfolio est de justifier mon obtention de la quatrième et cinquième unités d'enseignements.<br>
-          Ainsi à travers diverses preuves et traces, je démontre que j'ai réellement acquis les unités d'enseignements 4 : <b>Administrer un système d'information sécurisé</b> et 5 : <b>Surveiller un système d'information sécurisé</b>.
-        </p>
+        <h2 class="vice-title" style="margin-bottom:0.5em;">U.E.4-5 – Administrer & Surveiller un SI sécurisé</h2>
+        <span class="vice-sub">Justification de l'obtention de l'unité</span>
+        <div style="background:linear-gradient(90deg,#232045 70%,#ff62d655 120%);border-left:4px solid #00faff;border-radius:7px;padding:1em 1.3em;margin:1.1em 0;">
+          <b>Préambule :</b>
+          <br>L'objectif de cette page de Portfolio est de justifier mon obtention de la quatrième et cinquième unités d'enseignements.
+          <br>Ainsi à travers diverses preuves et traces, je démontre que j'ai réellement acquis les unités d'enseignements 4 : <b>Administrer un système d'information sécurisé</b> et 5 : <b>Surveiller un système d'information sécurisé</b>.
+        </div>
         
-        <h3>Ressources & SAE (S3)</h3>
+        <h3 class="vice-title" style="font-size:1.07em;">Ressources & SAE (S3)</h3>
         <ul>
           <li>R3.cyber.16&nbsp;: Méthodologie du pentesting</li>
           <li>SAE3.cyber.03&nbsp;: Concevoir un réseau informatique sécurisé multi-sites</li>
           <li>SAE3.cyber.04&nbsp;: Découvrir le pentesting</li>
         </ul>
 
-        <h3>Objectifs et problématiques selon le programme national</h3>
-        <p>
-          Le professionnel R&T doit administrer, surveiller et sécuriser le système d'information d'une organisation. Il veille à la sécurité des données, à la gestion des accès et à la conformité aux politiques de sécurité. Il met en place des dispositifs de supervision, d'alertes et de sauvegarde, réalise des analyses de vulnérabilités et intervient sur des incidents de sécurité.<br><br>
-          Il participe également à la conception et au déploiement d'infrastructures sécurisées, à la gestion des droits utilisateurs et à la documentation des procédures. Sa veille technique et réglementaire lui permet de s'adapter en continu aux évolutions de la cybersécurité.
-        </p>
+        <h3 class="vice-title" style="font-size:1.07em;">Objectifs et problématiques selon le programme national</h3>
+        <div style="background:linear-gradient(90deg,#18152b 80%,#ff62d655 120%);border-left:3px solid #00faff;border-radius:6px;padding:0.9em 1em;margin:1.1em 0;">
+          <p style="margin:0;">
+            Le professionnel R&T doit administrer, surveiller et sécuriser le système d'information d'une organisation. Il veille à la sécurité des données, à la gestion des accès et à la conformité aux politiques de sécurité. Il met en place des dispositifs de supervision, d'alertes et de sauvegarde, réalise des analyses de vulnérabilités et intervient sur des incidents de sécurité.<br><br>
+            Il participe également à la conception et au déploiement d'infrastructures sécurisées, à la gestion des droits utilisateurs et à la documentation des procédures. Sa veille technique et réglementaire lui permet de s'adapter en continu aux évolutions de la cybersécurité.
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- Carte projet(s) UE 4-5 -->
-    <section class="retro-window">
+    <section class="retro-window reveal">
       <div class="window-bar">
-        <span class="window-title">Projet(s) de l'U.E.4-5</span>
+        <span class="window-title"><i class="fas fa-project-diagram"></i> Projet(s) de l'U.E.4-5</span>
         <span class="window-buttons">
           <span class="win-btn close"></span>
           <span class="win-btn min"></span>
           <span class="win-btn max"></span>
         </span>
       </div>
-      <div class="window-body">
-        <ul>
+      <div class="window-body" style="display:flex;flex-direction:column;align-items:center;">
+        <ul style="width:100%;max-width:450px;margin:1.5em auto;">
           <li>
-            <a href="rootme.html">Root-Me PRO (challenges pentest & sécurité)</a>
+            <a class="press-start-btn" href="rootme.html" style="margin-bottom:0.7em;"><i class="fab fa-root-me"></i> Root-Me PRO (challenges pentest & sécurité)</a>
           </li>
           <li>
-            <a href="stage.html">Stage – DORNER Health IT Solutions</a>
+            <a class="press-start-btn" href="stage.html"><i class="fas fa-briefcase"></i> Stage – DORNER Health IT Solutions</a>
           </li>
         </ul>
+        <a href="index.html#skills" class="press-start-btn" style="padding:0.7em 2.2em;margin-top:1.8em;font-size:1em;">
+          ⬅ Retour aux compétences
+        </a>
       </div>
     </section>
   </main>
+
+  <footer class="retro-footer">
+    <span class="footer-pixel">© 2024 Eric Petersen | Vice Portfolio | IUT Colmar</span>
+    <span class="footer-links">
+      <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Vasla13" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+    </span>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
