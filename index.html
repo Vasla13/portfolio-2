@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Petersen – Portfolio</title>
+  <!-- SEO & Social -->
+  <meta name="description" content="Portfolio rétro synthwave d'Eric Petersen, étudiant R&T Cyber. Projets, cybersécurité, réseau, développement.">
+  <meta name="keywords" content="Eric Petersen, portfolio, cybersécurité, réseaux, retro, synthwave, Miami Vice, IUT Colmar">
+  <meta name="author" content="Eric Petersen">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Eric Petersen – Vice Portfolio">
+  <meta property="og:description" content="Portfolio rétro synthwave d'Eric Petersen, étudiant en cybersécurité et réseaux à l'IUT de Colmar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ton-domaine.fr/">
+  <meta property="og:image" content="https://ton-domaine.fr/vice-favicon.png">
+  <link rel="icon" href="vice-favicon.png" type="image/png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&family=VT323&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Accessibilité : skip-link -->
+  <a href="#about" class="skip-link">Aller au contenu principal</a>
+
+  <!-- Fond animé avec palmier SVG synthwave -->
+  <div class="synthwave-bg">
+    <!-- SVG palmier custom stylisé synthwave -->
+    <svg viewBox="0 0 480 180" class="miami-sunset" aria-hidden="true">
+      <defs>
+        <linearGradient id="grad1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ff62d6"/>
+          <stop offset="100%" stop-color="#f9e784"/>
+        </linearGradient>
+        <radialGradient id="sun-glow" cx="0.5" cy="0.75" r="0.6">
+          <stop offset="0%" stop-color="#ffe7fd" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#ff62d6" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <!-- Coucher de soleil synthwave -->
+      <circle cx="240" cy="120" r="80" fill="url(#grad1)" />
+      <ellipse cx="240" cy="120" rx="90" ry="25" fill="url(#sun-glow)" opacity="0.6"/>
+      <!-- Palmier stylisé synthwave -->
+      <g>
+        <path d="M230 120 Q215 80 235 100 Q210 70 245 120 Q220 65 260 115" stroke="#00faff" stroke-width="4" fill="none" />
+        <path d="M260 130 Q278 75 255 105 Q280 85 245 120 Q275 55 240 130" stroke="#ff62d6" stroke-width="3" fill="none"/>
+        <!-- Tronc -->
+        <path d="M240 120 Q245 145 240 180" stroke="#ff62d6" stroke-width="6" fill="none" />
+        <path d="M244 125 Q250 148 243 180" stroke="#00faff" stroke-width="3" fill="none"/>
+      </g>
+    </svg>
+    <canvas id="tronGrid"></canvas>
+    <div id="starfield"></div>
+    <div class="scanlines"></div>
+  </div>
+
+  <!-- Menu rétro sticky -->
+  <nav class="retro-menu">
+    <div class="retro-title">
+      <i class="fas fa-sun"></i> Eric<span class="vice-glitch">Petersen</span>
+    </div>
+    <ul>
+      <li><a href="#about"><i class="fas fa-user"></i> À propos</a></li>
+      <li><a href="#projects"><i class="fas fa-laptop-code"></i> Projets</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Terminal accueil -->
+    <section class="retro-window terminal-window">
+      <div class="window-bar">
+        <span class="window-title"><i class="fas fa-terminal"></i> Terminal</span>
+        <span class="window-buttons">
+          <span class="win-btn close"></span>
+          <span class="win-btn min"></span>
+          <span class="win-btn max"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <pre id="terminal-text" class="terminal-text"></pre>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="about" class="retro-window">
+      <div class="window-bar">
+        <span class="window-title"><i class="fas fa-address-card"></i> À propos</span>
+        <span class="window-buttons">
+          <span class="win-btn close"></span>
+          <span class="win-btn min"></span>
+          <span class="win-btn max"></span>
+        </span>
+      </div>
+      <div class="window-body about-body">
+        <div>
+          <h2 class="vice-title glitch-type" data-text="Eric Petersen">Eric Petersen</h2>
+          <span class="vice-sub">Étudiant en R&T Cyber</span>
+          <p>
+            Passionné de <span class="color-miami">cybersécurité</span>, <span class="color-miami">réseaux</span> et de <span class="color-miami">développement</span>.<br>
+            J’aime fusionner technologie & style rétro pour apprendre et innover.
+          </p>
+          <div class="about-skills">
+            <span data-desc="Langage scripting polyvalent" class="badge-skill"><i class="fab fa-python"></i> Python</span>
+            <span data-desc="Maîtrise des systèmes Linux" class="badge-skill"><i class="fab fa-linux"></i> Linux</span>
+            <span data-desc="Défense & offensive sécurité" class="badge-skill"><i class="fas fa-shield-alt"></i> Cyber</span>
+            <span data-desc="JS web & app" class="badge-skill"><i class="fab fa-js-square"></i> JavaScript</span>
+            <span data-desc="Développement back" class="badge-skill"><i class="fab fa-php"></i> PHP</span>
+            <span data-desc="SQL – BDD" class="badge-skill"><i class="fas fa-database"></i> SQL</span>
+          </div>
+          <div id="skillDesc"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projets version liens vers pages dédiées, CRT View sur click -->
+    <section id="projects" class="retro-window">
+      <div class="window-bar">
+        <span class="window-title glitch-type" data-text="Projets">Projets</span>
+        <span class="window-buttons">
+          <span class="win-btn close"></span>
+          <span class="win-btn min"></span>
+          <span class="win-btn max"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <div class="project-link">
+          <a href="sae302.html" tabindex="0">
+            <div class="poster-header glitch-type" data-text="SAE 3.02 – Développer des applications communicantes">
+              SAE 3.02 – Développer des applications communicantes
+              <span class="poster-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+        <div class="project-link">
+          <a href="rootme.html" tabindex="0">
+            <div class="poster-header glitch-type" data-text="SAE – Parcours Root-Me PRO">
+              SAE – Parcours Root-Me PRO
+              <span class="poster-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+        <div class="project-link">
+          <a href="stage.html" tabindex="0">
+            <div class="poster-header glitch-type" data-text="Stage – DORNER Health IT Solutions">
+              Stage – DORNER Health IT Solutions
+              <span class="poster-arrow"><i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="retro-footer">
+    <div>
+      <span class="footer-pixel">© 2024 Eric Petersen | Vice Portfolio | IUT Colmar</span>
+      <span class="footer-links">
+        <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Vasla13" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      </span>
+      <div class="footer-timer" style="font-family:'VT323',monospace;font-size:1.2em;color:#00faff;">
+        Vice Time: <span id="timer">00:00</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Overlay TV rétro / CRT -->
+  <div id="crt-overlay" class="crt-overlay" role="dialog" aria-modal="true" aria-label="Projet en détail">
+    <div class="crt-tv">
+      <div class="crt-header">
+        <span id="crt-title"></span>
+        <button id="crt-close" class="crt-close-btn" title="Fermer" aria-label="Fermer la fenêtre CRT"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="crt-screen">
+        <div id="crt-content" class="crt-content"></div>
+        <div class="crt-scanlines"></div>
+      </div>
+      <div class="crt-controls">
+        <button id="crt-prev" class="crt-nav-btn" aria-label="Projet précédent"><i class="fas fa-caret-left"></i></button>
+        <button id="crt-next" class="crt-nav-btn" aria-label="Projet suivant"><i class="fas fa-caret-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification pop-up -->
+  <div id="popupNotif" class="popup-notif"></div>
+
+  <script src="main.js"></script>
+  <script>
+    // -- Correction : Activation CRT sur clic project-link a --
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('.project-link a').forEach((el, idx) => {
+        el.addEventListener('click', function(e) {
+          if (window.innerWidth > 550) {
+            e.preventDefault();
+            if (typeof showCRTProject === "function") showCRTProject(idx);
+          }
+        });
+        el.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && window.innerWidth > 550) {
+            e.preventDefault();
+            if (typeof showCRTProject === "function") showCRTProject(idx);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
