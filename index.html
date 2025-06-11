@@ -4,51 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eric Petersen – Portfolio</title>
-  <!-- SEO & Social -->
-  <meta name="description" content="Portfolio rétro synthwave d'Eric Petersen, étudiant R&T Cyber. Projets, cybersécurité, réseau, développement.">
-  <meta name="keywords" content="Eric Petersen, portfolio, cybersécurité, réseaux, retro, synthwave, Miami Vice, IUT Colmar">
+  <meta name="description" content="Portfolio synthwave d'Eric Petersen, étudiant R&T Cyber. Compétences, projets, stage, cybersécurité, réseaux, développement.">
+  <meta name="keywords" content="Eric Petersen, portfolio, cybersécurité, réseaux, retro, synthwave, IUT Colmar">
   <meta name="author" content="Eric Petersen">
-  <!-- Open Graph -->
   <meta property="og:title" content="Eric Petersen – Vice Portfolio">
   <meta property="og:description" content="Portfolio rétro synthwave d'Eric Petersen, étudiant en cybersécurité et réseaux à l'IUT de Colmar.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ton-domaine.fr/">
   <meta property="og:image" content="https://ton-domaine.fr/vice-favicon.png">
   <link rel="icon" href="vice-favicon.png" type="image/png">
+  <link rel="alternate icon" href="favicon.ico">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&family=VT323&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    @media screen and (max-width: 450px), (prefers-reduced-motion: reduce) {
+      .synthwave-bg, .scanlines, #tronGrid, #starfield, .miami-sun { display: none !important; }
+    }
+    .miami-sun {
+      position: absolute;
+      left: 50%; top: 0;
+      transform: translateX(-50%);
+      width: 480px;
+      height: 180px;
+      opacity: 0.8;
+      z-index: 2;
+      pointer-events: none;
+      filter: drop-shadow(0 0 70px #ff62d6bb) drop-shadow(0 0 80px #00faff66);
+      transition: filter 1s;
+    }
+    @media (max-width: 600px) {
+      .miami-sun { width: 98vw; height: 38vw; min-width: 0; }
+    }
+    .scanlines-sun rect {
+      animation: scanbands 3s linear infinite alternate;
+    }
+    @keyframes scanbands {
+      0% { opacity: 0.11; }
+      25% { opacity: 0.23; }
+      50% { opacity: 0.17; }
+      75% { opacity: 0.25; }
+      100% { opacity: 0.12; }
+    }
+    .mountains polygon {
+      animation: moveMountain 6s linear infinite alternate;
+    }
+    @keyframes moveMountain {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(1.22) hue-rotate(6deg); }
+      100% { filter: brightness(1); }
+    }
+  </style>
 </head>
 <body>
-  <!-- Accessibilité : skip-link -->
   <a href="#about" class="skip-link">Aller au contenu principal</a>
 
-  <!-- Fond animé avec palmier SVG synthwave -->
-  <div class="synthwave-bg">
-    <!-- SVG palmier custom stylisé synthwave -->
-    <svg viewBox="0 0 480 180" class="miami-sunset" aria-hidden="true">
+  <!-- Fond synthwave animé sans palmier -->
+  <div class="synthwave-bg" aria-hidden="true" style="pointer-events:none;">
+    <!-- Soleil scanline SVG animé -->
+    <svg class="miami-sun" viewBox="0 0 480 180" width="480" height="180" aria-label="Coucher de soleil synthwave">
       <defs>
-        <linearGradient id="grad1" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#ff62d6"/>
-          <stop offset="100%" stop-color="#f9e784"/>
+        <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffe7fd"/>
+          <stop offset="90%" stop-color="#ff62d6"/>
         </linearGradient>
-        <radialGradient id="sun-glow" cx="0.5" cy="0.75" r="0.6">
-          <stop offset="0%" stop-color="#ffe7fd" stop-opacity="0.7"/>
-          <stop offset="100%" stop-color="#ff62d6" stop-opacity="0"/>
-        </radialGradient>
+        <linearGradient id="horizonGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#2cd8fd"/>
+          <stop offset="100%" stop-color="#6b47ff"/>
+        </linearGradient>
+        <linearGradient id="mountainGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#0ffbf9"/>
+          <stop offset="100%" stop-color="#ff62d6"/>
+        </linearGradient>
       </defs>
-      <!-- Coucher de soleil synthwave -->
-      <circle cx="240" cy="120" r="80" fill="url(#grad1)" />
-      <ellipse cx="240" cy="120" rx="90" ry="25" fill="url(#sun-glow)" opacity="0.6"/>
-      <!-- Palmier stylisé synthwave -->
       <g>
-        <path d="M230 120 Q215 80 235 100 Q210 70 245 120 Q220 65 260 115" stroke="#00faff" stroke-width="4" fill="none" />
-        <path d="M260 130 Q278 75 255 105 Q280 85 245 120 Q275 55 240 130" stroke="#ff62d6" stroke-width="3" fill="none"/>
-        <!-- Tronc -->
-        <path d="M240 120 Q245 145 240 180" stroke="#ff62d6" stroke-width="6" fill="none" />
-        <path d="M244 125 Q250 148 243 180" stroke="#00faff" stroke-width="3" fill="none"/>
+        <circle cx="240" cy="95" r="54" fill="url(#sunGrad)" opacity="0.93"/>
+        <g class="scanlines-sun">
+          <rect x="186" y="78" width="108" height="7" fill="#18152b" opacity="0.17"/>
+          <rect x="186" y="92" width="108" height="7" fill="#18152b" opacity="0.22"/>
+          <rect x="186" y="106" width="108" height="7" fill="#18152b" opacity="0.13"/>
+          <rect x="186" y="120" width="108" height="7" fill="#18152b" opacity="0.18"/>
+        </g>
+        <ellipse cx="240" cy="108" rx="70" ry="24" fill="#ff62d6" opacity="0.18"/>
+      </g>
+      <g class="mountains">
+        <polygon points="100,170 180,120 250,145 330,115 410,170" fill="url(#mountainGrad)" opacity="0.67"/>
+        <polygon points="0,180 100,170 410,170 480,180" fill="url(#horizonGrad)" opacity="0.73"/>
+        <polygon points="180,170 230,135 270,170" fill="#ff62d6" opacity="0.22"/>
       </g>
     </svg>
     <canvas id="tronGrid"></canvas>
@@ -57,19 +101,19 @@
   </div>
 
   <!-- Menu rétro sticky -->
-  <nav class="retro-menu">
+  <nav class="retro-menu" role="navigation" aria-label="Navigation principale">
     <div class="retro-title">
       <i class="fas fa-sun"></i> Eric<span class="vice-glitch">Petersen</span>
     </div>
     <ul>
-      <li><a href="#about"><i class="fas fa-user"></i> À propos</a></li>
-      <li><a href="#projects"><i class="fas fa-laptop-code"></i> Projets</a></li>
+      <li><a href="#about" tabindex="0"><i class="fas fa-user"></i> À propos</a></li>
+      <li><a href="#skills" tabindex="0"><i class="fas fa-laptop-code"></i> Compétences</a></li>
     </ul>
   </nav>
 
   <main>
     <!-- Terminal accueil -->
-    <section class="retro-window terminal-window">
+    <section class="retro-window terminal-window" aria-label="Présentation terminal rétro">
       <div class="window-bar">
         <span class="window-title"><i class="fas fa-terminal"></i> Terminal</span>
         <span class="window-buttons">
@@ -79,12 +123,12 @@
         </span>
       </div>
       <div class="window-body">
-        <pre id="terminal-text" class="terminal-text"></pre>
+        <pre id="terminal-text" class="terminal-text" aria-live="polite"></pre>
       </div>
     </section>
 
     <!-- À propos -->
-    <section id="about" class="retro-window">
+    <section id="about" class="retro-window" aria-label="À propos d'Eric Petersen">
       <div class="window-bar">
         <span class="window-title"><i class="fas fa-address-card"></i> À propos</span>
         <span class="window-buttons">
@@ -95,60 +139,66 @@
       </div>
       <div class="window-body about-body">
         <div>
-          <h2 class="vice-title glitch-type" data-text="Eric Petersen">Eric Petersen</h2>
+          <h2 class="vice-title">Eric Petersen</h2>
           <span class="vice-sub">Étudiant en R&T Cyber</span>
           <p>
-            Passionné de <span class="color-miami">cybersécurité</span>, <span class="color-miami">réseaux</span> et de <span class="color-miami">développement</span>.<br>
+            Passionné de <span class="color-miami">cybersécurité</span>, <span class="color-miami">réseaux</span> et <span class="color-miami">développement</span>.<br>
             J’aime fusionner technologie & style rétro pour apprendre et innover.
           </p>
           <div class="about-skills">
-            <span data-desc="Langage scripting polyvalent" class="badge-skill"><i class="fab fa-python"></i> Python</span>
-            <span data-desc="Maîtrise des systèmes Linux" class="badge-skill"><i class="fab fa-linux"></i> Linux</span>
-            <span data-desc="Défense & offensive sécurité" class="badge-skill"><i class="fas fa-shield-alt"></i> Cyber</span>
-            <span data-desc="JS web & app" class="badge-skill"><i class="fab fa-js-square"></i> JavaScript</span>
-            <span data-desc="Développement back" class="badge-skill"><i class="fab fa-php"></i> PHP</span>
-            <span data-desc="SQL – BDD" class="badge-skill"><i class="fas fa-database"></i> SQL</span>
+            <span data-desc="Langage scripting polyvalent" class="badge-skill" tabindex="0" aria-label="Compétence Python"><i class="fab fa-python"></i> Python</span>
+            <span data-desc="Maîtrise des systèmes Linux" class="badge-skill" tabindex="0" aria-label="Compétence Linux"><i class="fab fa-linux"></i> Linux</span>
+            <span data-desc="Défense & offensive sécurité" class="badge-skill" tabindex="0" aria-label="Compétence Cyber"><i class="fas fa-shield-alt"></i> Cyber</span>
+            <span data-desc="JS web & app" class="badge-skill" tabindex="0" aria-label="Compétence JavaScript"><i class="fab fa-js-square"></i> JavaScript</span>
+            <span data-desc="Développement back" class="badge-skill" tabindex="0" aria-label="Compétence PHP"><i class="fab fa-php"></i> PHP</span>
+            <span data-desc="SQL – BDD" class="badge-skill" tabindex="0" aria-label="Compétence SQL"><i class="fas fa-database"></i> SQL</span>
           </div>
-          <div id="skillDesc"></div>
+          <div id="skillDesc" aria-live="polite"></div>
         </div>
       </div>
     </section>
 
-    <!-- Projets version liens vers pages dédiées, CRT View sur click -->
-    <section id="projects" class="retro-window">
+    <!-- Compétences IUT R&T (5 cartes rétro synthwave) -->
+    <section id="skills" class="retro-window" aria-label="Compétences IUT R&T">
       <div class="window-bar">
-        <span class="window-title glitch-type" data-text="Projets">Projets</span>
+        <span class="window-title">Compétences IUT R&T</span>
         <span class="window-buttons">
           <span class="win-btn close"></span>
           <span class="win-btn min"></span>
           <span class="win-btn max"></span>
         </span>
       </div>
-      <div class="window-body">
-        <div class="project-link">
-          <a href="sae302.html" tabindex="0">
-            <div class="poster-header glitch-type" data-text="SAE 3.02 – Développer des applications communicantes">
-              SAE 3.02 – Développer des applications communicantes
-              <span class="poster-arrow"><i class="fas fa-arrow-right"></i></span>
-            </div>
-          </a>
-        </div>
-        <div class="project-link">
-          <a href="rootme.html" tabindex="0">
-            <div class="poster-header glitch-type" data-text="SAE – Parcours Root-Me PRO">
-              SAE – Parcours Root-Me PRO
-              <span class="poster-arrow"><i class="fas fa-arrow-right"></i></span>
-            </div>
-          </a>
-        </div>
-        <div class="project-link">
-          <a href="stage.html" tabindex="0">
-            <div class="poster-header glitch-type" data-text="Stage – DORNER Health IT Solutions">
-              Stage – DORNER Health IT Solutions
-              <span class="poster-arrow"><i class="fas fa-arrow-right"></i></span>
-            </div>
-          </a>
-        </div>
+      <div class="window-body skills-body">
+        <a class="skill-card" href="U.E.1.html" tabindex="0">
+          <div class="skill-header">[U.E.1] Administrer les réseaux et l'internet</div>
+          <div class="skill-desc">
+            Configuration, supervision et sécurisation d’infrastructures réseaux : routage, VLAN, Wi-Fi, firewall, DNS/DHCP, adressage IP…
+          </div>
+        </a>
+        <a class="skill-card" href="U.E.2.html" tabindex="0">
+          <div class="skill-header">[U.E.2] Connecter les entreprises et les usagers</div>
+          <div class="skill-desc">
+            Interconnexion, VPN, accès distants, téléphonie IP, réseaux d’entreprise et IoT.
+          </div>
+        </a>
+        <a class="skill-card" href="U.E.3.html" tabindex="0">
+          <div class="skill-header">[U.E.3] Créer des outils et des applications informatiques</div>
+          <div class="skill-desc">
+            Développement Python, web, SQL, scripts d’admin, outils métiers, automatisation et interfaces web/app.
+          </div>
+        </a>
+        <a class="skill-card" href="U.E.4-5.html" tabindex="0">
+          <div class="skill-header">[U.E.4-5] Administrer & Surveiller un SI sécurisé</div>
+          <div class="skill-desc">
+            Supervision, détection d’intrusion, analyse de vulnérabilités, sécurité système, conformité, backup.
+          </div>
+        </a>
+        <a class="skill-card" href="stage.html" tabindex="0">
+          <div class="skill-header"><i class="fas fa-briefcase"></i> Stage – DORNER Health IT Solutions</div>
+          <div class="skill-desc">
+            Outil de mise à jour sécurisée – Linux, Apache, PHP, MariaDB, cybersécurité. Contributions sur chaque UE.
+          </div>
+        </a>
       </div>
     </section>
   </main>
@@ -157,8 +207,8 @@
     <div>
       <span class="footer-pixel">© 2024 Eric Petersen | Vice Portfolio | IUT Colmar</span>
       <span class="footer-links">
-        <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/Vasla13" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Vasla13" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
       </span>
       <div class="footer-timer" style="font-family:'VT323',monospace;font-size:1.2em;color:#00faff;">
         Vice Time: <span id="timer">00:00</span>
@@ -166,46 +216,16 @@
     </div>
   </footer>
 
-  <!-- Overlay TV rétro / CRT -->
-  <div id="crt-overlay" class="crt-overlay" role="dialog" aria-modal="true" aria-label="Projet en détail">
-    <div class="crt-tv">
-      <div class="crt-header">
-        <span id="crt-title"></span>
-        <button id="crt-close" class="crt-close-btn" title="Fermer" aria-label="Fermer la fenêtre CRT"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="crt-screen">
-        <div id="crt-content" class="crt-content"></div>
-        <div class="crt-scanlines"></div>
-      </div>
-      <div class="crt-controls">
-        <button id="crt-prev" class="crt-nav-btn" aria-label="Projet précédent"><i class="fas fa-caret-left"></i></button>
-        <button id="crt-next" class="crt-nav-btn" aria-label="Projet suivant"><i class="fas fa-caret-right"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Notification pop-up -->
-  <div id="popupNotif" class="popup-notif"></div>
+  <div id="popupNotif" class="popup-notif" aria-live="assertive"></div>
 
   <script src="main.js"></script>
   <script>
-    // -- Correction : Activation CRT sur clic project-link a --
-    document.addEventListener("DOMContentLoaded", function() {
-      document.querySelectorAll('.project-link a').forEach((el, idx) => {
-        el.addEventListener('click', function(e) {
-          if (window.innerWidth > 550) {
-            e.preventDefault();
-            if (typeof showCRTProject === "function") showCRTProject(idx);
-          }
-        });
-        el.addEventListener('keydown', function(e) {
-          if ((e.key === 'Enter' || e.key === ' ') && window.innerWidth > 550) {
-            e.preventDefault();
-            if (typeof showCRTProject === "function") showCRTProject(idx);
-          }
-        });
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.innerWidth < 480) {
+      document.querySelectorAll('.scanlines, #tronGrid, #starfield, .miami-sun').forEach(el => {
+        if (el) el.style.display = "none";
       });
-    });
+    }
   </script>
 </body>
 </html>
