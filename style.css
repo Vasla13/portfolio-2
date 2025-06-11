@@ -3,7 +3,6 @@ html {
   max-width: 100vw;
 }
 
-/* ---- Body & Base ---- */
 body {
   margin: 0;
   font-family: 'JetBrains Mono', 'Press Start 2P', 'Consolas', monospace, Arial, sans-serif;
@@ -15,7 +14,6 @@ body {
   transition: background 0.5s, color 0.5s;
 }
 
-/* --- Accessibilité: skip-link --- */
 .skip-link {
   position: absolute;
   left: -999px; top: 5px;
@@ -33,48 +31,7 @@ body {
   left: 10px;
 }
 
-/* ---- Night Mode (optionnel) ---- */
-body.night-mode {
-  background: #14131c;
-  color: #fff;
-}
-body.night-mode .retro-window,
-body.night-mode .window-body {
-  background: #1d1930;
-  color: #f5f5f5;
-}
-body.night-mode .retro-menu,
-body.night-mode .window-bar {
-  background: #181836;
-  color: #ff62d6;
-}
-body.night-mode .miami-sun,
-body.night-mode .scanlines {
-  opacity: 0.13;
-}
-body.night-mode .footer-timer {
-  color: #ff62d6;
-}
-body.night-mode .vice-title,
-body.night-mode .window-title {
-  color: #00faff;
-}
-body.night-mode .about-skills .badge-skill {
-  color: #191437;
-  background: linear-gradient(90deg, #ff62d6 10%, #00faff 90%);
-}
-
-/* ---- Focus Accessibilité ---- */
-a:focus, button:focus, .project-link a:focus, .skill-card:focus-within {
-  outline: 3px solid #ff62d6;
-  outline-offset: 2px;
-  background: #191437;
-  color: #00faff;
-  box-shadow: 0 0 0 4px #00faff55;
-  z-index: 50;
-}
-
-/* --------- Synthwave BG + Soleil + Tron --------- */
+/* ---- Fond synthwave + soleil ---- */
 .synthwave-bg {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 300px;
@@ -168,11 +125,6 @@ a:focus, button:focus, .project-link a:focus, .skill-card:focus-within {
   height: 50px;
   transition: height 0.25s, background 0.2s, box-shadow 0.21s;
 }
-.retro-menu.shrink {
-  height: 38px;
-  background: linear-gradient(90deg, #18154e 60%, #ff62d6 200%);
-  box-shadow: 0 6px 22px #000a, 0 0px 8px #00faff33;
-}
 .retro-title {
   font-family: 'Press Start 2P', monospace;
   font-size: 0.97rem;
@@ -184,10 +136,6 @@ a:focus, button:focus, .project-link a:focus, .skill-card:focus-within {
   align-items: center;
   gap: 0.6em;
   transition: font-size 0.25s, padding 0.2s;
-}
-.retro-title.shrink {
-  font-size: 0.68rem;
-  padding: 0 0.7em;
 }
 .vice-glitch {
   color: #ff62d6;
@@ -389,11 +337,13 @@ main { z-index: 2; position: relative; padding-bottom: 2vw; }
   flex-direction: column;
   justify-content: flex-start;
   transition: box-shadow 0.2s, border 0.2s, transform 0.18s;
+  text-decoration: none;
 }
 .skill-card:hover, .skill-card:focus-within {
   box-shadow: 0 10px 32px #ff62d6bb, 0 0 36px #00faff99;
   border-color: #00faff;
   transform: translateY(-4px) scale(1.018);
+  text-decoration: none;
 }
 .skill-header {
   font-family: 'Press Start 2P', monospace;
@@ -409,6 +359,9 @@ main { z-index: 2; position: relative; padding-bottom: 2vw; }
   color: #fffbe7;
   line-height: 1.45;
   text-shadow: 0 2px 7px #23204588;
+}
+.skill-card:visited, .skill-card:active {
+  color: #fffbe7;
 }
 @media (max-width: 900px) {
   .skills-body { flex-direction: column; gap: 1.1em; align-items: center;}
@@ -468,7 +421,7 @@ main { z-index: 2; position: relative; padding-bottom: 2vw; }
 }
 .popup-notif.show { opacity: 1; pointer-events: all; }
 
-/* ------------------ RESPONSIVE ------------------ */
+/* --------- RESPONSIVE --------- */
 @media (max-width: 1100px) {
   .retro-window { width: 99vw; max-width: 99vw; }
 }
