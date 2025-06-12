@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Stage – DORNER Health IT Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <nav class="retro-menu">
+    <div class="retro-title"><i class="fas fa-sun"></i> Eric<span class="vice-glitch">Petersen</span></div>
+    <ul>
+      <li><a href="index.html#about"><i class="fas fa-user"></i> À propos</a></li>
+      <li><a href="index.html#projects" class="active-nav"><i class="fas fa-laptop-code"></i> Projets</a></li>
+    </ul>
+  </nav>
   <main>
-    <section class="retro-window">
+    <section class="retro-window" style="max-width: 650px;">
       <div class="window-bar">
-        <span class="window-title">Stage – DORNER Health IT Solutions</span>
+        <span class="window-title"><i class="fas fa-briefcase"></i> Stage – DORNER Health IT</span>
         <span class="window-buttons">
           <span class="win-btn close"></span>
           <span class="win-btn min"></span>
@@ -18,21 +27,32 @@
         </span>
       </div>
       <div class="window-body">
-        <h2>Résumé</h2>
-        <p>
-          Stage réalisé chez DORNER Health IT Solutions :<br>
-          Développement d’un outil de mise à jour logicielle sécurisée.<br>
-          Stack : Linux, Apache, MariaDB, PHP, automatisation, cybersécurité.
+        <div style="text-align:center;margin-bottom:1.2em;">
+          <img src="dorner-stage.png" alt="Stage DORNER Health IT" style="max-width:160px; border-radius:12px; box-shadow:0 3px 22px #ff62d6bb;">
+        </div>
+        <h2 class="vice-title">Stage – DORNER Health IT Solutions</h2>
+        <div style="background:linear-gradient(90deg,#232045 80%,#ff62d655 120%);border-left:4px solid #00faff;border-radius:7px;padding:1em 1.3em;margin:1.1em 0;">
+          <ul style="margin:0;padding:0 0 0 1em;list-style:square;">
+            <li><b>Contexte :</b> Développement d’un outil sécurisé de mise à jour logicielle</li>
+            <li><b>Objectifs :</b> Sécurité, automatisation, documentation technique</li>
+            <li><b>Compétences clés :</b> Linux, PHP, MariaDB, scripting, cybersécurité</li>
+            <li><b>Outils :</b> Linux, Apache, PHP, Bash</li>
+          </ul>
+        </div>
+        <p style="margin:1.3em 0;">
+          <b>Résumé :</b><br>
+          Stage réalisé chez DORNER Health IT Solutions : développement d’un outil de mise à jour logicielle sécurisée. Participation à l’administration système, automatisation, documentation technique et sécurité serveur.
         </p>
-        <h3>Unités d’Enseignement concernées</h3>
-        <ul>
-          <li><a href="U.E.1.html">U.E.1 – Administrer les réseaux et l'internet</a></li>
-          <li><a href="U.E.2.html">U.E.2 – Connecter les entreprises et les usagers</a></li>
-          <li><a href="U.E.3.html">U.E.3 – Créer des outils et des applications informatiques</a></li>
-          <li><a href="U.E.4-5.html">U.E.4-5 – Administrer et Surveiller un SI sécurisé</a></li>
-        </ul>
+        <div style="display:flex;gap:1em;justify-content:center;margin-top:2.1em;">
+          <a href="index.html#projects" class="press-start-btn" style="padding:0.7em 1.8em;font-size:1em;">⬅ Retour</a>
+          <a href="Stage_Rapport_EricPetersen.pdf" class="press-start-btn" target="_blank" style="background:linear-gradient(90deg,#ff62d6 30%,#00faff 100%);"><i class="fas fa-file-pdf"></i> Voir le rapport</a>
+        </div>
       </div>
     </section>
   </main>
+  <footer class="retro-footer">
+    <span class="footer-pixel">© 2024 Eric Petersen | Vice Portfolio</span>
+  </footer>
+  <script src="main.js"></script>
 </body>
 </html>

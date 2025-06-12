@@ -2,141 +2,57 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>SAÉ 3.01 – Mettre en œuvre un système de transmission</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SAÉ 3.01 : Mise en œuvre d’un système de transmission connecté pour entreprise. Portfolio Eric Petersen, IUT R&T Cyber.">
+  <title>SAE 3.01 – Prise Connectée Wifi</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!-- Fond synthwave animé -->
-  <div class="synthwave-bg" aria-hidden="true" style="pointer-events:none;">
-    <svg class="miami-sun" viewBox="0 0 480 180" width="480" height="180" aria-label="Coucher de soleil synthwave">
-      <defs>
-        <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#ffe7fd"/>
-          <stop offset="90%" stop-color="#ff62d6"/>
-        </linearGradient>
-        <linearGradient id="horizonGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#2cd8fd"/>
-          <stop offset="100%" stop-color="#6b47ff"/>
-        </linearGradient>
-        <linearGradient id="mountainGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#0ffbf9"/>
-          <stop offset="100%" stop-color="#ff62d6"/>
-        </linearGradient>
-      </defs>
-      <g>
-        <circle cx="240" cy="95" r="54" fill="url(#sunGrad)" opacity="0.93"/>
-        <g class="scanlines-sun">
-          <rect x="186" y="78" width="108" height="7" fill="#18152b" opacity="0.17"/>
-          <rect x="186" y="92" width="108" height="7" fill="#18152b" opacity="0.22"/>
-          <rect x="186" y="106" width="108" height="7" fill="#18152b" opacity="0.13"/>
-          <rect x="186" y="120" width="108" height="7" fill="#18152b" opacity="0.18"/>
-        </g>
-        <ellipse cx="240" cy="108" rx="70" ry="24" fill="#ff62d6" opacity="0.18"/>
-      </g>
-      <g class="mountains">
-        <polygon points="100,170 180,120 250,145 330,115 410,170" fill="url(#mountainGrad)" opacity="0.67"/>
-        <polygon points="0,180 100,170 410,170 480,180" fill="url(#horizonGrad)" opacity="0.73"/>
-        <polygon points="180,170 230,135 270,170" fill="#ff62d6" opacity="0.22"/>
-      </g>
-    </svg>
-    <canvas id="tronGrid"></canvas>
-    <div id="starfield"></div>
-    <div class="scanlines"></div>
-  </div>
-
+  <nav class="retro-menu">
+    <div class="retro-title"><i class="fas fa-sun"></i> Eric<span class="vice-glitch">Petersen</span></div>
+    <ul>
+      <li><a href="index.html#about"><i class="fas fa-user"></i> À propos</a></li>
+      <li><a href="index.html#projects" class="active-nav"><i class="fas fa-laptop-code"></i> Projets</a></li>
+    </ul>
+  </nav>
   <main>
-    <div style="text-align:right;max-width:830px;margin:0 auto 0.7em;">
-      <a href="index.html" class="press-start-btn home-btn"><i class="fas fa-home"></i> Accueil</a>
-    </div>
-
-    <section class="retro-window" id="intro">
+    <section class="retro-window" style="max-width: 650px;">
       <div class="window-bar">
-        <span class="window-title">SAÉ 3.01 – Mettre en œuvre un système de transmission</span>
+        <span class="window-title"><i class="fas fa-plug"></i> SAE 3.01 – Prise Connectée</span>
         <span class="window-buttons">
-          <span class="win-btn close" aria-label="Fermer"></span>
-          <span class="win-btn min" aria-label="Minimiser"></span>
-          <span class="win-btn max" aria-label="Maximiser"></span>
+          <span class="win-btn close"></span>
+          <span class="win-btn min"></span>
+          <span class="win-btn max"></span>
         </span>
       </div>
       <div class="window-body">
-        <h2>Projet Prise Connectée Intelligente Wifi</h2>
-        <p>
-          Pour la SAÉ 3.01, nous avons mis en œuvre un système de transmission en réponse à un cahier des charges décrivant les besoins d’une entreprise. Notre objectif était de concevoir une solution permettant la collecte et la transmission d’informations via une prise connectée, tout en respectant les contraintes techniques liées aux systèmes de transmission (<b>CE2.01</b>).
+        <div style="text-align:center;margin-bottom:1.2em;">
+          <img src="SAE3.01.png" alt="Prise Connectée Wifi" style="max-width:160px; border-radius:12px; box-shadow:0 3px 22px #ff62d6bb;">
+        </div>
+        <h2 class="vice-title">SAE 3.01 – Prise Connectée Wifi</h2>
+        <div style="background:linear-gradient(90deg,#232045 80%,#ff62d655 120%);border-left:4px solid #00faff;border-radius:7px;padding:1em 1.3em;margin:1.1em 0;">
+          <ul style="margin:0;padding:0 0 0 1em;list-style:square;">
+            <li><b>Contexte :</b> Réalisation d’une prise connectée intelligente pilotable en Wifi</li>
+            <li><b>Objectifs :</b> Contrôle, automatisation, sécurité, développement web & mobile</li>
+            <li><b>Compétences clés :</b> IoT, réseaux, cybersécurité, Python, Android</li>
+            <li><b>Outils :</b> ESP32, Python, HTML/CSS, Android Studio</li>
+          </ul>
+        </div>
+        <p style="margin:1.3em 0;">
+          <b>Résumé :</b><br>
+          Conception d’une prise connectée Wifi avec interface web et application Android. Gestion des notifications, automatisations, sécurité et suivi des consommations. Projet réalisé en équipe (IoT, cybersécurité).
         </p>
-        <p>
-          Après l'étude de différentes solutions, nous avons justifié le choix d’un système basé sur <strong>Arduino</strong> pour la captation des données physiques (température, etc.) et <strong>Python</strong> pour le traitement et la transmission (<b>AC22.05, CE2.03</b>). Nous avons conçu un prototype intégrant capteurs et microcontrôleur, connecté à un réseau pour transmettre les données vers une interface de supervision.
-        </p>
-        <p>
-          Les composants électroniques ont été dimensionnés, les transmissions série et réseau configurées, et la stabilité des échanges assurée entre toutes les couches du système (<b>AC22.01, CE2.02</b>). Nous avons simulé un cas réel de connexion inter-bâtiments, incluant une interface de récupération des données en réseau local (<b>AC22.03</b>) et une connexion sécurisée à distance via SSH (<b>AC22.02</b>).
-        </p>
-        <p>
-          Les performances du canal de transmission ont été mesurées et caractérisées (débit, latence, fiabilité) à l’aide d’appareils d’analyse (<b>AC22.01, CE2.04</b>).
-        </p>
-      </div>
-    </section>
-
-    <section class="retro-window" id="competences">
-      <div class="window-bar">
-        <span class="window-title">Compétences et démarche</span>
-        <span class="window-buttons">
-          <span class="win-btn close" aria-label="Fermer"></span>
-          <span class="win-btn min" aria-label="Minimiser"></span>
-          <span class="win-btn max" aria-label="Maximiser"></span>
-        </span>
-      </div>
-      <div class="window-body">
-        <ul>
-          <li>Analyse de cahier des charges, choix technique et justification</li>
-          <li>Programmation embarquée et électronique appliquée aux télécoms</li>
-          <li>Dimensionnement de la chaîne de transmission physique et logique</li>
-          <li>Interface de supervision et transmission réseau sécurisée</li>
-          <li>Démarche rigoureuse d’essai, test et documentation</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="retro-window" id="reflexion">
-      <div class="window-bar">
-        <span class="window-title">Réflexion sur les AC 22</span>
-        <span class="window-buttons">
-          <span class="win-btn close" aria-label="Fermer"></span>
-          <span class="win-btn min" aria-label="Minimiser"></span>
-          <span class="win-btn max" aria-label="Maximiser"></span>
-        </span>
-      </div>
-      <div class="window-body">
-        <p>
-          Ce projet a permis de valider plusieurs apprentissages critiques (AC : 1, 2, 3, 5, 6) et d'approfondir la compréhension de la chaîne de transmission et des réseaux d’accès opérateurs (AC22.04 via SAE3.03).<br>
-          J’ai consolidé mes acquis grâce aux SAE 3.01 et 3.03, aussi bien sur le plan technique que dans l’analyse et la justification des solutions proposées.
-        </p>
-      </div>
-    </section>
-
-    <section class="retro-window" id="conclusion">
-      <div class="window-bar">
-        <span class="window-title">Conclusion</span>
-        <span class="window-buttons">
-          <span class="win-btn close" aria-label="Fermer"></span>
-          <span class="win-btn min" aria-label="Minimiser"></span>
-          <span class="win-btn max" aria-label="Maximiser"></span>
-        </span>
-      </div>
-      <div class="window-body">
-        <p>
-          En conclusion, j’ai acquis l’unité d’enseignements 2 : <b>Connecter les entreprises et les usagers</b> grâce à l’acquisition des AC et CE liés à la mise en œuvre concrète d’un système de transmission connecté et intelligent.
-        </p>
-        <p>
-          <a href="SAE301_Projet_PriseElectriqueWifi_FA_2024_25.pdf" class="press-start-btn" style="margin-top:1em;" target="_blank" rel="noopener">
-            <i class="fas fa-file-pdf"></i> Consulter le dossier PDF du projet
-          </a>
-        </p>
+        <div style="display:flex;gap:1em;justify-content:center;margin-top:2.1em;">
+          <a href="index.html#projects" class="press-start-btn" style="padding:0.7em 1.8em;font-size:1em;">⬅ Retour</a>
+          <a href="https://github.com/Vasla13/prise-connectee" class="press-start-btn" target="_blank" style="background:linear-gradient(90deg,#ff62d6 30%,#00faff 100%);"><i class="fas fa-code"></i> Voir le code</a>
+        </div>
       </div>
     </section>
   </main>
+  <footer class="retro-footer">
+    <span class="footer-pixel">© 2024 Eric Petersen | Vice Portfolio</span>
+  </footer>
   <script src="main.js"></script>
 </body>
 </html>
