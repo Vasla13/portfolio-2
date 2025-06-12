@@ -108,6 +108,8 @@
     <ul>
       <li><a href="#about" tabindex="0"><i class="fas fa-user"></i> À propos</a></li>
       <li><a href="#skills" tabindex="0"><i class="fas fa-laptop-code"></i> Compétences</a></li>
+      <li><a href="#projects" tabindex="0"><i class="fas fa-list"></i> Projets</a></li>
+      <li><a href="#contact" tabindex="0"><i class="fas fa-envelope"></i> Contact</a></li>
     </ul>
   </nav>
 
@@ -117,9 +119,9 @@
       <div class="window-bar">
         <span class="window-title"><i class="fas fa-terminal"></i> Terminal</span>
         <span class="window-buttons">
-          <span class="win-btn close"></span>
-          <span class="win-btn min"></span>
-          <span class="win-btn max"></span>
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
         </span>
       </div>
       <div class="window-body">
@@ -132,9 +134,9 @@
       <div class="window-bar">
         <span class="window-title"><i class="fas fa-address-card"></i> À propos</span>
         <span class="window-buttons">
-          <span class="win-btn close"></span>
-          <span class="win-btn min"></span>
-          <span class="win-btn max"></span>
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
         </span>
       </div>
       <div class="window-body about-body">
@@ -163,9 +165,9 @@
       <div class="window-bar">
         <span class="window-title">Compétences IUT R&T</span>
         <span class="window-buttons">
-          <span class="win-btn close"></span>
-          <span class="win-btn min"></span>
-          <span class="win-btn max"></span>
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
         </span>
       </div>
       <div class="window-body skills-body">
@@ -190,42 +192,67 @@
         <a class="skill-card" href="U.E.4-5.html" tabindex="0">
           <div class="skill-header">[U.E.4-5] Administrer & Surveiller un SI sécurisé</div>
           <div class="skill-desc">
-            Supervision, détection d’intrusion, analyse de vulnérabilités, sécurité système, conformité, backup.
-          </div>
-        </a>
-        <a class="skill-card" href="stage.html" tabindex="0">
-          <div class="skill-header"><i class="fas fa-briefcase"></i> Stage – DORNER Health IT Solutions</div>
-          <div class="skill-desc">
-            Outil de mise à jour sécurisée – Linux, Apache, PHP, MariaDB, cybersécurité. Contributions sur chaque UE.
+            Gestion des incidents, pentest, supervision, sécurité opérationnelle, sauvegardes et conformité.
           </div>
         </a>
       </div>
     </section>
-  </main>
 
-  <footer class="retro-footer">
-    <div>
-      <span class="footer-pixel">© 2024 Eric Petersen | Vice Portfolio | IUT Colmar</span>
-      <span class="footer-links">
-        <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/Vasla13" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-      </span>
-      <div class="footer-timer" style="font-family:'VT323',monospace;font-size:1.2em;color:#00faff;">
-        Vice Time: <span id="timer">00:00</span>
+    <!-- Section Projets -->
+    <section id="projects" class="retro-window" aria-label="Projets">
+      <div class="window-bar">
+        <span class="window-title"><i class="fas fa-list"></i> Projets phares</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
       </div>
-    </div>
-  </footer>
+      <div class="window-body skills-body">
+        <a class="skill-card" href="rootme.html" tabindex="0">
+          <div class="skill-header"><i class="fab fa-root-me"></i> Root-Me PRO</div>
+          <div class="skill-desc">
+            Parcours challenges cybersécurité, pentest, automatisation d’outils, analyse réseau et forensics.
+          </div>
+        </a>
+        <a class="skill-card" href="sae302.html" tabindex="0">
+          <div class="skill-header"><i class="fas fa-network-wired"></i> SAE 3.02</div>
+          <div class="skill-desc">
+            Applications communicantes distribuées (Java, Python, C), sécurité, cluster TCP, scripting.
+          </div>
+        </a>
+        <a class="skill-card" href="stage.html" tabindex="0">
+          <div class="skill-header"><i class="fas fa-briefcase"></i> Stage DORNER Health IT</div>
+          <div class="skill-desc">
+            Développement d’un outil sécurisé de mise à jour logicielle – Linux, PHP, MariaDB, sécurité.
+          </div>
+        </a>
+      </div>
+    </section>
 
-  <div id="popupNotif" class="popup-notif" aria-live="assertive"></div>
-
+    <!-- Section Contact -->
+    <section id="contact" class="retro-window" aria-label="Contact">
+      <div class="window-bar">
+        <span class="window-title"><i class="fas fa-envelope"></i> Contact</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <p>
+          <b>Une question ? Un projet ? Contacte-moi :</b><br>
+          <a href="mailto:eric.petersen@example.com" class="press-start-btn" style="margin-top:1em;">
+            <i class="fas fa-paper-plane"></i> Envoyer un mail
+          </a>
+        </p>
+        <p style="margin-top:1.6em;font-size:0.97em;opacity:0.7;">
+          Disponible aussi sur <a href="https://www.linkedin.com/in/eric-petersen" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+    </section>
+  </main>
   <script src="main.js"></script>
-  <script>
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      window.innerWidth < 480) {
-      document.querySelectorAll('.scanlines, #tronGrid, #starfield, .miami-sun').forEach(el => {
-        if (el) el.style.display = "none";
-      });
-    }
-  </script>
 </body>
 </html>

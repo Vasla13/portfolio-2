@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio détaillé de l'unité d'enseignement U.E.1 : Administrer les réseaux et l'internet - Eric Petersen, IUT R&T Cyber.">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Fond synthwave animé -->
@@ -48,136 +48,165 @@
     <div class="scanlines"></div>
   </div>
 
-  <!-- Menu rétro synthwave -->
-  <nav class="retro-menu" role="navigation" aria-label="Navigation principale">
-    <div class="retro-title">
-      <i class="fas fa-sun"></i> Eric<span class="vice-glitch">Petersen</span>
-    </div>
-    <ul>
-      <li><a href="index.html#about"><i class="fas fa-user"></i> À propos</a></li>
-      <li><a href="index.html#skills"><i class="fas fa-laptop-code"></i> Compétences</a></li>
-    </ul>
-  </nav>
-
   <main>
+    <div style="text-align:right;max-width:830px;margin:0 auto 0.7em;">
+      <a href="index.html" class="press-start-btn home-btn"><i class="fas fa-home"></i> Accueil</a>
+    </div>
+
     <!-- Fenêtre principale UE 1 -->
-    <section class="retro-window" style="margin-top: 3em;">
+    <section class="retro-window" id="intro">
       <div class="window-bar">
-        <span class="window-title"><i class="fas fa-network-wired"></i> [U.E.1] Administrer les réseaux et l'internet</span>
+        <span class="window-title">[U.E.1] Administrer les réseaux et l'internet</span>
         <span class="window-buttons">
-          <span class="win-btn close"></span>
-          <span class="win-btn min"></span>
-          <span class="win-btn max"></span>
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
         </span>
       </div>
       <div class="window-body">
-        <h2 class="vice-title" style="margin-bottom:0.5em;">U.E.1 – Administrer les réseaux et l'internet</h2>
-        <span class="vice-sub">Justification de l'obtention de l'unité</span>
-        <div style="background:linear-gradient(90deg,#232045 70%,#ff62d655 120%);border-left:4px solid #00faff;border-radius:7px;padding:1em 1.3em;margin:1.1em 0;">
-          <b>Préambule :</b>
-          <br>L'objectif de cette page de Portfolio est de justifier mon obtention de la première unité d'enseignements.
-          <br>Ainsi à travers diverses preuves et traces, je démontre que j'ai réellement acquis l'unité d'enseignement numéro 1&nbsp;: <b>Administrer les réseaux et l'internet</b>.
-        </div>
-        
-        <h3 class="vice-title" style="font-size:1.07em;">Ressources (S1)</h3>
-        <ul>
-          <li>R1.01&nbsp;: Initiation aux réseaux informatiques</li>
-          <li>R1.02&nbsp;: Principes et architectures des réseaux</li>
-          <li>R1.03&nbsp;: Réseaux locaux et équipements actifs</li>
-          <li>R1.04&nbsp;: Fondamentaux des équipements actifs</li>
-          <li>R1.06&nbsp;: Architecture des systèmes numériques et informatiques</li>
-          <li>R1.08&nbsp;: Bases des systèmes d'exploitation</li>
-          <li>R1.10&nbsp;: Anglais technique 1</li>
-          <li>R1.11&nbsp;: Expression-Culture-Communication Professionnelles</li>
-          <li>R1.12&nbsp;: Projet Personnel et Professionnel</li>
-          <li>R1.13&nbsp;: Mathématiques du signal</li>
-          <li>R1.14&nbsp;: Mathématiques des transmissions</li>
-        </ul>
+        <h2>Préambule</h2>
+        <p>
+          L'objectif de cette page de Portfolio est de justifier mon obtention de la première unité d'enseignements.<br>
+          À travers diverses preuves et traces, je démontre que j'ai réellement acquis l'unité d'enseignement numéro 1 : <b>Administrer les réseaux et l'internet</b>.
+        </p>
+      </div>
+    </section>
 
-        <h3 class="vice-title" style="font-size:1.07em;">SAE concernées</h3>
+    <!-- Ressources S1, S2, S3 -->
+    <section class="retro-window" id="ressources">
+      <div class="window-bar">
+        <span class="window-title"><i class="fas fa-list"></i> Ressources (S1, S2, S3)</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <h3>Ressources (S1)</h3>
         <ul>
-          <li>SAE1.01&nbsp;: Se sensibiliser à l'hygiène informatique et à la sécurité</li>
-          <li>SAE1.02&nbsp;: S'initier aux réseaux informatiques</li>
-          <li>SAE2.01&nbsp;: Construire un réseau informatique pour une petite structure</li>
-          <li>SAE3.02&nbsp;: <a href="sae302.html">Développer des applications communicantes</a></li>
-          <li>SAE3.cyber.03&nbsp;: Concevoir un réseau informatique sécurisé multi-sites</li>
+          <li>R1.01 : Initiation aux réseaux informatiques</li>
+          <li>R1.02 : Principes et architectures des réseaux</li>
+          <li>R1.03 : Réseaux locaux et équipements actifs</li>
+          <li>R1.04 : Fondamentaux des équipements actifs</li>
+          <li>R1.06 : Architecture des systèmes numériques et informatiques</li>
+          <li>R1.08 : Bases des systèmes d'exploitation</li>
+          <li>R1.10 : Anglais technique 1</li>
+          <li>R1.11 : Expression-Culture-Communication Professionnelles</li>
+          <li>R1.12 : Projet Personnel et Professionnel</li>
+          <li>R1.13 : Mathématiques du signal</li>
+          <li>R1.14 : Mathématiques des transmissions</li>
         </ul>
-
-        <h3 class="vice-title" style="font-size:1.07em;">Ressources (S2)</h3>
+        <h3>Ressources (S2)</h3>
         <ul>
-          <li>R2.01&nbsp;: Technologies de l'internet</li>
-          <li>R2.02&nbsp;: Administration système et fondamentaux de la virtualisation</li>
-          <li>R2.03&nbsp;: Bases des services réseaux</li>
-          <li>R2.04&nbsp;: Initiation à la téléphonie d'entreprise</li>
-          <li>R2.05&nbsp;: Signaux et systèmes pour les transmissions</li>
-          <li>R2.06&nbsp;: Numérisation de l'information</li>
-          <li>R2.07&nbsp;: Sources de données</li>
-          <li>R2.09&nbsp;: Initiation au développement web</li>
-          <li>R2.10&nbsp;: Anglais technique 2</li>
-          <li>R2.11&nbsp;: Expression-Culture-Communication Professionnelles</li>
-          <li>R2.12&nbsp;: Projet Personnel et Professionnel</li>
-          <li>R2.13&nbsp;: Mathématiques des systèmes numériques</li>
-          <li>R2.14&nbsp;: Analyse des systèmes numériques</li>
+          <li>R2.01 : Technologies de l'internet</li>
+          <li>R2.02 : Administration système et fondamentaux de la virtualisation</li>
+          <li>R2.03 : Bases des services réseaux</li>
+          <li>R2.04 : Initiation à la téléphonie d'entreprise</li>
+          <li>R2.05 : Signaux et systèmes pour les transmissions</li>
+          <li>R2.06 : Numérisation de l'information</li>
+          <li>R2.07 : Sources de données</li>
+          <li>R2.09 : Initiation au développement web</li>
+          <li>R2.10 : Anglais technique 2</li>
+          <li>R2.11 : Expression-Culture-Communication Professionnelles</li>
+          <li>R2.12 : Projet Personnel et Professionnel</li>
+          <li>R2.13 : Mathématiques des systèmes numériques</li>
+          <li>R2.14 : Analyse des systèmes numériques</li>
         </ul>
-
-        <h3 class="vice-title" style="font-size:1.07em;">Ressources (S3)</h3>
+        <h3>Ressources (S3)</h3>
         <ul>
-          <li>R3.01&nbsp;: Réseaux de Campus</li>
-          <li>R3.02&nbsp;: Réseaux d'opérateurs</li>
-          <li>R3.03&nbsp;: Services réseaux avancés</li>
-          <li>R3.04&nbsp;: Services d'annuaires</li>
-          <li>R3.11&nbsp;: Anglais professionnel</li>
-          <li>R3.12&nbsp;: Expression-Culture-Communication</li>
-          <li>R3.13&nbsp;: Projet Personnel et Professionnel</li>
-          <li>R3.14&nbsp;: Analyse de Fourier</li>
-          <li>R3.15&nbsp;: Gestion de projet</li>
+          <li>R3.01 : Réseaux de Campus</li>
+          <li>R3.02 : Réseaux d'opérateurs</li>
+          <li>R3.03 : Services réseaux avancés</li>
+          <li>R3.04 : Services d'annuaires</li>
+          <li>R3.11 : Anglais professionnel</li>
+          <li>R3.12 : Expression-Culture-Communication</li>
+          <li>R3.13 : Projet Personnel et Professionnel</li>
+          <li>R3.14 : Analyse de Fourier</li>
+          <li>R3.15 : Gestion de projet</li>
         </ul>
+      </div>
+    </section>
 
-        <h3 class="vice-title" style="font-size:1.07em;">Objectifs et problématiques selon le programme national</h3>
-        <div style="background:linear-gradient(90deg,#18152b 80%,#ff62d655 120%);border-left:3px solid #00faff;border-radius:6px;padding:0.9em 1em;margin:1.1em 0;">
-        <p style="margin:0;">
-          Le professionnel R&T est l'un des premiers contacts pour les nouveaux employés dans une entreprise, les informant des risques liés à leur environnement numérique. Il les sensibilise aux bonnes pratiques de l'hygiène informatique et leur enseigne les réflexes nécessaires pour devenir des utilisateurs avertis et responsables. Il est également chargé de présenter et de faire accepter la charte informatique définie par la Direction des Systèmes d’Information (DSI).<br><br>
-          Dans son rôle, le professionnel R&T doit gérer la mise en œuvre des réseaux informatiques, comprenant la diversité de leurs composants et les interactions entre eux. Il doit utiliser ses compétences techniques pour configurer les postes de travail et les équipements réseau afin d'assurer un fonctionnement stable.<br><br>
+    <!-- SAE concernées -->
+    <section class="retro-window" id="sae">
+      <div class="window-bar">
+        <span class="window-title"><i class="fas fa-puzzle-piece"></i> SAE concernées</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <ul>
+          <li>SAE1.01 : Se sensibiliser à l'hygiène informatique et à la sécurité</li>
+          <li>SAE1.02 : S'initier aux réseaux informatiques</li>
+          <li>SAE2.01 : Construire un réseau informatique pour une petite structure</li>
+          <li>SAE3.02 : <a href="sae302.html">Développer des applications communicantes</a></li>
+          <li>SAE3.cyber.03 : Concevoir un réseau informatique sécurisé multi-sites</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Objectifs et problématiques -->
+    <section class="retro-window" id="objectifs">
+      <div class="window-bar">
+        <span class="window-title"><i class="fas fa-bullseye"></i> Objectifs et problématiques</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <p>
+          Le professionnel R&T est l'un des premiers contacts pour les nouveaux employés dans une entreprise, les informant des risques liés à leur environnement numérique. Il les sensibilise aux bonnes pratiques de l'hygiène informatique et leur enseigne les réflexes nécessaires pour devenir des utilisateurs avertis et responsables. Il est également chargé de présenter et de faire accepter la charte informatique définie par la Direction des Systèmes d’Information (DSI).
+        </p>
+        <p>
+          Dans son rôle, le professionnel R&T doit gérer la mise en œuvre des réseaux informatiques, comprenant la diversité de leurs composants et les interactions entre eux. Il doit utiliser ses compétences techniques pour configurer les postes de travail et les équipements réseau afin d'assurer un fonctionnement stable.
+        </p>
+        <p>
           En outre, le professionnel R&T peut être appelé à concevoir et déployer le réseau informatique d'une petite entreprise multi-sites. Son objectif est de répondre aux besoins en commutation, routage, services réseaux de base et sécurité, en s'appuyant sur des équipements et services informatiques essentiels pour fournir un réseau fonctionnel et bien structuré.
         </p>
-        </div>
       </div>
     </section>
 
     <!-- Carte projet(s) UE 1 -->
-    <section class="retro-window reveal">
+    <section class="retro-window" id="projets">
       <div class="window-bar">
-        <span class="window-title"><i class="fas fa-project-diagram"></i> Projet(s) de l'U.E.1</span>
+        <span class="window-title"><i class="fas fa-project-diagram"></i> Projet(s) associé(s)</span>
         <span class="window-buttons">
-          <span class="win-btn close"></span>
-          <span class="win-btn min"></span>
-          <span class="win-btn max"></span>
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
         </span>
       </div>
-      <div class="window-body" style="display:flex;flex-direction:column;align-items:center;">
-        <ul style="width:100%;max-width:450px;margin:1.5em auto;">
+      <div class="window-body">
+        <ul>
           <li>
-            <a class="press-start-btn" href="sae302.html" style="margin-bottom:0.7em;"><i class="fas fa-terminal"></i> Développer des applications communicantes (SAE 3.02)</a>
+            <a href="sae302.html">SAE3.02 – Développer des applications communicantes</a><br>
+            <span style="font-size:0.96em;opacity:0.82;">
+              Projet réalisé en groupe : conception d’une architecture distribuée, développement d’outils en Python/Java, gestion réseau, cybersécurité.
+            </span>
           </li>
           <li>
-            <a class="press-start-btn" href="stage.html"><i class="fas fa-briefcase"></i> Stage – DORNER Health IT Solutions</a>
+            <a href="stage.html">Stage – DORNER Health IT Solutions</a><br>
+            <span style="font-size:0.96em;opacity:0.82;">
+              Mise en place d’un outil de mise à jour logicielle sécurisée, administration serveur Linux, cybersécurité, automatisation.
+            </span>
           </li>
         </ul>
-        <a href="index.html#skills" class="press-start-btn" style="padding:0.7em 2.2em;margin-top:1.8em;font-size:1em;">
-          ⬅ Retour aux compétences
-        </a>
+        <h3>Ce que j’ai appris / valeur ajoutée</h3>
+        <ul>
+          <li>Maîtrise des fondamentaux réseaux (adressage, routage, VLAN, DHCP/DNS…)</li>
+          <li>Déploiement d’architectures multi-sites et sécurisées</li>
+          <li>Renforcement des compétences en scripting et supervision</li>
+          <li>Travail collaboratif sur des projets concrets</li>
+        </ul>
       </div>
     </section>
   </main>
-
-  <footer class="retro-footer">
-    <span class="footer-pixel">© 2024 Eric Petersen | Vice Portfolio | IUT Colmar</span>
-    <span class="footer-links">
-      <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/Vasla13" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-    </span>
-  </footer>
-
   <script src="main.js"></script>
 </body>
 </html>
