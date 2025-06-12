@@ -472,3 +472,23 @@ main { z-index: 2; position: relative; padding-bottom: 2vw; }
   .window-bar, .retro-title { font-size: 0.69em; }
   .press-start-btn, .home-btn { font-size: 0.99em; padding: 0.65em 1.3em 0.6em 1.3em;}
 }
+
+/* Bouton LinkedIn flashy */
+a.linkedin-btn {
+  background: linear-gradient(92deg,#0A66C2 30%,#00cfff 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 22px #0A66C2bb, 0 0 12px #00cfff77 !important;
+  border-radius: 11px !important;
+  border: none !important;
+  font-weight: bold;
+  font-size: 1.16em;
+  letter-spacing: 1.5px;
+  transition: box-shadow 0.19s, background 0.19s, color 0.15s, transform 0.14s;
+}
+
+a.linkedin-btn:hover, a.linkedin-btn:focus {
+  background: linear-gradient(92deg,#00cfff 20%,#0A66C2 120%) !important;
+  color: #fffbe7 !important;
+  box-shadow: 0 6px 36px #0A66C2dd, 0 0 22px #00cfffcc !important;
+  transform: scale(1.05) rotate(-1.6deg);
+}
