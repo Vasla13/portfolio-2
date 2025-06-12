@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SAÉ 3.01 – Mettre en œuvre un système de transmission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SAÉ 3.01 : Mise en œuvre d’un système de transmission connecté pour entreprise. Portfolio Eric Petersen, IUT R&T Cyber.">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Fond synthwave animé -->
+  <div class="synthwave-bg" aria-hidden="true" style="pointer-events:none;">
+    <svg class="miami-sun" viewBox="0 0 480 180" width="480" height="180" aria-label="Coucher de soleil synthwave">
+      <defs>
+        <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffe7fd"/>
+          <stop offset="90%" stop-color="#ff62d6"/>
+        </linearGradient>
+        <linearGradient id="horizonGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#2cd8fd"/>
+          <stop offset="100%" stop-color="#6b47ff"/>
+        </linearGradient>
+        <linearGradient id="mountainGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#0ffbf9"/>
+          <stop offset="100%" stop-color="#ff62d6"/>
+        </linearGradient>
+      </defs>
+      <g>
+        <circle cx="240" cy="95" r="54" fill="url(#sunGrad)" opacity="0.93"/>
+        <g class="scanlines-sun">
+          <rect x="186" y="78" width="108" height="7" fill="#18152b" opacity="0.17"/>
+          <rect x="186" y="92" width="108" height="7" fill="#18152b" opacity="0.22"/>
+          <rect x="186" y="106" width="108" height="7" fill="#18152b" opacity="0.13"/>
+          <rect x="186" y="120" width="108" height="7" fill="#18152b" opacity="0.18"/>
+        </g>
+        <ellipse cx="240" cy="108" rx="70" ry="24" fill="#ff62d6" opacity="0.18"/>
+      </g>
+      <g class="mountains">
+        <polygon points="100,170 180,120 250,145 330,115 410,170" fill="url(#mountainGrad)" opacity="0.67"/>
+        <polygon points="0,180 100,170 410,170 480,180" fill="url(#horizonGrad)" opacity="0.73"/>
+        <polygon points="180,170 230,135 270,170" fill="#ff62d6" opacity="0.22"/>
+      </g>
+    </svg>
+    <canvas id="tronGrid"></canvas>
+    <div id="starfield"></div>
+    <div class="scanlines"></div>
+  </div>
+
+  <main>
+    <div style="text-align:right;max-width:830px;margin:0 auto 0.7em;">
+      <a href="index.html" class="press-start-btn home-btn"><i class="fas fa-home"></i> Accueil</a>
+    </div>
+
+    <section class="retro-window" id="intro">
+      <div class="window-bar">
+        <span class="window-title">SAÉ 3.01 – Mettre en œuvre un système de transmission</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <h2>Projet Prise Connectée Intelligente Wifi</h2>
+        <p>
+          Pour la SAÉ 3.01, nous avons mis en œuvre un système de transmission en réponse à un cahier des charges décrivant les besoins d’une entreprise. Notre objectif était de concevoir une solution permettant la collecte et la transmission d’informations via une prise connectée, tout en respectant les contraintes techniques liées aux systèmes de transmission (<b>CE2.01</b>).
+        </p>
+        <p>
+          Après l'étude de différentes solutions, nous avons justifié le choix d’un système basé sur <strong>Arduino</strong> pour la captation des données physiques (température, etc.) et <strong>Python</strong> pour le traitement et la transmission (<b>AC22.05, CE2.03</b>). Nous avons conçu un prototype intégrant capteurs et microcontrôleur, connecté à un réseau pour transmettre les données vers une interface de supervision.
+        </p>
+        <p>
+          Les composants électroniques ont été dimensionnés, les transmissions série et réseau configurées, et la stabilité des échanges assurée entre toutes les couches du système (<b>AC22.01, CE2.02</b>). Nous avons simulé un cas réel de connexion inter-bâtiments, incluant une interface de récupération des données en réseau local (<b>AC22.03</b>) et une connexion sécurisée à distance via SSH (<b>AC22.02</b>).
+        </p>
+        <p>
+          Les performances du canal de transmission ont été mesurées et caractérisées (débit, latence, fiabilité) à l’aide d’appareils d’analyse (<b>AC22.01, CE2.04</b>).
+        </p>
+      </div>
+    </section>
+
+    <section class="retro-window" id="competences">
+      <div class="window-bar">
+        <span class="window-title">Compétences et démarche</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <ul>
+          <li>Analyse de cahier des charges, choix technique et justification</li>
+          <li>Programmation embarquée et électronique appliquée aux télécoms</li>
+          <li>Dimensionnement de la chaîne de transmission physique et logique</li>
+          <li>Interface de supervision et transmission réseau sécurisée</li>
+          <li>Démarche rigoureuse d’essai, test et documentation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="retro-window" id="reflexion">
+      <div class="window-bar">
+        <span class="window-title">Réflexion sur les AC 22</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <p>
+          Ce projet a permis de valider plusieurs apprentissages critiques (AC : 1, 2, 3, 5, 6) et d'approfondir la compréhension de la chaîne de transmission et des réseaux d’accès opérateurs (AC22.04 via SAE3.03).<br>
+          J’ai consolidé mes acquis grâce aux SAE 3.01 et 3.03, aussi bien sur le plan technique que dans l’analyse et la justification des solutions proposées.
+        </p>
+      </div>
+    </section>
+
+    <section class="retro-window" id="conclusion">
+      <div class="window-bar">
+        <span class="window-title">Conclusion</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <p>
+          En conclusion, j’ai acquis l’unité d’enseignements 2 : <b>Connecter les entreprises et les usagers</b> grâce à l’acquisition des AC et CE liés à la mise en œuvre concrète d’un système de transmission connecté et intelligent.
+        </p>
+        <p>
+          <a href="SAE301_Projet_PriseElectriqueWifi_FA_2024_25.pdf" class="press-start-btn" style="margin-top:1em;" target="_blank" rel="noopener">
+            <i class="fas fa-file-pdf"></i> Consulter le dossier PDF du projet
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

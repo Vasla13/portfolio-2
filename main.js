@@ -1,9 +1,9 @@
-// -------- Terminal animé (machine à écrire + bannière ASCII) --------
+// -------- Terminal animé (machine à écrire, une seule fois, rapide) --------
 document.addEventListener("DOMContentLoaded", function () {
   const terminal = document.getElementById("terminal-text");
   if (!terminal) return;
 
-  // Bannière ASCII + texte
+  // Bannière ASCII + texte (personnalise à volonté)
   const lines = [
     "███████╗    ██████╗  ██████╗ ██████╗ ████████╗███████╗ ██████╗ ██╗     ██╗ ██████╗     ",
     "██╔════╝    ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██╔═══██╗██║     ██║██╔═══██╗    ",
@@ -30,22 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (line < lines.length) {
       if (char < lines[line].length) {
         terminal.textContent += lines[line][char++];
-        setTimeout(typeLine, 16 + Math.random() * 16); // rapidité type
+        setTimeout(typeLine, 7 + Math.random() * 9); // Plus rapide !
       } else {
         terminal.textContent += "\n";
         char = 0;
         line++;
-        setTimeout(typeLine, 320);
+        setTimeout(typeLine, 100); // Petite pause ligne
       }
-    } else {
-      setTimeout(clearTerminal, 2500);
     }
-  }
-  function clearTerminal() {
-    terminal.textContent = "";
-    line = 0;
-    char = 0;
-    setTimeout(typeLine, 1000);
+    // FIN : ne fait rien, plus de boucle/effacement
   }
   typeLine();
 });

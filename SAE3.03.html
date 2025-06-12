@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SAÉ 3.Cyber.03 – Conception d'une infrastructure multi-sites sécurisée</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SAÉ 3.Cyber.03 : Déploiement d’une infrastructure réseau multi-sites sécurisée avec EVE-NG. Portfolio Eric Petersen, IUT R&T Cyber.">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Fond synthwave animé -->
+  <div class="synthwave-bg" aria-hidden="true" style="pointer-events:none;">
+    <svg class="miami-sun" viewBox="0 0 480 180" width="480" height="180" aria-label="Coucher de soleil synthwave">
+      <defs>
+        <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffe7fd"/>
+          <stop offset="90%" stop-color="#ff62d6"/>
+        </linearGradient>
+        <linearGradient id="horizonGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#2cd8fd"/>
+          <stop offset="100%" stop-color="#6b47ff"/>
+        </linearGradient>
+        <linearGradient id="mountainGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#0ffbf9"/>
+          <stop offset="100%" stop-color="#ff62d6"/>
+        </linearGradient>
+      </defs>
+      <g>
+        <circle cx="240" cy="95" r="54" fill="url(#sunGrad)" opacity="0.93"/>
+        <g class="scanlines-sun">
+          <rect x="186" y="78" width="108" height="7" fill="#18152b" opacity="0.17"/>
+          <rect x="186" y="92" width="108" height="7" fill="#18152b" opacity="0.22"/>
+          <rect x="186" y="106" width="108" height="7" fill="#18152b" opacity="0.13"/>
+          <rect x="186" y="120" width="108" height="7" fill="#18152b" opacity="0.18"/>
+        </g>
+        <ellipse cx="240" cy="108" rx="70" ry="24" fill="#ff62d6" opacity="0.18"/>
+      </g>
+      <g class="mountains">
+        <polygon points="100,170 180,120 250,145 330,115 410,170" fill="url(#mountainGrad)" opacity="0.67"/>
+        <polygon points="0,180 100,170 410,170 480,180" fill="url(#horizonGrad)" opacity="0.73"/>
+        <polygon points="180,170 230,135 270,170" fill="#ff62d6" opacity="0.22"/>
+      </g>
+    </svg>
+    <canvas id="tronGrid"></canvas>
+    <div id="starfield"></div>
+    <div class="scanlines"></div>
+  </div>
+
+  <main>
+    <div style="text-align:right;max-width:830px;margin:0 auto 0.7em;">
+      <a href="index.html" class="press-start-btn home-btn"><i class="fas fa-home"></i> Accueil</a>
+    </div>
+
+    <section class="retro-window" id="intro">
+      <div class="window-bar">
+        <span class="window-title">SAÉ 3.Cyber.03 – Déploiement d'une infrastructure multi-sites</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <h2>Conception & déploiement réseau multi-sites sous EVE-NG</h2>
+        <p>
+          Pour la SAÉ 3.Cyber.03, nous avons utilisé <strong>EVE-NG</strong> pour concevoir et déployer une infrastructure réseau multi-sites répondant à un cahier des charges précis. Ce projet visait à satisfaire les besoins de connectivité, de performance et de disponibilité d’une entreprise répartie sur plusieurs sites.
+        </p>
+        <p>
+          <b>Architecture</b> : Intégration de routage dynamique (AC21.01, CE1.01, CE1.04), segmentation par VLANs, protocoles de redondance pour la haute disponibilité des passerelles. Les sites étaient interconnectés via des VPN site-à-site sur un réseau opérateur (AC21.02, AC21.03, AC22.04).
+        </p>
+        <p>
+          <b>Services</b> : Déploiement DHCP, Active Directory, DNS, MX (AC21.04, CE1.02), filtrage inter-VLAN pour le contrôle des communications (AC21.02).
+        </p>
+        <p>
+          <b>Tests</b> : Validation de la résilience, tolérance aux pannes, performances, QoS sur les flux critiques (AC21.02, CE1.03, CE1.05). Documentation détaillée : schémas, configs, justifications techniques.
+        </p>
+        <p>
+          <b>Compétences développées</b> : Administration réseau, virtualisation d’équipements (AC21.03), travail collaboratif (AC21.06).
+        </p>
+      </div>
+    </section>
+
+    <section class="retro-window" id="reflexion">
+      <div class="window-bar">
+        <span class="window-title">Réflexion sur les AC 21 & Ressource R3.02</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <p>
+          Durant la SAE 3.03, j'ai développé un projet mettant en avant mes connaissances et justifiant mes apprentissages critiques (AC 1, 2, 3, 4 et 6).
+        </p>
+        <p>
+          En parallèle, la ressource <strong>R3.02</strong> m’a permis de développer des compétences liées aux réseaux d’opérateurs et à l’architecture d’Internet, validant ainsi l’AC 21.05.
+        </p>
+        <p>
+          J’ai travaillé sur la configuration des protocoles <strong>eBGP et iBGP</strong> et simulé le fonctionnement de réseaux interconnectés, approfondissant la compréhension du routage, de la scalabilité et de la redondance.
+        </p>
+      </div>
+    </section>
+
+    <section class="retro-window" id="conclusion">
+      <div class="window-bar">
+        <span class="window-title">Bilan & validation de l’UE</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <p>
+          En conclusion, je peux affirmer que j'ai acquis l'unité d'enseignements 1 : Administrer les réseaux et l'internet grâce à l'acquisition de mes AC et CE.
+        </p>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
