@@ -37,6 +37,7 @@ body {
 }
 body.fadeout { opacity: 0; }
 
+/* ---- Night Mode (optionnel) ---- */
 body.night-mode {
   background: #14131c;
   color: #fff;
@@ -416,119 +417,78 @@ main { z-index: 2; position: relative; padding-bottom: 2vw; }
   font-size: 1em;
   color: #fffbe7;
   line-height: 1.45;
-  text-shadow: 0 1px 10px #0008;
+  text-shadow: 0 2px 7px #23204588;
 }
-.project-link {
-  margin-top: auto;
-  display: flex; gap: 1em;
+@media (max-width: 900px) {
+  .skills-body { flex-direction: column; gap: 1.1em; align-items: center;}
+  .skill-card { width: 97vw; min-width: 0; }
 }
-.project-link a {
-  display: inline-block;
+
+/* ---- Boutons rétro synthwave ---- */
+.press-start-btn, .home-btn {
   font-family: 'Press Start 2P', monospace;
-  font-size: 0.91em;
+  background: linear-gradient(90deg, #00faff 20%, #ff62d6 120%);
+  color: #191437;
+  border-radius: 8px;
+  padding: 0.75em 2.3em 0.66em 2.2em;
+  text-decoration: none;
+  font-size: 1.13em;
+  border: none;
+  box-shadow: 0 2px 12px #00faff77, 0 0 12px #ff62d677;
+  letter-spacing: 2px;
+  transition: box-shadow 0.22s, transform 0.18s, color 0.18s, background 0.19s;
+  cursor: pointer;
+  margin-top: 1.1em;
+  display: inline-block;
+}
+.press-start-btn:hover, .press-start-btn:focus, .home-btn:hover, .home-btn:focus {
+  box-shadow: 0 6px 28px #ff62d6bb, 0 0 18px #00faff88;
+  transform: scale(1.05) rotate(-2deg);
   color: #00faff;
   background: #191437;
-  border: 1.5px solid #00faff;
-  border-radius: 7px;
-  padding: 0.28em 0.86em 0.21em 0.78em;
-  box-shadow: 0 2px 12px #00faff55;
-  margin-right: 6px;
-  text-decoration: none;
-  transition: background 0.17s, color 0.18s, border 0.19s, box-shadow 0.17s;
-}
-.project-link a:hover,
-.project-link a:focus {
-  background: #00faff;
-  color: #191437;
-  border-color: #ff62d6;
-  box-shadow: 0 2px 16px #ff62d6cc;
 }
 
-/* ---- Contact ---- */
-.contact-socials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9em;
-  margin-top: 1.2em;
-  justify-content: flex-start;
-}
-.social-btn {
-  margin-top: 0 !important;
-  min-width: 120px;
-  text-align: center;
-  font-size: 1.01em;
-  box-shadow: 0 2px 12px #00faff55, 0 0 12px #ff62d655;
-  font-family: 'Press Start 2P', monospace;
-  padding: 0.6em 1.2em;
-  border-radius: 10px;
-  border: none;
-  transition: filter 0.16s, box-shadow 0.18s, background 0.21s, color 0.15s;
-  cursor: pointer;
-  display: flex; align-items: center; gap: 0.7em;
-  text-decoration: none;
-}
-.social-btn:hover,
-.social-btn:focus {
-  filter: brightness(1.12) drop-shadow(0 0 8px #ff62d6);
-  box-shadow: 0 4px 24px #00faffcc, 0 0 14px #ff62d6cc;
-  color: #00faff !important;
-}
-.linkedin-btn { background: linear-gradient(90deg,#0077b5 70%,#00faff 120%) !important; color: #fff !important;}
-.github-btn { background: linear-gradient(90deg,#232323 70%,#ff62d6 120%) !important; color: #fff !important;}
-.twitter-btn { background: linear-gradient(90deg,#18152b 60%,#00faff 120%) !important; color: #fff !important;}
-.discord-btn { background: linear-gradient(90deg,#5865f2 60%,#00faff 120%) !important; color: #fff !important;}
-.cv-btn { background: linear-gradient(90deg,#00faff 45%,#ff62d6 120%) !important; color: #191437 !important;}
-/* Pour Mail si tu veux différencier : */
-.contact-socials .social-btn:first-child { background: linear-gradient(90deg,#ff62d6 45%,#00faff 120%) !important; color: #fff !important; }
-
-@media (max-width: 600px) {
-  .contact-socials { flex-direction: column; gap: 0.7em; }
-}
-
-/* ---- Footer / Timer ---- */
-footer {
+/* ---- Footer ---- */
+.retro-footer {
   width: 100vw;
-  background: linear-gradient(90deg, #191437 50%, #ff62d6 180%);
-  color: #fffbe7;
+  background: #110f26f2;
+  border-top: 1.5px solid #00faff88;
+  padding: 0.7em 0;
+  color: #ff62d6;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8em;
+  letter-spacing: 1.1px;
   text-align: center;
-  padding: 1em 0 0.5em 0;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.09em;
-  box-shadow: 0 -1.5px 12px #00faff55;
-  position: relative;
-  z-index: 4;
-  border-top: 1.5px solid #00faff77;
-}
-.footer-timer {
-  font-family: 'Press Start 2P', monospace;
-  color: #ff62d6;
-  font-size: 0.99em;
-  margin-top: 0.3em;
-}
-.footer-link {
-  color: #00faff;
-  text-decoration: none;
-  margin-left: 0.8em;
-  font-family: 'Press Start 2P', monospace;
-}
-.footer-link:hover, .footer-link:focus {
-  color: #ff62d6;
-  text-decoration: underline;
+  margin-top: 2.4em;
+  box-shadow: 0 -3px 22px #00faff44;
 }
 
-/* ---- Responsive général ---- */
-@media (max-width: 900px) {
-  .retro-window { width: 99vw; }
-  .skills-body { flex-direction: column; align-items: center; }
+/* ---- Responsive ---- */
+@media (max-width: 650px) {
+  .retro-window { margin: 1.2em 0.2em 1em 0.2em; }
+  .window-body { padding: 0.7em 0.2em; }
 }
-@media (max-width: 600px) {
-  html, body { font-size: 11.5px; }
-  .retro-title, .vice-title { font-size: 0.74rem; }
-  .retro-menu { height: 34px; }
-  .retro-menu ul li a { font-size: 0.7em; padding: 0.3em 0.72em; }
-  .retro-window { margin: 1.1em auto 0.9em auto; }
-  .window-body { padding: 0.66em 0.5em; }
-  .about-body { gap: 0.7em; }
-  .skills-body { gap: 1.2em; }
-  .skill-card { width: 95vw; min-width: 0; }
+@media (max-width: 500px) {
+  .window-bar, .retro-title { font-size: 0.69em; }
+  .press-start-btn, .home-btn { font-size: 0.99em; padding: 0.65em 1.3em 0.6em 1.3em;}
+}
+
+/* Bouton LinkedIn flashy */
+a.linkedin-btn {
+  background: linear-gradient(92deg,#0A66C2 30%,#00cfff 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 22px #0A66C2bb, 0 0 12px #00cfff77 !important;
+  border-radius: 11px !important;
+  border: none !important;
+  font-weight: bold;
+  font-size: 1.16em;
+  letter-spacing: 1.5px;
+  transition: box-shadow 0.19s, background 0.19s, color 0.15s, transform 0.14s;
+}
+
+a.linkedin-btn:hover, a.linkedin-btn:focus {
+  background: linear-gradient(92deg,#00cfff 20%,#0A66C2 120%) !important;
+  color: #fffbe7 !important;
+  box-shadow: 0 6px 36px #0A66C2dd, 0 0 22px #00cfffcc !important;
+  transform: scale(1.05) rotate(-1.6deg);
 }
