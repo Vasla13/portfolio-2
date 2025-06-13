@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const terminal = document.getElementById("terminal-text");
   if (!terminal) return;
 
-  // Bannière ASCII + texte (personnalise à volonté)
+  // Bannière ASCII + texte (en vouvoiement)
   const lines = [
     "███████╗    ██████╗  ██████╗ ██████╗ ████████╗███████╗ ██████╗ ██╗     ██╗ ██████╗     ",
     "██╔════╝    ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██╔═══██╗██║     ██║██╔═══██╗    ",
@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "Je suis Eric Petersen.",
     ">> Étudiant Réseaux & Télécoms, option Cyber.",
     "",
-    "Découvrez mes compétences, projets et réalisations",
+    "Découvrez mes compétences, projets et réalisations 👾",
     "",
-    "Appuyez sur la touche [Barre d'espace]… ou faites défiler pour continuer.",
+    "Appuyez sur la touche [Entrée]… ou faites défiler pour continuer.",
   ];
 
   let line = 0,
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (line < lines.length) {
       if (char < lines[line].length) {
         terminal.textContent += lines[line][char++];
-        setTimeout(typeLine, 7 + Math.random() * 9); // Plus rapide !
+        setTimeout(typeLine, 7 + Math.random() * 9); // Plus rapide !
       } else {
         terminal.textContent += "\n";
         char = 0;
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(typeLine, 100); // Petite pause ligne
       }
     }
-    // FIN : ne fait rien, plus de boucle/effacement
+    // FIN : ne fait rien, plus de boucle/effacement
   }
   typeLine();
 });
@@ -123,5 +123,72 @@ document.addEventListener("DOMContentLoaded", function () {
         card.click();
       }
     });
+  });
+});
+
+// -------- Starfield animé synthwave --------
+document.addEventListener("DOMContentLoaded", function () {
+  const starfield = document.getElementById("starfield");
+  if (!starfield) return;
+
+  const STAR_COUNT = 90; // Plus il y en a, plus c’est dense
+  const SPEED = 0.32; // Vitesse (0.2 = lent / 0.6 = rapide)
+  const stars = [];
+
+  // Dimensionner le starfield
+  starfield.style.position = "fixed";
+  starfield.style.top = "0";
+  starfield.style.left = "0";
+  starfield.style.width = "100vw";
+  starfield.style.height = "260px";
+  starfield.style.pointerEvents = "none";
+  starfield.style.zIndex = "2";
+
+  // Responsive adaptation
+  function getWidth() { return window.innerWidth; }
+  function getHeight() { return 260; } // Hauteur du bandeau
+
+  // Création des étoiles
+  for (let i = 0; i < STAR_COUNT; i++) {
+    const star = document.createElement("div");
+    star.classList.add("star");
+    // Taille aléatoire
+    const size = Math.random() * 1.7 + 0.8;
+    star.style.width = star.style.height = size + "px";
+    // Position initiale
+    star.style.left = Math.random() * getWidth() + "px";
+    star.style.top = Math.random() * getHeight() + "px";
+    // Opacité et couleur
+    star.style.opacity = Math.random() * 0.6 + 0.4;
+    if (Math.random() < 0.15) {
+      star.style.background = "#ff62d6"; // 1/6 en rose
+      star.style.boxShadow = "0 0 8px #ff62d6cc, 0 0 2px #fff";
+    } else if (Math.random() < 0.18) {
+      star.style.background = "#00faff"; // 1/6 en bleu fluo
+      star.style.boxShadow = "0 0 8px #00faffaa, 0 0 2px #fff";
+    }
+    starfield.appendChild(star);
+    stars.push({el: star, x: parseFloat(star.style.left), y: parseFloat(star.style.top), z: size});
+  }
+
+  function animate() {
+    for (let star of stars) {
+      star.y += SPEED * (star.z * 0.8 + 0.7);
+      if (star.y > getHeight()) {
+        // Recycle
+        star.x = Math.random() * getWidth();
+        star.y = -4 - Math.random() * 18;
+      }
+      star.el.style.left = star.x + "px";
+      star.el.style.top = star.y + "px";
+    }
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+  window.addEventListener("resize", () => {
+    for (let star of stars) {
+      if (star.x > getWidth()) star.x = Math.random() * getWidth();
+    }
   });
 });
