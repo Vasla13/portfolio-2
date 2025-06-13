@@ -15,11 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "Bienvenue sur mon portfolio rétro synthwave !",
     "Je suis Eric Petersen.",
     ">> Étudiant Réseaux & Télécoms, option Cyber.",
-    "  #Cybersécurité #Dev #Réseaux #Linux",
     "",
-    "Découvre mes compétences, projets et réalisations 👾",
+    "Découvrez mes compétences, projets et réalisations",
     "",
-    "Tape sur la touche [Entrée]… ou scroll pour continuer.",
+    "Appuyez sur la touche [Barre d'espace]… ou faites défiler pour continuer.",
   ];
 
   let line = 0,
