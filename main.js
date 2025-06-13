@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "Je suis Eric Petersen.",
     ">> Étudiant Réseaux & Télécoms, option Cyber.",
     "",
-    "Découvrez mes compétences, projets et réalisations 👾",
+    "Découvrez mes compétences, projets et réalisations ",
     "",
     "Appuyez sur la touche [Entrée]… ou faites défiler pour continuer.",
   ];
@@ -145,8 +145,12 @@ document.addEventListener("DOMContentLoaded", function () {
   starfield.style.zIndex = "2";
 
   // Responsive adaptation
-  function getWidth() { return window.innerWidth; }
-  function getHeight() { return 260; } // Hauteur du bandeau
+  function getWidth() {
+    return window.innerWidth;
+  }
+  function getHeight() {
+    return 260;
+  } // Hauteur du bandeau
 
   // Création des étoiles
   for (let i = 0; i < STAR_COUNT; i++) {
@@ -168,7 +172,12 @@ document.addEventListener("DOMContentLoaded", function () {
       star.style.boxShadow = "0 0 8px #00faffaa, 0 0 2px #fff";
     }
     starfield.appendChild(star);
-    stars.push({el: star, x: parseFloat(star.style.left), y: parseFloat(star.style.top), z: size});
+    stars.push({
+      el: star,
+      x: parseFloat(star.style.left),
+      y: parseFloat(star.style.top),
+      z: size,
+    });
   }
 
   function animate() {
