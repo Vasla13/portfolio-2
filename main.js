@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "",
     "Découvrez mes compétences, projets et réalisations ",
     "",
-    "Appuyez sur la touche [Entrée]… ou faites défiler pour continuer.",
+    "Appuyez sur la touche [Barre d'espace]… ou faites défiler pour continuer.",
   ];
 
   let line = 0,
