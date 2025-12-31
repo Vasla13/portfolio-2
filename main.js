@@ -1,9 +1,22 @@
-// -------- Terminal animé (machine à écrire, une seule fois, rapide) --------
-document.addEventListener("DOMContentLoaded", function () {
+/**
+ * Main.js - Optimisé
+ * Gestion des animations, du terminal et de l'interactivité
+ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  initTerminal();
+  initSkillBadges();
+  initScrollEffects();
+  initStarfield();
+  initPageTransitions();
+  initKeyboardAccessibility();
+});
+
+/* --- 1. Terminal Animé --- */
+function initTerminal() {
   const terminal = document.getElementById("terminal-text");
   if (!terminal) return;
 
-  // Bannière ASCII + texte (en vouvoiement)
   const lines = [
     "███████╗    ██████╗  ██████╗ ██████╗ ████████╗███████╗ ██████╗ ██╗     ██╗ ██████╗     ",
     "██╔════╝    ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██╔═══██╗██║     ██║██╔═══██╗    ",
@@ -21,183 +34,184 @@ document.addEventListener("DOMContentLoaded", function () {
     "Appuyez sur la touche [Barre d'espace]… ou faites défiler pour continuer.",
   ];
 
-  let line = 0,
-    char = 0;
+  let lineIndex = 0;
+  let charIndex = 0;
   terminal.textContent = "";
 
   function typeLine() {
-    if (line < lines.length) {
-      if (char < lines[line].length) {
-        terminal.textContent += lines[line][char++];
-        setTimeout(typeLine, 7 + Math.random() * 9); // Plus rapide !
+    if (lineIndex < lines.length) {
+      const currentLine = lines[lineIndex];
+      if (charIndex < currentLine.length) {
+        terminal.textContent += currentLine[charIndex++];
+        // Vitesse de frappe aléatoire pour effet réaliste
+        setTimeout(typeLine, 5 + Math.random() * 10);
       } else {
         terminal.textContent += "\n";
-        char = 0;
-        line++;
-        setTimeout(typeLine, 100); // Petite pause ligne
+        charIndex = 0;
+        lineIndex++;
+        setTimeout(typeLine, 150); // Pause entre les lignes
       }
     }
-    // FIN : ne fait rien, plus de boucle/effacement
   }
   typeLine();
-});
+}
 
-// -------- Badges de compétences : affichage dynamique --------
-document.addEventListener("DOMContentLoaded", function () {
+/* --- 2. Badges de Compétences --- */
+function initSkillBadges() {
   const badges = document.querySelectorAll(".badge-skill");
-  const desc = document.getElementById("skillDesc");
-  if (!badges || !desc) return;
-  badges.forEach(function (badge) {
-    badge.addEventListener("mouseenter", function () {
-      badges.forEach((b) => b.classList.remove("active"));
+  const descDisplay = document.getElementById("skillDesc");
+  
+  if (!badges.length || !descDisplay) return;
+
+  const updateDesc = (text) => descDisplay.textContent = text;
+  const clearDesc = () => descDisplay.textContent = "";
+
+  badges.forEach(badge => {
+    const text = badge.getAttribute("data-desc");
+    
+    // Souris
+    badge.addEventListener("mouseenter", () => {
+      badges.forEach(b => b.classList.remove("active"));
       badge.classList.add("active");
-      desc.textContent = badge.getAttribute("data-desc");
+      updateDesc(text);
     });
-    badge.addEventListener("mouseleave", function () {
+    badge.addEventListener("mouseleave", () => {
       badge.classList.remove("active");
-      desc.textContent = "";
+      clearDesc();
     });
-    badge.addEventListener("focus", function () {
-      badges.forEach((b) => b.classList.remove("active"));
+
+    // Clavier (Tabulation)
+    badge.addEventListener("focus", () => {
+      badges.forEach(b => b.classList.remove("active"));
       badge.classList.add("active");
-      desc.textContent = badge.getAttribute("data-desc");
+      updateDesc(text);
     });
-    badge.addEventListener("blur", function () {
+    badge.addEventListener("blur", () => {
       badge.classList.remove("active");
-      desc.textContent = "";
+      clearDesc();
     });
   });
-});
+}
 
-// -------- Menu sticky : shrink et couleur au scroll --------
-window.addEventListener("scroll", function () {
+/* --- 3. Scroll & Navbar --- */
+function initScrollEffects() {
   const menu = document.querySelector(".retro-menu");
-  if (!menu) return;
-  if (window.scrollY > 40) menu.classList.add("scrolled");
-  else menu.classList.remove("scrolled");
-});
+  
+  // Sticky Navbar
+  if (menu) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) menu.classList.add("scrolled");
+      else menu.classList.remove("scrolled");
+    }, { passive: true });
+  }
 
-// -------- Effet fade-out lors du changement de page --------
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("a").forEach((link) => {
-    // Ne fade-out que pour les liens internes HTML sans target _blank
-    if (
-      link.href &&
-      link.href.endsWith(".html") &&
-      (!link.target || link.target === "_self")
-    ) {
-      link.addEventListener("click", function (e) {
-        if (
-          link.hostname === window.location.hostname &&
-          !link.hasAttribute("download")
-        ) {
-          document.body.classList.add("fadeout");
-        }
-      });
-    }
-  });
-});
-
-// -------- Scroll fluide vers les ancres du menu --------
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('.retro-menu a[href^="#"]').forEach((link) => {
+  // Smooth Scroll pour les ancres
+  document.querySelectorAll('.retro-menu a[href^="#"], .skip-link').forEach(link => {
     link.addEventListener("click", function (e) {
-      const target = document.querySelector(link.getAttribute("href"));
+      const href = this.getAttribute("href");
+      if(href === "#") return;
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: "smooth", block: "start" });
-        // Ajoute un focus visuel sur la section
         target.setAttribute("tabindex", "-1");
-        target.focus({ preventScroll: true });
-        setTimeout(() => target.removeAttribute("tabindex"), 900);
+        target.focus({ preventScroll: true }); 
       }
     });
   });
-});
+}
 
-// -------- Focus clavier visible sur cartes compétences/projets --------
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".skill-card").forEach((card) => {
-    card.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        card.click();
-      }
-    });
-  });
-});
-
-// -------- Starfield animé synthwave --------
-document.addEventListener("DOMContentLoaded", function () {
+/* --- 4. Starfield (Optimisé) --- */
+function initStarfield() {
   const starfield = document.getElementById("starfield");
-  if (!starfield) return;
+  // Si on est sur mobile ou préférence mouvement réduit, on ne lance pas l'anim
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!starfield || window.innerWidth < 450 || prefersReducedMotion) return;
 
-  const STAR_COUNT = 90; // Plus il y en a, plus c’est dense
-  const SPEED = 0.32; // Vitesse (0.2 = lent / 0.6 = rapide)
+  const STAR_COUNT = 70; // Réduit légèrement pour la perf
   const stars = [];
 
-  // Dimensionner le starfield
+  // Configuration initiale
   starfield.style.position = "fixed";
-  starfield.style.top = "0";
-  starfield.style.left = "0";
-  starfield.style.width = "100vw";
+  starfield.style.inset = "0"; // remplace top/left/width/height: 100%
   starfield.style.height = "260px";
   starfield.style.pointerEvents = "none";
   starfield.style.zIndex = "2";
 
-  // Responsive adaptation
-  function getWidth() {
-    return window.innerWidth;
-  }
-  function getHeight() {
-    return 260;
-  } // Hauteur du bandeau
+  const width = window.innerWidth;
+  const height = 260;
 
-  // Création des étoiles
   for (let i = 0; i < STAR_COUNT; i++) {
     const star = document.createElement("div");
     star.classList.add("star");
-    // Taille aléatoire
-    const size = Math.random() * 1.7 + 0.8;
-    star.style.width = star.style.height = size + "px";
-    // Position initiale
-    star.style.left = Math.random() * getWidth() + "px";
-    star.style.top = Math.random() * getHeight() + "px";
-    // Opacité et couleur
+    const size = Math.random() * 1.5 + 1;
+    
+    // Style statique
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    
+    // Position aléatoire
+    const x = Math.random() * width;
+    const y = Math.random() * height;
+    
+    star.style.transform = `translate(${x}px, ${y}px)`;
     star.style.opacity = Math.random() * 0.6 + 0.4;
+    
+    // Couleurs
     if (Math.random() < 0.15) {
-      star.style.background = "#ff62d6"; // 1/6 en rose
-      star.style.boxShadow = "0 0 8px #ff62d6cc, 0 0 2px #fff";
+      star.style.background = "#ff62d6";
+      star.style.boxShadow = "0 0 8px #ff62d6cc";
     } else if (Math.random() < 0.18) {
-      star.style.background = "#00faff"; // 1/6 en bleu fluo
-      star.style.boxShadow = "0 0 8px #00faffaa, 0 0 2px #fff";
+      star.style.background = "#00faff";
+      star.style.boxShadow = "0 0 8px #00faffaa";
     }
+
     starfield.appendChild(star);
-    stars.push({
-      el: star,
-      x: parseFloat(star.style.left),
-      y: parseFloat(star.style.top),
-      z: size,
-    });
+    stars.push({ el: star, x, y, z: size, speed: Math.random() * 0.2 + 0.1 });
   }
 
+  // Boucle d'animation optimisée
   function animate() {
-    for (let star of stars) {
-      star.y += SPEED * (star.z * 0.8 + 0.7);
-      if (star.y > getHeight()) {
-        // Recycle
-        star.x = Math.random() * getWidth();
-        star.y = -4 - Math.random() * 18;
+    for (const s of stars) {
+      s.y += s.speed * (s.z * 1.5); // Effet de parallaxe basé sur la taille
+      if (s.y > height) {
+        s.y = -5;
+        s.x = Math.random() * width;
       }
-      star.el.style.left = star.x + "px";
-      star.el.style.top = star.y + "px";
+      // Utiliser translate est plus performant que top/left
+      s.el.style.transform = `translate(${s.x}px, ${s.y}px)`;
     }
     requestAnimationFrame(animate);
   }
+  requestAnimationFrame(animate);
+}
 
-  animate();
-  window.addEventListener("resize", () => {
-    for (let star of stars) {
-      if (star.x > getWidth()) star.x = Math.random() * getWidth();
+/* --- 5. Transitions de Page --- */
+function initPageTransitions() {
+  document.querySelectorAll("a").forEach(link => {
+    if (link.href && link.href.endsWith(".html") && link.target !== "_blank") {
+      link.addEventListener("click", function(e) {
+        // Empêcher l'effet si on télécharge un fichier ou ancre interne
+        if (link.hostname === window.location.hostname && !link.hasAttribute("download") && !link.hash) {
+            e.preventDefault(); // On attend la fin de l'anim
+            document.body.classList.add("fadeout");
+            setTimeout(() => {
+                window.location = link.href;
+            }, 400); // Doit correspondre à la transition CSS
+        }
+      });
     }
   });
-});
+}
+
+/* --- 6. Accessibilité Clavier --- */
+function initKeyboardAccessibility() {
+  document.querySelectorAll(".skill-card").forEach(card => {
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault(); // Empêcher le scroll sur espace
+        card.click();
+      }
+    });
+  });
+}
