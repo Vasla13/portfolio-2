@@ -11,110 +11,13 @@
   <meta property="og:description" content="Portfolio rétro synthwave d'Eric Petersen, étudiant en cybersécurité et réseaux à l'IUT de Colmar.">
   <meta property="og:type" content="website">
   <link rel="alternate icon" href="favicon.ico">
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&family=VT323&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <style>
-    @media screen and (max-width: 450px), (prefers-reduced-motion: reduce) {
-      .synthwave-bg, .scanlines, #tronGrid, #starfield, .miami-sun { display: none !important; }
-    }
-    .miami-sun {
-      position: absolute;
-      left: 50%; top: 0;
-      transform: translateX(-50%);
-      width: 480px;
-      height: 180px;
-      opacity: 0.8;
-      z-index: 2;
-      pointer-events: none;
-      filter: drop-shadow(0 0 70px #ff62d6bb) drop-shadow(0 0 80px #00faff66);
-      transition: filter 1s;
-    }
-    @media (max-width: 600px) {
-      .miami-sun { width: 98vw; height: 38vw; min-width: 0; }
-    }
-    .scanlines-sun rect {
-      animation: scanbands 3s linear infinite alternate;
-    }
-    @keyframes scanbands {
-      0% { opacity: 0.11; }
-      25% { opacity: 0.23; }
-      50% { opacity: 0.17; }
-      75% { opacity: 0.25; }
-      100% { opacity: 0.12; }
-    }
-    .mountains polygon {
-      animation: moveMountain 6s linear infinite alternate;
-    }
-    @keyframes moveMountain {
-      0% { filter: brightness(1); }
-      50% { filter: brightness(1.22) hue-rotate(6deg); }
-      100% { filter: brightness(1); }
-    }
-    /* ---- Réseaux sociaux ---- */
-    .contact-socials {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7em;
-      max-width: 320px;
-      margin: 0 auto 1.4em auto;
-    }
-    .social-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.8em;
-      justify-content: flex-start;
-      font-size: 1.08em;
-      font-family: 'Press Start 2P', monospace;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px #00faff44;
-      transition: background 0.22s, color 0.22s, transform 0.13s;
-    }
-    .linkedin-btn {
-      background: linear-gradient(90deg, #0077b5 40%, #00faff 110%);
-      color: #fff;
-    }
-    .linkedin-btn:hover, .linkedin-btn:focus {
-      background: #00faff;
-      color: #0077b5;
-    }
-    .github-btn {
-      background: linear-gradient(90deg, #232323 60%, #7a2cff 120%);
-      color: #fff;
-    }
-    .github-btn:hover, .github-btn:focus {
-      background: #7a2cff;
-      color: #fffbe7;
-    }
-    .twitter-btn {
-      background: linear-gradient(90deg, #16181c 55%, #00faff 120%);
-      color: #fff;
-    }
-    .twitter-btn:hover, .twitter-btn:focus {
-      background: #00faff;
-      color: #16181c;
-    }
-    .discord-btn {
-      background: linear-gradient(90deg, #5865f2 55%, #00faff 120%);
-      color: #fff;
-    }
-    .discord-btn:hover, .discord-btn:focus {
-      background: #00faff;
-      color: #5865f2;
-    }
-    .social-btn i {
-      font-size: 1.35em;
-      margin-right: 0.28em;
-      filter: drop-shadow(0 0 6px #00faff99);
-    }
-  </style>
 </head>
 <body>
   <a href="#about" class="skip-link">Aller au contenu principal</a>
 
-  <!-- Fond synthwave animé -->
   <div class="synthwave-bg" aria-hidden="true" style="pointer-events:none;">
     <svg class="miami-sun" viewBox="0 0 480 180" width="480" height="180" aria-label="Coucher de soleil synthwave">
       <defs>
@@ -152,7 +55,6 @@
     <div class="scanlines"></div>
   </div>
 
-  <!-- Menu rétro sticky -->
   <nav class="retro-menu" role="navigation" aria-label="Navigation principale">
     <div class="retro-title">
       <i class="fas fa-sun"></i> Eric<span class="vice-glitch">Petersen</span>
@@ -166,7 +68,6 @@
   </nav>
 
   <main>
-    <!-- Terminal accueil -->
     <section class="retro-window terminal-window" aria-label="Présentation terminal rétro">
       <div class="window-bar">
         <span class="window-title"><i class="fas fa-terminal"></i> Terminal</span>
@@ -181,7 +82,6 @@
       </div>
     </section>
 
-    <!-- À propos -->
     <section id="about" class="retro-window" aria-label="À propos d'Eric Petersen">
       <div class="window-bar">
         <span class="window-title"><i class="fas fa-address-card"></i> À propos</span>
@@ -212,7 +112,6 @@
       </div>
     </section>
 
-    <!-- Compétences IUT R&T (cartes synthwave) -->
     <section id="skills" class="retro-window" aria-label="Compétences IUT R&T">
       <div class="window-bar">
         <span class="window-title">Compétences IUT R&T</span>
@@ -250,7 +149,6 @@
       </div>
     </section>
 
-    <!-- Section Projets -->
     <section id="projects" class="retro-window" aria-label="Projets">
       <div class="window-bar">
         <span class="window-title"><i class="fas fa-list"></i> Projets phares</span>
@@ -294,53 +192,50 @@
       </div>
     </section>
 
-    <!-- Section Contact -->
-<section id="contact" class="retro-window" aria-label="Contact">
-  <div class="window-bar">
-    <span class="window-title"><i class="fas fa-envelope"></i> Contact</span>
-    <span class="window-buttons">
-      <span class="win-btn close" aria-label="Fermer"></span>
-      <span class="win-btn min" aria-label="Minimiser"></span>
-      <span class="win-btn max" aria-label="Maximiser"></span>
-    </span>
-  </div>
-  <div class="window-body">
-    <p>
-      <b>Une question ? Un projet ? Contactez-moi :</b>
-    </p>
-    <div class="contact-socials">
-      <a href="mailto:eric.petersen@uha.fr" class="press-start-btn social-btn" style="background:linear-gradient(90deg,#ff62d6 45%,#00faff 120%);color:#fff;">
-        <i class="fas fa-envelope"></i> Mail
-      </a>
-      <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" rel="noopener"
-         class="press-start-btn social-btn linkedin-btn">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a href="https://github.com/Vasla13" target="_blank" rel="noopener"
-         class="press-start-btn social-btn github-btn">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-      <a href="https://x.com/eripet05" target="_blank" rel="noopener"
-         class="press-start-btn social-btn twitter-btn">
-        <i class="fab fa-x-twitter"></i> Twitter/X
-      </a>
-      <a href="https://discord.com/users/623836221000515604" target="_blank" rel="noopener"
-         class="press-start-btn social-btn discord-btn">
-        <i class="fab fa-discord"></i> Discord
-      </a>
-      <a href="CV_Eric_Petersen.pdf" class="press-start-btn social-btn cv-btn"
-         target="_blank" rel="noopener" style="background:linear-gradient(90deg,#00faff 45%,#ff62d6 120%);color:#191437;">
-        <i class="fas fa-file-pdf"></i> CV PDF
-      </a>
-    </div>
-  </div>
-</section>
+    <section id="contact" class="retro-window" aria-label="Contact">
+      <div class="window-bar">
+        <span class="window-title"><i class="fas fa-envelope"></i> Contact</span>
+        <span class="window-buttons">
+          <span class="win-btn close" aria-label="Fermer"></span>
+          <span class="win-btn min" aria-label="Minimiser"></span>
+          <span class="win-btn max" aria-label="Maximiser"></span>
+        </span>
+      </div>
+      <div class="window-body">
+        <p>
+          <b>Une question ? Un projet ? Contactez-moi :</b>
+        </p>
+        <div class="contact-socials">
+          <a href="mailto:eric.petersen@uha.fr" class="press-start-btn social-btn" style="background:linear-gradient(90deg,#ff62d6 45%,#00faff 120%);color:#fff;">
+            <i class="fas fa-envelope"></i> Mail
+          </a>
+          <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" rel="noopener"
+             class="press-start-btn social-btn linkedin-btn">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/Vasla13" target="_blank" rel="noopener"
+             class="press-start-btn social-btn github-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://x.com/eripet05" target="_blank" rel="noopener"
+             class="press-start-btn social-btn twitter-btn">
+            <i class="fab fa-x-twitter"></i> Twitter/X
+          </a>
+          <a href="https://discord.com/users/623836221000515604" target="_blank" rel="noopener"
+             class="press-start-btn social-btn discord-btn">
+            <i class="fab fa-discord"></i> Discord
+          </a>
+          <a href="CV_Eric_Petersen.pdf" class="press-start-btn social-btn cv-btn"
+             target="_blank" rel="noopener" style="background:linear-gradient(90deg,#00faff 45%,#ff62d6 120%);color:#191437;">
+            <i class="fas fa-file-pdf"></i> CV PDF
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="retro-footer">
-    <span class="footer-pixel">
-      © 2025 Eric Petersen | Portfolio
-    </span>
+    <span class="footer-pixel">© 2025 Eric Petersen | Portfolio</span>
   </footer>  
   <script src="main.js"></script>
 </body>

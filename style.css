@@ -560,3 +560,73 @@ a.linkedin-btn:hover, a.linkedin-btn:focus {
   min-width: 180px; 
   text-align: center;
 }
+
+/* =========================================
+   STYLES SPÉCIFIQUES PAGE 404
+   ========================================= */
+
+body.error-page-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(110deg, #18152b 65%, rgba(255, 98, 214, 0.15) 120%);
+}
+
+.error-window {
+  max-width: 420px;
+  margin: 2em auto;
+  border-radius: 12px;
+  background: linear-gradient(105deg, #232045 75%, rgba(255, 98, 214, 0.19) 120%);
+  border: 2.4px solid #00faff;
+  box-shadow: 0 7px 32px rgba(0, 250, 255, 0.13), 0 0 42px rgba(255, 98, 214, 0.33);
+  padding: 2em 1.7em 2.6em 1.7em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.error-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 3.1em;
+  letter-spacing: 6px;
+  color: #ff62d6;
+  margin-bottom: 0.14em;
+  position: relative;
+  text-shadow: 0 2px 22px rgba(255, 98, 214, 0.6), 0 0px 14px rgba(0, 250, 255, 0.4);
+  animation: glitch-404 1.9s infinite alternate;
+}
+
+@keyframes glitch-404 {
+  0%, 100% { filter: none; transform: none;}
+  10% { filter: blur(0.8px); transform: skewX(-2deg);}
+  17% { filter: hue-rotate(9deg) blur(0.5px); }
+  32% { filter: contrast(1.2); transform: skewX(1.6deg);}
+  44% { filter: none;}
+}
+
+.error-text {
+  font-family: 'JetBrains Mono', monospace;
+  color: #fffbe7;
+  font-size: 1.13em;
+  text-align: center;
+  margin-bottom: 1.7em;
+  text-shadow: 0 1.5px 13px rgba(0, 250, 255, 0.47);
+}
+
+.error-scanlines {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom, 
+    rgba(255,255,255,0.03) 0px, 
+    rgba(255,255,255,0.03) 1px,
+    transparent 2px,
+    transparent 6px
+  );
+  opacity: 0.15;
+  z-index: 2;
+  border-radius: 12px;
+}
