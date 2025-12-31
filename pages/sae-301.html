@@ -2,73 +2,67 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>SAE 3.01 – Prise Connectée Wifi</title>
+  <title>SAE 3.01 – Prise Connectée</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <div class="synthwave-bg" aria-hidden="true">
+    <div id="starfield"></div>
+    <div class="sun-container"><div class="glitch-sun"></div></div>
+    <div class="mountain-range"></div>
+    <div class="retro-grid-wrap"><div class="retro-grid"></div></div>
+    <div class="scanlines"></div>
+  </div>
+
   <nav class="retro-menu">
     <div class="retro-title"><i class="fas fa-sun"></i> Eric<span class="vice-glitch">Petersen</span></div>
     <ul>
       <li><a href="../index.html#about"><i class="fas fa-user"></i> À propos</a></li>
       <li><a href="../index.html#projects" class="active-nav"><i class="fas fa-laptop-code"></i> Projets</a></li>
+      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
     </ul>
   </nav>
+
   <main>
-    <section class="retro-window" style="max-width: 650px;">
+    <section class="retro-window" style="max-width: 800px;">
       <div class="window-bar">
-        <span class="window-title"><i class="fas fa-plug"></i> SAE 3.01 – Prise Connectée</span>
-        <span class="window-buttons">
-          <span class="win-btn close"></span>
-          <span class="win-btn min"></span>
-          <span class="win-btn max"></span>
-        </span>
+        <span class="window-title"><i class="fas fa-plug"></i> PROJET :: PRISE IOT</span>
+        <span class="window-buttons"><span class="win-btn close"></span><span class="win-btn min"></span><span class="win-btn max"></span></span>
       </div>
       <div class="window-body">
         <div class="img-showcase">
-          <img src="../assets/img/sae-301.png" alt="Prise Connectée Wifi">
+          <img src="../assets/img/sae-301.png" alt="Prise Connectée">
         </div>
-        <h2 class="vice-title">SAE 3.01 – Prise Connectée Wifi</h2>
+        <h2 class="vice-title" style="text-align:center; margin-bottom:1em;">SAE 3.01 – Prise Connectée Wifi</h2>
         
         <div class="project-summary-panel">
           <ul class="project-summary-list">
-            <li><b>Contexte :</b> Réalisation d’une prise connectée intelligente pilotable en Wifi</li>
-            <li><b>Objectifs :</b> Contrôle, automatisation, sécurité, développement web & mobile</li>
-            <li><b>Compétences clés :</b> IoT, réseaux, cybersécurité, Python, Android</li>
+            <li><b>Contexte :</b> Réalisation d’une prise connectée intelligente</li>
+            <li><b>Objectifs :</b> Contrôle, automatisation, sécurité, dev mobile</li>
+            <li><b>Compétences :</b> IoT, réseaux, cybersécurité, Python, Android</li>
             <li><b>Outils :</b> ESP32, Python, HTML/CSS, Android Studio</li>
           </ul>
         </div>
         
         <div class="text-block">
-          <b>Résumé :</b><br>
-          Dans le cadre de la SAÉ 3.01, nous avons répondu à un cahier des charges d’entreprise en concevant une solution de collecte et de transmission d’informations basée sur une prise connectée intelligente.<br>
-          Notre objectif principal était de développer un prototype capable de récupérer des données physiques (telles que la température) et de les transmettre de façon fiable et sécurisée à une interface de supervision, tout en respectant les contraintes techniques des systèmes de transmission (<b>CE2.01</b>).<br><br>
-          Après l’analyse de différentes solutions, nous avons opté pour une architecture associant Arduino pour la captation des données et Python pour leur traitement et leur transmission (<b>AC22.05, CE2.03</b>). Ce choix a permis d’intégrer efficacement capteurs, microcontrôleur et connexion réseau, assurant la stabilité et la sécurité des échanges entre les différentes couches du système.<br><br>
-          La mise en œuvre a impliqué :
-          <ul style="margin:0.6em 0 0 1.2em;padding-left:1.2em;">
-            <li>Le dimensionnement et le choix des composants électroniques adaptés,</li>
-            <li>La configuration des transmissions série et réseau,</li>
-            <li>La conception d’une interface de récupération des données sur réseau local (simulation de connexion inter-bâtiments, <b>AC22.03</b>),</li>
-            <li>L’installation d’un accès distant sécurisé via SSH (<b>AC22.02</b>).</li>
-          </ul>
-          <br>
-          Nous avons validé les performances du système à l’aide d’outils de mesure, en analysant le débit, la latence et la fiabilité du canal de transmission (<b>AC22.01, CE2.04</b>).<br><br>
-          Ce projet a renforcé nos compétences en électronique appliquée, programmation embarquée, réseaux et sécurité, tout en nous permettant de mettre en pratique une démarche rigoureuse d’analyse, de conception et de validation technique.
+          Conception d'une solution de collecte et de transmission d’informations basée sur une prise connectée. Le prototype récupère des données physiques (température) et les transmet de façon sécurisée à une interface de supervision.
         </div>
         
         <div class="action-buttons">
           <a href="../index.html#projects" class="press-start-btn">⬅ Retour</a>
           <a href="../assets/docs/sujet-sae-301.pdf" class="press-start-btn alt-color" target="_blank">
-            <i class="fas fa-file-pdf"></i> Voir le sujet
+            <i class="fas fa-file-pdf"></i> Sujet PDF
           </a>
         </div>        
       </div>
     </section>
   </main>
+  
   <footer class="retro-footer">
-    <span class="footer-pixel">© 2025 Eric Petersen | Portfolio</span>
+    <span class="footer-pixel">© 2025 Eric Petersen | Cyber Portfolio</span>
   </footer>
   <script src="../assets/js/main.js"></script>
 </body>

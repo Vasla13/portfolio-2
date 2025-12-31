@@ -7,14 +7,12 @@
   <meta name="description" content="Portfolio synthwave d'Eric Petersen, étudiant R&T Cyber.">
   
   <meta property="og:title" content="Eric Petersen – Vice Portfolio">
-  <meta property="og:description" content="Portfolio rétro synthwave d'Eric Petersen.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/profil.jpg">
 
   <link rel="alternate icon" href="assets/img/favicon.ico">
   
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@500&family=VT323&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <link rel="stylesheet" href="assets/css/style.css">
@@ -53,7 +51,7 @@
   <main>
     <section class="retro-window terminal-window">
       <div class="window-bar">
-        <span class="window-title"><i class="fas fa-terminal"></i> Terminal</span>
+        <span class="window-title"><i class="fas fa-terminal"></i> C:\> INITIALIZE_PORTFOLIO.EXE</span>
         <span class="window-buttons">
           <span class="win-btn close"></span><span class="win-btn min"></span><span class="win-btn max"></span>
         </span>
@@ -65,44 +63,40 @@
 
     <section id="about" class="retro-window" aria-label="À propos">
       <div class="window-bar">
-        <span class="window-title"><i class="fas fa-id-card"></i> PROFIL UTILISATEUR</span>
+        <span class="window-title"><i class="fas fa-id-card"></i> IDENTITÉ NUMÉRIQUE</span>
         <span class="window-buttons">
           <span class="win-btn close"></span><span class="win-btn min"></span><span class="win-btn max"></span>
         </span>
       </div>
       
-      <div class="window-body profile-layout">
-        <div class="profile-sidebar">
-          <div class="avatar-frame">
-            <i class="fas fa-user-astronaut avatar-icon"></i>
-            </div>
-          <div class="profile-status">
-            <span class="status-light online"></span> EN LIGNE
-          </div>
-          <div class="profile-role">
-            CYBER-ANALYZER<br>LVL. 2025
+      <div class="window-body profile-layout-clean">
+        <div class="profile-photo-container">
+           <div class="cyber-img-wrap">
+             <img src="assets/img/profil.jpg" alt="Eric Petersen" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+             <i class="fas fa-user-circle fallback-icon" style="display:none;"></i>
           </div>
         </div>
 
-        <div class="profile-info">
-          <h2 class="vice-title">Eric Petersen</h2>
-          <span class="vice-sub">> Étudiant en R&T Cyber @ IUT Colmar</span>
+        <div class="profile-info-clean">
+          <h2 class="vice-title-large">Eric Petersen</h2>
+          <div class="profile-badges">
+            <span class="cyber-badge">R&T Cyber</span>
+            <span class="cyber-badge">IUT Colmar</span>
+            <span class="cyber-badge status-ok"><i class="fas fa-check-circle"></i> Disponible</span>
+          </div>
           
-          <p class="profile-bio">
-            Initialisation...<br><br>
-            Passionné de <span class="color-miami">cybersécurité</span>, <span class="color-miami">réseaux</span> et <span class="color-miami">développement</span>. J’aime fusionner technologie & style rétro pour apprendre et innover.
+          <p class="profile-bio-clean">
+            Étudiant passionné par la <span class="color-miami">cybersécurité offensive & défensive</span>, l'administration réseaux et le développement d'outils. Je cherche à comprendre comment les systèmes fonctionnent pour mieux les protéger (et parfois les casser).
           </p>
           
-          <div class="tech-stack-label">STACK TECHNIQUE_</div>
-          <div class="about-skills">
-            <span class="badge-skill" tabindex="0"><i class="fab fa-python"></i> Python</span>
-            <span class="badge-skill" tabindex="0"><i class="fab fa-linux"></i> Linux</span>
-            <span class="badge-skill" tabindex="0"><i class="fas fa-shield-alt"></i> Cyber</span>
-            <span class="badge-skill" tabindex="0"><i class="fab fa-js-square"></i> JS</span>
-            <span class="badge-skill" tabindex="0"><i class="fab fa-php"></i> PHP</span>
-            <span class="badge-skill" tabindex="0"><i class="fas fa-database"></i> SQL</span>
+          <div class="tech-stack-clean">
+            <span><i class="fab fa-python"></i> Python</span>
+            <span><i class="fab fa-linux"></i> Linux</span>
+            <span><i class="fas fa-network-wired"></i> Réseaux</span>
+            <span><i class="fas fa-shield-alt"></i> Cyber</span>
+            <span><i class="fab fa-docker"></i> Docker</span>
           </div>
-          <div id="skillDesc"></div>
+           <div id="skillDesc"></div>
         </div>
       </div>
     </section>
@@ -116,47 +110,35 @@
       </div>
       <div class="window-body skills-body">
         <a class="skill-card retro-tech-card" href="pages/ue-1.html" tabindex="0">
-          <div class="skill-header-tech">
-            <span class="ue-id">[U.E.1]</span> RESERVAUX & NET ADMIN
-          </div>
+          <div class="skill-header-tech"><span class="ue-id">[U.E.1]</span> RESERVAUX & NET ADMIN</div>
           <ul class="skill-specs">
             <li><i class="fas fa-chevron-right neon-bullet"></i> Routage & Commutation</li>
             <li><i class="fas fa-chevron-right neon-bullet"></i> Services (DNS, DHCP)</li>
             <li><i class="fas fa-chevron-right neon-bullet"></i> Admin Linux/Windows</li>
-            <li><i class="fas fa-chevron-right neon-bullet"></i> Adressage IP & VLAN</li>
           </ul>
         </a>
         <a class="skill-card retro-tech-card" href="pages/ue-2.html" tabindex="0">
-          <div class="skill-header-tech">
-            <span class="ue-id">[U.E.2]</span> INTERCONNEXION & IoT
-          </div>
+          <div class="skill-header-tech"><span class="ue-id">[U.E.2]</span> INTERCONNEXION & IoT</div>
           <ul class="skill-specs">
             <li><i class="fas fa-chevron-right neon-bullet"></i> VPN & Accès distants</li>
             <li><i class="fas fa-chevron-right neon-bullet"></i> Téléphonie IP (ToIP)</li>
-            <li><i class="fas fa-chevron-right neon-bullet"></i> Réseaux IoT & Capteurs</li>
-            <li><i class="fas fa-chevron-right neon-bullet"></i> Fibre & Sans-fil</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Réseaux IoT & sans-fil</li>
           </ul>
         </a>
         <a class="skill-card retro-tech-card" href="pages/ue-3.html" tabindex="0">
-          <div class="skill-header-tech">
-            <span class="ue-id">[U.E.3]</span> DEV & AUTOMATISATION
-          </div>
+          <div class="skill-header-tech"><span class="ue-id">[U.E.3]</span> DEV & AUTOMATISATION</div>
           <ul class="skill-specs">
             <li><i class="fas fa-chevron-right neon-bullet"></i> Scripting (Python, Bash)</li>
-            <li><i class="fas fa-chevron-right neon-bullet"></i> Développement Web</li>
-            <li><i class="fas fa-chevron-right neon-bullet"></i> Bases de données (SQL)</li>
-            <li><i class="fas fa-chevron-right neon-bullet"></i> Outils métiers</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Développement Web & BDD</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Création d'outils métiers</li>
           </ul>
         </a>
         <a class="skill-card retro-tech-card" href="pages/ue-4-5.html" tabindex="0">
-          <div class="skill-header-tech">
-            <span class="ue-id">[U.E.4-5]</span> CYBER & SUPERVISION
-          </div>
+          <div class="skill-header-tech"><span class="ue-id">[U.E.4-5]</span> CYBER & SUPERVISION</div>
           <ul class="skill-specs">
             <li><i class="fas fa-chevron-right neon-bullet"></i> Pentesting & Audit</li>
-            <li><i class="fas fa-chevron-right neon-bullet"></i> Supervision SI</li>
-            <li><i class="fas fa-chevron-right neon-bullet"></i> Gestion d'incidents</li>
-            <li><i class="fas fa-chevron-right neon-bullet"></i> Sécurité Ops</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Supervision & Logs (SIEM)</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Sécurité Opérationnelle</li>
           </ul>
         </a>
       </div>
@@ -172,33 +154,19 @@
       <div class="window-body skills-body">
         <a class="skill-card" href="pages/root-me.html" tabindex="0">
           <div class="skill-header"><i class="fas fa-user-secret"></i> Root-Me PRO</div>
-          <div class="skill-desc">
-            Challenges cybersécurité, pentest, automatisation d’outils, analyse réseau et forensics.
-          </div>
+          <div class="skill-desc">Challenges cybersécurité, pentest, automatisation d’outils, analyse réseau et forensics.</div>
         </a>
         <a class="skill-card" href="pages/sae-302.html" tabindex="0">
           <div class="skill-header"><i class="fas fa-network-wired"></i> SAE 3.02</div>
-          <div class="skill-desc">
-            Applications communicantes distribuées (Java, Python, C), sécurité, cluster TCP, scripting.
-          </div>
+          <div class="skill-desc">Applications communicantes distribuées (Java, Python, C), sécurité, cluster TCP.</div>
         </a>
         <a class="skill-card" href="pages/stage.html" tabindex="0">
-          <div class="skill-header"><i class="fas fa-briefcase"></i> Stage DORNER Health IT</div>
-          <div class="skill-desc">
-            Développement d’un outil sécurisé de mise à jour logicielle – Linux, PHP, MariaDB, sécurité.
-          </div>
-        </a>
-        <a class="skill-card" href="pages/sae-301.html" tabindex="0">
-          <div class="skill-header"><i class="fas fa-microchip"></i> SAE 3.01</div>
-          <div class="skill-desc">
-            Prise connectée intelligente : capteurs Arduino, transmission Python, analyse réseau, supervision.
-          </div>
+          <div class="skill-header"><i class="fas fa-briefcase"></i> Stage DORNER</div>
+          <div class="skill-desc">Outil sécurisé de mise à jour logicielle – Linux, PHP, MariaDB, sécurité serveur.</div>
         </a>
         <a class="skill-card" href="pages/sae-303.html" tabindex="0">
           <div class="skill-header"><i class="fas fa-project-diagram"></i> SAE 3.03</div>
-          <div class="skill-desc">
-            Infra multi-sites sécurisée sous EVE-NG, VPN, routage dynamique, VLAN, haute-dispo.
-          </div>
+          <div class="skill-desc">Infra multi-sites sécurisée (EVE-NG), VPN, routage dynamique, haute-dispo.</div>
         </a>
       </div>
     </section>
@@ -212,37 +180,23 @@
       </div>
       <div class="window-body contact-dashboard">
         <p style="text-align: center; margin-bottom: 1.5em; font-family: 'Press Start 2P', monospace; font-size: 0.9em; color:#00faff;">
-          >> ÉTABLIR UNE LIAISON SÉCURISÉE ? <<
+          >> CANAL SÉCURISÉ OUVERT <<
         </p>
-
         <div class="contact-grid-wrapper">
           <div class="contact-col">
             <h3 class="retro-sub-title">PRO LINKS_</h3>
             <div class="contact-grid">
-               <a href="mailto:eric.petersen@uha.fr" class="press-start-btn social-btn mail-btn">
-                <i class="fas fa-envelope-open-text"></i> Mail Pro
-              </a>
-              <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" rel="noopener" class="press-start-btn social-btn linkedin-btn">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-              </a>
-              <a href="assets/docs/cv-eric-petersen.pdf" class="press-start-btn social-btn cv-btn" target="_blank" rel="noopener">
-                <i class="fas fa-file-contract"></i> CV_v2025.pdf
-              </a>
+               <a href="mailto:eric.petersen@uha.fr" class="press-start-btn social-btn mail-btn"><i class="fas fa-envelope-open-text"></i> Mail Pro</a>
+              <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" class="press-start-btn social-btn linkedin-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+              <a href="assets/docs/cv-eric-petersen.pdf" class="press-start-btn social-btn cv-btn" target="_blank"><i class="fas fa-file-contract"></i> CV PDF</a>
             </div>
           </div>
-
           <div class="contact-col">
-            <h3 class="retro-sub-title">SOCIAL & DEV_</h3>
+            <h3 class="retro-sub-title">DEV & SOCIAL_</h3>
             <div class="contact-grid">
-               <a href="https://github.com/Vasla13" target="_blank" rel="noopener" class="press-start-btn social-btn github-btn">
-                <i class="fab fa-github-alt"></i> GitHub
-              </a>
-              <a href="https://x.com/eripet05" target="_blank" rel="noopener" class="press-start-btn social-btn twitter-btn">
-                <i class="fab fa-x-twitter"></i> Twitter/X
-              </a>
-              <a href="https://discord.com/users/623836221000515604" target="_blank" rel="noopener" class="press-start-btn social-btn discord-btn">
-                <i class="fab fa-discord"></i> Discord
-              </a>
+               <a href="https://github.com/Vasla13" target="_blank" class="press-start-btn social-btn github-btn"><i class="fab fa-github-alt"></i> GitHub</a>
+              <a href="https://x.com/eripet05" target="_blank" class="press-start-btn social-btn twitter-btn"><i class="fab fa-x-twitter"></i> Twitter/X</a>
+              <a href="https://discord.com/users/623836221000515604" target="_blank" class="press-start-btn social-btn discord-btn"><i class="fab fa-discord"></i> Discord</a>
             </div>
           </div>
         </div>
@@ -251,7 +205,7 @@
   </main>
 
   <footer class="retro-footer">
-    <span class="footer-pixel">© 2025 Eric Petersen | Portfolio</span>
+    <span class="footer-pixel">© 2025 Eric Petersen | Cyber Portfolio</span>
   </footer>  
   
   <script src="assets/js/main.js"></script>

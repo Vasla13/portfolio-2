@@ -1,5 +1,5 @@
 /* =========================================
-   STYLE.CSS - SYNTHWAVE EDITION ULTIME
+   STYLE.CSS - VERSION DEFINITIVE (CYBER PRO)
    ========================================= */
 
 html {
@@ -11,7 +11,7 @@ html {
 body {
   margin: 0;
   font-family: 'JetBrains Mono', 'Press Start 2P', monospace;
-  background-color: #0c0c1e; /* Fond de secours */
+  background-color: #0c0c1e;
   min-height: 100vh;
   color: #fffbe7;
   overflow-x: hidden;
@@ -19,316 +19,352 @@ body {
 }
 
 /* =========================================
-   1. FOND SYNTHWAVE ANIMÉ (SCENE 3D)
+   1. FOND SYNTHWAVE (ANIMATION OPTIMISÉE)
    ========================================= */
 
 .synthwave-bg {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(to bottom, #02001c 0%, #180c2e 60%, #3a0e36 100%);
-  z-index: -1;
-  overflow: hidden;
-  perspective: 1000px; /* Important pour la 3D */
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, #02001c 0%, #180c2e 50%, #3a0e36 100%);
+  z-index: -1; overflow: hidden;
+  perspective: 1200px; /* Profondeur 3D */
 }
 
-/* --- Le Soleil Géant --- */
+/* --- Le Soleil --- */
 .sun-container {
   position: absolute;
-  top: 15%; /* Positionné plus bas pour être bien visible */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px; /* Beaucoup plus gros */
-  height: 300px;
+  top: 12%; left: 50%; transform: translate(-50%, -50%);
+  width: 280px; height: 280px;
   z-index: 1;
 }
 
 .glitch-sun {
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  background: linear-gradient(to bottom, #ffe7fd 0%, #ff62d6 50%, #ff9a00 100%);
-  box-shadow: 0 0 60px #ff62d6, 0 0 100px #ff9a00aa;
-  position: relative;
-  /* Masque pour faire les bandes du soleil */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 0%, black 50%,
-    transparent 50%, transparent 52%,
-    black 52%, black 60%,
-    transparent 60%, transparent 63%,
-    black 63%, black 70%,
-    transparent 70%, transparent 75%,
-    black 75%, black 85%,
-    transparent 85%, transparent 100%
-  );
-  mask-image: linear-gradient(...); /* Standard syntax same as above */
+  width: 100%; height: 100%; border-radius: 50%;
+  background: linear-gradient(to bottom, #ffe7fd 0%, #ff62d6 40%, #ff9a00 100%);
+  box-shadow: 0 0 50px #ff62d6, 0 0 80px #ff9a00aa;
+  /* Bandes noires sur le soleil */
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 50%, transparent 52%, black 52%, black 58%, transparent 58%, transparent 60%, black 60%, black 68%, transparent 68%, transparent 70%, black 70%, black 80%, transparent 80%, transparent 82%, black 82%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 50%, transparent 52%, black 52%, black 58%, transparent 58%, transparent 60%, black 60%, black 68%, transparent 68%, transparent 70%, black 70%, black 80%, transparent 80%, transparent 82%, black 82%);
 }
 
-/* --- La Grille 3D (Sol Mouvant) --- */
+/* --- La Grille 3D (Sol) --- */
 .retro-grid-wrap {
   position: absolute;
-  bottom: -30%; /* Pour couvrir le bas de l'écran */
-  left: -50%;
-  width: 200%;
-  height: 100%;
-  transform: rotateX(75deg); /* Effet de perspective sol */
-  z-index: 2;
-  pointer-events: none;
+  bottom: -50%; left: -50%; width: 200%; height: 150%;
+  transform: rotateX(80deg); /* Angle rasant */
+  z-index: 2; pointer-events: none;
 }
 
 .retro-grid {
   width: 100%; height: 100%;
+  /* Lignes de la grille */
   background-image: 
-    linear-gradient(rgba(255, 98, 214, 0.5) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 98, 214, 0.5) 1px, transparent 1px);
-  background-size: 60px 60px; /* Taille des carreaux */
-  box-shadow: 0 0 50px rgba(255, 98, 214, 0.3) inset;
-  animation: grid-move 3s linear infinite;
+    linear-gradient(rgba(255, 98, 214, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 98, 214, 0.4) 1px, transparent 1px);
+  background-size: 80px 80px; /* Taille des carreaux */
+  box-shadow: 0 0 150px rgba(255, 98, 214, 0.4) inset; /* Lueur au loin */
+  /* Animation LENTE et FLUIDE */
+  animation: grid-move-smooth 12s linear infinite;
 }
 
-@keyframes grid-move {
+@keyframes grid-move-smooth {
   0% { background-position: 0 0; }
-  100% { background-position: 0 60px; } /* Doit matcher background-size */
+  100% { background-position: 0 80px; } /* Doit correspondre à la taille des carreaux */
 }
 
-/* --- Montagnes (Optionnel : Forme simple en CSS) --- */
+/* --- Montagnes --- */
 .mountain-range {
-  position: absolute;
-  bottom: 25%; /* Juste au dessus de la grille */
-  left: 0; width: 100%; height: 150px;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,120 L0,100 L150,50 L300,100 L400,20 L550,120 Z" fill="%23130d24" opacity="0.8"/><path d="M500,120 L650,40 L800,120 L950,30 L1200,120 Z" fill="%23130d24" opacity="0.8"/></svg>');
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 2;
-  filter: drop-shadow(0 -5px 10px #ff62d644);
+  position: absolute; bottom: 20%; left: 0; width: 100%; height: 150px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,120 L0,100 L150,50 L300,100 L400,20 L550,120 Z" fill="%23130d24" opacity="0.9"/><path d="M500,120 L650,40 L800,120 L950,30 L1200,120 Z" fill="%23130d24" opacity="0.9"/></svg>');
+  background-size: cover; background-repeat: no-repeat; z-index: 2;
+  filter: drop-shadow(0 -5px 15px #ff62d655);
 }
 
-/* --- Étoiles --- */
-#starfield {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 0;
-}
-
-/* --- Scanlines --- */
+/* --- Etoiles et Scanlines --- */
+#starfield { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
 .scanlines {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.03) 0px,
-    rgba(255,255,255,0.03) 1px,
-    transparent 2px,
-    transparent 4px
-  );
-  pointer-events: none;
-  z-index: 10;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 2px, transparent 4px);
+  pointer-events: none; z-index: 10;
 }
 
 /* =========================================
-   2. INTERFACE & MENUS
+   2. UI & CONTAINERS
    ========================================= */
 
-.skip-link {
-  position: absolute;
-  left: -999px; top: 5px;
-  background: #ff62d6; color: #191437;
-  padding: 0.5em 1em; z-index: 5000;
-}
-.skip-link:focus { left: 10px; }
-
-/* Menu */
 .retro-menu {
   position: sticky; top: 0; width: 100%;
-  background: rgba(24, 21, 55, 0.9);
-  backdrop-filter: blur(5px);
-  border-bottom: 2px solid #00faff;
-  box-shadow: 0 0 15px #00faff55;
-  display: flex; align-items: center; z-index: 100;
-  height: 50px;
+  background: rgba(24, 21, 55, 0.95); backdrop-filter: blur(5px);
+  border-bottom: 1px solid #00faff; box-shadow: 0 0 15px rgba(0, 250, 255, 0.2);
+  display: flex; align-items: center; z-index: 100; height: 55px;
 }
-
 .retro-title {
-  font-family: 'Press Start 2P'; color: #00faff;
-  margin-left: 20px; font-size: 0.9em;
+  font-family: 'Press Start 2P'; color: #00faff; margin-left: 20px; font-size: 0.9em;
   text-shadow: 0 0 5px #00faff;
 }
-.vice-glitch { color: #ff62d6; text-shadow: 0 0 5px #ff62d6; }
-
-.retro-menu ul {
-  display: flex; list-style: none; margin-left: auto; margin-right: 20px; gap: 20px;
-}
+.vice-glitch { color: #ff62d6; text-shadow: 0 0 8px #ff62d6; }
+.retro-menu ul { display: flex; list-style: none; margin-left: auto; margin-right: 20px; gap: 25px; }
 .retro-menu a {
-  text-decoration: none; color: #ff62d6; font-family: 'Press Start 2P'; font-size: 0.7em;
-  transition: 0.3s;
+  text-decoration: none; color: #fff; font-family: 'Press Start 2P'; font-size: 0.7em;
+  transition: 0.3s; text-transform: uppercase;
 }
-.retro-menu a:hover, .retro-menu a.active-nav {
-  color: #00faff; text-shadow: 0 0 8px #00faff;
-}
+.retro-menu a:hover, .retro-menu a.active-nav { color: #00faff; text-shadow: 0 0 8px #00faff; }
+.skip-link { position: absolute; left: -999px; z-index: 9999; background:#00faff; padding:5px; color:#000;}
+.skip-link:focus { left: 10px; top: 10px;}
 
-/* Fenêtres */
-main { position: relative; z-index: 5; padding-top: 20px; }
+main { position: relative; z-index: 5; padding-top: 30px; padding-bottom: 50px; }
 
+/* Fenêtres principales */
 .retro-window {
-  width: min(95vw, 850px);
-  margin: 30px auto;
-  background: rgba(25, 20, 55, 0.85); /* Semi-transparent */
-  border: 1px solid #00faff;
+  width: min(92vw, 900px); margin: 0 auto 40px auto;
+  background: rgba(15, 12, 35, 0.92); /* Fond sombre */
+  border: 1px solid #00faff; /* Bordure fine */
   box-shadow: 0 0 20px rgba(0, 250, 255, 0.15);
-  border-radius: 6px;
-  overflow: hidden;
-  backdrop-filter: blur(4px);
+  border-radius: 4px; overflow: hidden;
 }
 
 .window-bar {
-  background: linear-gradient(90deg, #00faff 0%, #ff62d6 100%);
-  height: 25px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 10px; color: #191437; font-weight: bold; font-family: 'Press Start 2P'; font-size: 0.7em;
+  background: linear-gradient(90deg, #110f26 0%, #221a38 100%);
+  border-bottom: 1px solid #00faff;
+  height: 32px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 12px; color: #00faff; font-family: 'Press Start 2P'; font-size: 0.75em;
+  text-shadow: 0 0 5px #00faffaa; letter-spacing: 1px;
 }
-
 .window-buttons .win-btn {
   display: inline-block; width: 10px; height: 10px; border-radius: 50%;
-  margin-left: 5px; border: 1px solid rgba(0,0,0,0.2);
+  margin-left: 6px; border: 1px solid rgba(255,255,255,0.1); background: #333;
 }
 .win-btn.close { background: #ff5555; }
 .win-btn.min { background: #ffbd44; }
 .win-btn.max { background: #00ca4e; }
 
 /* =========================================
-   3. NOUVEAU STYLE : À PROPOS (PROFIL)
+   3. IMAGES & BOUTONS (LE CHANGEMENT MAJEUR)
    ========================================= */
 
-.profile-layout {
-  display: flex;
-  gap: 2em;
-  padding: 2em;
-}
-
-/* Colonne Avatar */
-.profile-sidebar {
-  flex: 0 0 200px; /* Largeur fixe */
+/* --- IMAGES REDIMENSIONNÉES --- */
+.img-showcase {
   text-align: center;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 1.5em;
-  border-radius: 8px;
-  border: 1px dashed #ff62d6;
+  margin-bottom: 1.5em;
+  padding: 15px;
+  background: rgba(0,0,0,0.2);
+  border-bottom: 1px dashed #ffffff22;
 }
 
-.avatar-frame {
-  width: 120px; height: 120px;
-  margin: 0 auto 15px auto;
-  background: #110f26;
-  border: 3px solid #00faff;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 0 15px #00faff66;
+.img-showcase img {
+  max-width: 140px; /* Taille réduite */
+  height: auto;
+  border-radius: 6px;
+  border: 2px solid #ff62d6; /* Cadre rose fin */
+  box-shadow: 0 0 15px rgba(255, 98, 214, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.avatar-icon { font-size: 3.5em; color: #ff62d6; }
-.avatar-img { width: 100%; height: 100%; object-fit: cover; }
-
-.status-light {
-  display: inline-block; width: 8px; height: 8px; background: #00ca4e;
-  border-radius: 50%; box-shadow: 0 0 5px #00ca4e; margin-right: 5px;
-}
-.profile-status {
-  font-family: 'Press Start 2P'; font-size: 0.6em; color: #00ca4e; margin-bottom: 10px;
-}
-.profile-role {
-  font-family: 'JetBrains Mono'; color: #00faff; font-size: 0.9em;
-  border-top: 1px solid #ffffff33; padding-top: 10px;
+.img-showcase img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 98, 214, 0.6);
+  border-color: #00faff; /* Devient bleu au survol */
 }
 
-/* Colonne Infos */
-.profile-info { flex: 1; }
-
-.vice-title {
-  font-family: 'Press Start 2P'; color: #00faff; font-size: 1.5em;
-  text-shadow: 2px 2px #ff62d6; margin: 0 0 5px 0;
-}
-.vice-sub { font-size: 0.9em; color: #ff62d6; font-family: 'JetBrains Mono'; }
-
-.profile-bio {
-  margin-top: 1.5em; line-height: 1.6;
-  border-left: 3px solid #ff62d6; padding-left: 15px; background: rgba(255,98,214,0.05);
-}
-
-.tech-stack-label {
-  margin-top: 2em; font-family: 'Press Start 2P'; font-size: 0.7em; color: #fff;
-  border-bottom: 2px solid #00faff; display: inline-block; margin-bottom: 1em;
-}
-
-.about-skills { display: flex; flex-wrap: wrap; gap: 10px; }
-.badge-skill {
-  background: linear-gradient(45deg, #2b102f, #191437);
-  border: 1px solid #00faff; color: #00faff;
-  padding: 5px 10px; font-family: 'Press Start 2P'; font-size: 0.7em; border-radius: 4px;
-  cursor: default; transition: 0.2s;
-}
-.badge-skill:hover {
-  background: #00faff; color: #191437; box-shadow: 0 0 10px #00faff;
+/* --- BOUTONS STYLE WIREFRAME / NEON --- */
+.press-start-btn, .home-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.75em; /* Texte ajusté */
+  background: rgba(0, 250, 255, 0.05); /* Fond transparent */
+  color: #00faff; /* Texte Cyan */
+  border: 1px solid #00faff; /* Bordure Cyan */
+  border-radius: 4px;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: 0 0 5px rgba(0, 250, 255, 0.1);
+  text-transform: uppercase;
+  line-height: 1;
 }
 
-/* Responsive Profil */
-@media (max-width: 700px) {
-  .profile-layout { flex-direction: column; align-items: center; }
-  .profile-sidebar { width: 100%; flex: auto; }
+.press-start-btn:hover, .home-btn:hover {
+  background: #00faff; /* Remplissage au survol */
+  color: #0c0c1e; /* Texte sombre */
+  box-shadow: 0 0 20px rgba(0, 250, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Variante Rose (Pour les liens alternatifs) */
+.press-start-btn.alt-color {
+  border-color: #ff62d6;
+  color: #ff62d6;
+  background: rgba(255, 98, 214, 0.05);
+  box-shadow: 0 0 5px rgba(255, 98, 214, 0.1);
+}
+
+.press-start-btn.alt-color:hover {
+  background: #ff62d6;
+  color: #0c0c1e;
+  box-shadow: 0 0 20px rgba(255, 98, 214, 0.5);
+}
+
+.action-buttons {
+  display: flex; gap: 15px; justify-content: center; margin-top: 2em; flex-wrap: wrap;
 }
 
 /* =========================================
-   4. STYLES GÉNÉRAUX & CARTES
+   4. SECTIONS SPÉCIFIQUES
    ========================================= */
 
-/* Compétences & Projets */
-.skills-body { padding: 2em; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+/* --- Terminal --- */
+.terminal-window .window-body { background: #0c0c1e; padding: 15px; }
+.terminal-text {
+  color: #00faff; font-family: 'VT323', monospace; font-size: 1.3em;
+  margin: 0; white-space: pre-wrap; text-shadow: 0 0 4px #00faffaa; min-height: 60px;
+}
+.terminal-text::after {
+  content: "▋"; display: inline-block; margin-left: 2px;
+  animation: blink-cursor 0.9s steps(2, start) infinite; color: #00faff;
+}
+@keyframes blink-cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
+/* --- Profil (À Propos) --- */
+.profile-layout-clean {
+  display: flex; align-items: center; gap: 2.5em; padding: 2.5em;
+  background: radial-gradient(circle at top right, rgba(0, 250, 255, 0.05), transparent 40%);
+}
+.profile-photo-container { flex: 0 0 160px; }
+.cyber-img-wrap {
+  width: 160px; height: 160px; border-radius: 12px;
+  border: 2px solid #ff62d6; box-shadow: 0 0 20px #ff62d655;
+  overflow: hidden; position: relative; background: #191437;
+  display: flex; justify-content: center; align-items: center;
+}
+.cyber-img-wrap img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1;}
+.cyber-img-wrap::after {
+  content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 30%;
+  background: linear-gradient(to bottom, transparent, rgba(0, 250, 255, 0.4), transparent);
+  opacity: 0.5; animation: photo-scan 3s linear infinite; z-index: 2; pointer-events: none;
+}
+@keyframes photo-scan { 0% { top: -30%; } 100% { top: 100%; } }
+.profile-info-clean { flex: 1; }
+.vice-title-large {
+  font-family: 'Press Start 2P'; color: #fff; font-size: 1.8em;
+  text-shadow: 3px 3px 0px #ff62d6, -2px -2px 0px #00faff; margin: 0 0 15px 0;
+}
+.profile-badges { display: flex; gap: 10px; margin-bottom: 1.5em; flex-wrap: wrap; }
+.cyber-badge {
+  font-family: 'JetBrains Mono'; font-size: 0.85em; color: #00faff;
+  border: 1px solid #00faff; padding: 4px 10px; border-radius: 4px; background: rgba(0, 250, 255, 0.1);
+}
+.status-ok { color: #00ca4e; border-color: #00ca4e; background: rgba(0, 202, 78, 0.1); }
+.profile-bio-clean {
+  font-size: 1.05em; line-height: 1.6; color: #e0e0e0;
+  border-left: 4px solid #ff62d6; padding-left: 20px; margin-bottom: 2em;
+}
+.tech-stack-clean { display: flex; flex-wrap: wrap; gap: 12px; }
+.tech-stack-clean span {
+  font-family: 'Press Start 2P'; font-size: 0.7em;
+  background: #191437; border: 1px solid #ff62d6; color: #ff62d6;
+  padding: 8px 12px; border-radius: 6px; display: flex; align-items: center; gap: 8px;
+  transition: 0.3s;
+}
+.tech-stack-clean span:hover {
+  background: #ff62d6; color: #191437; box-shadow: 0 0 15px #ff62d6; transform: translateY(-3px);
+}
+@media (max-width: 800px) {
+  .profile-layout-clean { flex-direction: column; text-align: center; }
+  .profile-bio-clean { border-left: none; border-top: 3px solid #ff62d6; padding-left: 0; padding-top: 20px;}
+}
+
+/* --- Cartes Projets/Skills --- */
+.skills-body { padding: 2em; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
 .skill-card {
-  width: 300px;
-  background: rgba(0,0,0,0.4); border: 1px solid #ff62d6;
-  padding: 1.5em; border-radius: 8px; text-decoration: none; color: inherit;
-  transition: 0.3s; position: relative; overflow: hidden;
+  width: 280px; background: rgba(255,255,255,0.03); border: 1px solid #ff62d655;
+  padding: 1.5em; border-radius: 6px; text-decoration: none; color: inherit;
+  transition: 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column;
 }
 .skill-card:hover {
-  transform: translateY(-5px); box-shadow: 0 5px 15px #ff62d666; border-color: #00faff;
+  transform: translateY(-5px); border-color: #00faff; background: rgba(0, 250, 255, 0.05);
+  box-shadow: 0 5px 20px rgba(0, 250, 255, 0.15);
 }
+.skill-header { font-family: 'Press Start 2P'; font-size: 0.9em; color: #00faff; margin-bottom: 10px; }
+.skill-desc { font-family: 'JetBrains Mono'; font-size: 0.9em; color: #ccc; line-height: 1.5; }
 
-/* Style des cartes "Tech" (IUT) */
 .skill-header-tech {
-  font-family: 'Press Start 2P'; color: #00faff; font-size: 0.9em; margin-bottom: 1em;
-  border-bottom: 1px dashed #ffffff44; padding-bottom: 10px;
+  font-family: 'Press Start 2P'; color: #00faff; font-size: 0.95em; margin-bottom: 1.2em;
+  border-bottom: 2px dashed #ffffff33; padding-bottom: 12px;
 }
-.ue-id { display: block; font-size: 0.7em; color: #ff62d6; margin-bottom: 5px; }
-.skill-specs { list-style: none; padding: 0; margin: 0; font-family: 'JetBrains Mono'; font-size: 0.85em; }
-.skill-specs li { margin-bottom: 5px; display: flex; align-items: center; }
-.neon-bullet { margin-right: 8px; color: #ff62d6; font-size: 0.7em; }
+.ue-id { display: block; font-size: 0.8em; color: #ff62d6; margin-bottom: 8px; opacity: 0.9; }
+.skill-specs { list-style: none; padding: 0; margin: 0; font-family: 'JetBrains Mono'; font-size: 0.9em; color: #ddd; }
+.skill-specs li { margin-bottom: 8px; display: flex; align-items: center; }
+.neon-bullet { margin-right: 10px; color: #ff62d6; font-size: 0.8em; text-shadow: 0 0 5px #ff62d6; }
 
-/* Dashboard Contact */
-.contact-dashboard { padding: 2em; background: rgba(0,0,0,0.6); }
-.contact-grid-wrapper { display: flex; gap: 20px; flex-wrap: wrap; }
-.contact-col { flex: 1; min-width: 250px; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 6px; }
-.retro-sub-title { font-family: 'Press Start 2P'; color: #ff62d6; font-size: 0.8em; margin-bottom: 15px; border-left: 3px solid #00faff; padding-left: 10px; }
+/* --- Contact Dashboard --- */
+.contact-dashboard { padding: 2.5em; background: rgba(0,0,0,0.4); }
+.contact-grid-wrapper { display: flex; gap: 25px; flex-wrap: wrap; }
+.contact-col {
+  flex: 1; min-width: 260px; background: rgba(0, 250, 255, 0.05);
+  padding: 20px; border-radius: 8px; border: 1px solid rgba(0, 250, 255, 0.2);
+}
+.retro-sub-title {
+  font-family: 'Press Start 2P'; color: #ff62d6; font-size: 0.85em; margin: 0 0 15px 0;
+  border-left: 4px solid #00faff; padding-left: 12px; letter-spacing: 1px;
+}
 
+/* Boutons sociaux du dashboard (style wireframe aligné à gauche) */
 .contact-grid a.social-btn {
-  display: flex; align-items: center; width: 100%; padding: 10px; margin-bottom: 10px;
-  background: #191437; border: 1px solid #00faff55; color: #fff; text-decoration: none;
-  font-family: 'Press Start 2P'; font-size: 0.7em; transition: 0.3s;
+  display: flex; align-items: center; width: 100%; padding: 12px 15px; margin-bottom: 12px;
+  background: rgba(0,0,0,0.3); border: 1px solid #00faff55;
+  color: #fff; text-decoration: none; font-family: 'Press Start 2P'; font-size: 0.75em;
+  transition: 0.3s; border-radius: 4px; box-sizing: border-box;
 }
 .contact-grid a.social-btn:hover {
-  background: #00faff; color: #191437; border-color: #fff;
+  border-color: #ff62d6; box-shadow: 0 0 15px #ff62d655; transform: translateX(5px);
+  background: rgba(255, 98, 214, 0.1);
 }
-.contact-grid i { width: 25px; text-align: center; margin-right: 10px; font-size: 1.2em; }
+.contact-grid i { width: 30px; text-align: center; margin-right: 10px; font-size: 1.3em; color: #00faff; }
+.contact-grid a:hover i { color: #ff62d6; }
 
-/* Terminal */
-.terminal-text {
-  color: #00faff; font-family: 'VT323'; font-size: 1.2em;
-  padding: 10px; min-height: 50px; text-shadow: 0 0 2px #00faff;
+/* --- Contenu Texte --- */
+.vice-title {
+  font-family: 'Press Start 2P'; font-size: 1.3em; color: #00faff;
+  text-shadow: 2px 2px 0px #ff62d6; margin-bottom: 15px;
 }
+.project-summary-panel {
+  background: rgba(0, 250, 255, 0.05);
+  border-left: 3px solid #00faff;
+  padding: 1.2em; margin: 1.5em 0;
+  border-radius: 0 4px 4px 0;
+}
+.project-summary-list { margin: 0; padding-left: 1.2em; list-style: none; }
+.project-summary-list li { margin-bottom: 0.6em; position: relative; color: #e0e0e0; }
+.project-summary-list li::before { content: ">"; color: #ff62d6; position: absolute; left: -1.2em; font-weight: bold;}
+.text-block { margin: 1.5em 0; line-height: 1.7; color: #ddd; text-align: justify; }
 
-/* Footer */
+/* --- Footer --- */
 .retro-footer {
-  text-align: center; padding: 20px; font-family: 'Press Start 2P'; font-size: 0.7em;
-  color: #ff62d6; background: #0c0c1e; border-top: 2px solid #00faff;
+  text-align: center; padding: 25px; font-family: 'Press Start 2P'; font-size: 0.75em;
+  color: #ff62d6; background: #0c0c1e; border-top: 1px solid #00faff;
   position: relative; z-index: 10;
 }
+
+/* --- Page 404 --- */
+body.error-page-body {
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  background: transparent; /* Laisse voir le bg synthwave si présent */
+}
+.error-window {
+  max-width: 450px; text-align: center; padding: 3em;
+  background: rgba(15, 12, 35, 0.95); border: 2px solid #ff62d6;
+  box-shadow: 0 0 30px rgba(255, 98, 214, 0.2);
+}
+.error-title {
+  font-family: 'Press Start 2P'; font-size: 4em; color: #ff62d6; margin-bottom: 20px;
+  text-shadow: 4px 4px 0px #00faff; animation: glitch-404 2s infinite;
+}
+@keyframes glitch-404 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+.error-text { font-size: 1.2em; margin-bottom: 30px; line-height: 1.5; }
