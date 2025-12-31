@@ -1,6 +1,6 @@
 /**
- * Main.js - Optimisé
- * Gestion des animations, du terminal et de l'interactivité
+ * Main.js - Version Cyber Pro
+ * Gestion des animations, du terminal, de la navigation et des effets visuels.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,209 +9,211 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollEffects();
   initStarfield();
   initPageTransitions();
-  initKeyboardAccessibility();
+  initGlitchEffect();
 });
 
-/* --- 1. Terminal Animé --- */
+/* --- 1. Terminal Animé (Effet Hacker) --- */
 function initTerminal() {
   const terminal = document.getElementById("terminal-text");
   if (!terminal) return;
 
+  // Texte à afficher ligne par ligne
   const lines = [
-    "███████╗    ██████╗  ██████╗ ██████╗ ████████╗███████╗ ██████╗ ██╗     ██╗ ██████╗     ",
-    "██╔════╝    ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██╔═══██╗██║     ██║██╔═══██╗    ",
-    "█████╗█████╗██████╔╝██║   ██║██████╔╝   ██║   █████╗  ██║   ██║██║     ██║██║   ██║    ",
-    "██╔══╝╚════╝██╔═══╝ ██║   ██║██╔══██╗   ██║   ██╔══╝  ██║   ██║██║     ██║██║   ██║    ",
-    "███████╗    ██║     ╚██████╔╝██║  ██║   ██║   ██║     ╚██████╔╝███████╗██║╚██████╔╝    ",
-    "╚══════╝    ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝      ╚═════╝ ╚══════╝╚═╝ ╚═════╝     ",
+    "Initializing SYSTEM.CORE...",
+    "Loading Cyber_Profile_v2.0...",
+    "> CONNECTED to NETWORK: SECURE",
     "",
-    "Bienvenue sur mon portfolio rétro synthwave !",
-    "Je suis Eric Petersen.",
-    ">> Étudiant Réseaux & Télécoms, option Cyber.",
+    "Bienvenue sur le terminal d'Eric Petersen.",
+    "-----------------------------------------",
+    "Étudiant R&T | Option Cybersécurité | Développeur",
     "",
-    "Découvrez mes compétences, projets et réalisations ",
+    "> Analyse des compétences en cours...",
+    "[OK] Python",
+    "[OK] Linux Administration",
+    "[OK] Network Security",
     "",
-    "Appuyez sur la touche [Barre d'espace]… ou faites défiler pour continuer.",
+    "Prêt à explorer. Faites défiler pour continuer.",
+    "_"
   ];
 
   let lineIndex = 0;
   let charIndex = 0;
-  terminal.textContent = "";
+  terminal.textContent = ""; // Vide le terminal au début
 
   function typeLine() {
     if (lineIndex < lines.length) {
       const currentLine = lines[lineIndex];
+      
+      // Si c'est une ligne vide, on saute direct
+      if (currentLine === "") {
+        terminal.textContent += "\n";
+        lineIndex++;
+        setTimeout(typeLine, 100);
+        return;
+      }
+
       if (charIndex < currentLine.length) {
         terminal.textContent += currentLine[charIndex++];
-        // Vitesse de frappe aléatoire pour effet réaliste
-        setTimeout(typeLine, 5 + Math.random() * 10);
+        // Vitesse de frappe aléatoire (plus réaliste)
+        setTimeout(typeLine, Math.random() * 30 + 20);
       } else {
         terminal.textContent += "\n";
         charIndex = 0;
         lineIndex++;
-        setTimeout(typeLine, 150); // Pause entre les lignes
+        // Pause entre les lignes
+        setTimeout(typeLine, 150);
       }
     }
   }
-  typeLine();
+  
+  // Démarrage avec un petit délai
+  setTimeout(typeLine, 500);
 }
 
-/* --- 2. Badges de Compétences --- */
+/* --- 2. Badges de Compétences (Info au survol) --- */
 function initSkillBadges() {
   const badges = document.querySelectorAll(".badge-skill");
   const descDisplay = document.getElementById("skillDesc");
   
   if (!badges.length || !descDisplay) return;
 
-  const updateDesc = (text) => descDisplay.textContent = text;
-  const clearDesc = () => descDisplay.textContent = "";
+  const originalText = ""; // Texte par défaut (vide)
 
   badges.forEach(badge => {
-    const text = badge.getAttribute("data-desc");
+    // Récupère le texte dans l'attribut data-desc (s'il existe) ou le texte du badge
+    const text = badge.getAttribute("data-desc") || "Compétence technique validée.";
     
-    // Souris
     badge.addEventListener("mouseenter", () => {
-      badges.forEach(b => b.classList.remove("active"));
-      badge.classList.add("active");
-      updateDesc(text);
-    });
-    badge.addEventListener("mouseleave", () => {
-      badge.classList.remove("active");
-      clearDesc();
+      descDisplay.textContent = "> " + text;
+      descDisplay.style.opacity = "1";
+      descDisplay.style.color = "#00faff";
     });
 
-    // Clavier (Tabulation)
-    badge.addEventListener("focus", () => {
-      badges.forEach(b => b.classList.remove("active"));
-      badge.classList.add("active");
-      updateDesc(text);
-    });
-    badge.addEventListener("blur", () => {
-      badge.classList.remove("active");
-      clearDesc();
+    badge.addEventListener("mouseleave", () => {
+      descDisplay.textContent = originalText;
     });
   });
 }
 
-/* --- 3. Scroll & Navbar --- */
+/* --- 3. Scroll & Navbar Sticky --- */
 function initScrollEffects() {
   const menu = document.querySelector(".retro-menu");
   
-  // Sticky Navbar
-  if (menu) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 40) menu.classList.add("scrolled");
-      else menu.classList.remove("scrolled");
-    }, { passive: true });
-  }
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      menu.classList.add("scrolled");
+    } else {
+      menu.classList.remove("scrolled");
+    }
+  }, { passive: true });
 
-  // Smooth Scroll pour les ancres
-  document.querySelectorAll('.retro-menu a[href^="#"], .skip-link').forEach(link => {
-    link.addEventListener("click", function (e) {
-      const href = this.getAttribute("href");
-      if(href === "#") return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-        target.setAttribute("tabindex", "-1");
-        target.focus({ preventScroll: true }); 
+  // Smooth Scroll pour les ancres (#)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === "#") return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       }
     });
   });
 }
 
-/* --- 4. Starfield (Optimisé) --- */
+/* --- 4. Starfield (Optimisé pour Mobile) --- */
 function initStarfield() {
   const starfield = document.getElementById("starfield");
-  // Si on est sur mobile ou préférence mouvement réduit, on ne lance pas l'anim
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!starfield || window.innerWidth < 450 || prefersReducedMotion) return;
+  if (!starfield) return;
 
-  const STAR_COUNT = 70; // Réduit légèrement pour la perf
-  const stars = [];
-
-  // Configuration initiale
-  starfield.style.position = "fixed";
-  starfield.style.inset = "0"; // remplace top/left/width/height: 100%
-  starfield.style.height = "260px";
-  starfield.style.pointerEvents = "none";
-  starfield.style.zIndex = "2";
-
-  const width = window.innerWidth;
-  const height = 260;
+  // Moins d'étoiles sur mobile pour la performance
+  const isMobile = window.innerWidth < 768;
+  const STAR_COUNT = isMobile ? 50 : 150; 
 
   for (let i = 0; i < STAR_COUNT; i++) {
     const star = document.createElement("div");
     star.classList.add("star");
-    const size = Math.random() * 1.5 + 1;
-    
-    // Style statique
-    star.style.width = `${size}px`;
-    star.style.height = `${size}px`;
     
     // Position aléatoire
-    const x = Math.random() * width;
-    const y = Math.random() * height;
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const duration = Math.random() * 3 + 2; // Vitesse scintillement
+    const size = Math.random() * 2 + 1;
+
+    star.style.left = `${x}%`;
+    star.style.top = `${y}%`;
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    star.style.animationDuration = `${duration}s`;
     
-    star.style.transform = `translate(${x}px, ${y}px)`;
-    star.style.opacity = Math.random() * 0.6 + 0.4;
-    
-    // Couleurs
-    if (Math.random() < 0.15) {
-      star.style.background = "#ff62d6";
-      star.style.boxShadow = "0 0 8px #ff62d6cc";
-    } else if (Math.random() < 0.18) {
-      star.style.background = "#00faff";
-      star.style.boxShadow = "0 0 8px #00faffaa";
-    }
+    // Style de base de l'étoile
+    star.style.position = "absolute";
+    star.style.background = "white";
+    star.style.borderRadius = "50%";
+    star.style.opacity = Math.random();
+    star.style.animation = `twinkle ${duration}s infinite alternate`;
 
     starfield.appendChild(star);
-    stars.push({ el: star, x, y, z: size, speed: Math.random() * 0.2 + 0.1 });
   }
-
-  // Boucle d'animation optimisée
-  function animate() {
-    for (const s of stars) {
-      s.y += s.speed * (s.z * 1.5); // Effet de parallaxe basé sur la taille
-      if (s.y > height) {
-        s.y = -5;
-        s.x = Math.random() * width;
+  
+  // Ajout de l'animation CSS dynamiquement si elle n'existe pas
+  if (!document.getElementById("star-anim-style")) {
+    const style = document.createElement("style");
+    style.id = "star-anim-style";
+    style.innerHTML = `
+      @keyframes twinkle {
+        0% { opacity: 0.3; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1.2); }
       }
-      // Utiliser translate est plus performant que top/left
-      s.el.style.transform = `translate(${s.x}px, ${s.y}px)`;
-    }
-    requestAnimationFrame(animate);
+    `;
+    document.head.appendChild(style);
   }
-  requestAnimationFrame(animate);
 }
 
-/* --- 5. Transitions de Page --- */
+/* --- 5. Transitions de Page (Fade Out) --- */
 function initPageTransitions() {
+  // Ajoute la classe fade-in au chargement
+  document.body.classList.add("loaded");
+
   document.querySelectorAll("a").forEach(link => {
-    if (link.href && link.href.endsWith(".html") && link.target !== "_blank") {
+    // Cible uniquement les liens internes qui changent de page
+    if (link.hostname === window.location.hostname && 
+        link.pathname !== window.location.pathname &&
+        !link.hash && 
+        link.target !== "_blank" &&
+        !link.hasAttribute("download")) {
+      
       link.addEventListener("click", function(e) {
-        // Empêcher l'effet si on télécharge un fichier ou ancre interne
-        if (link.hostname === window.location.hostname && !link.hasAttribute("download") && !link.hash) {
-            e.preventDefault(); // On attend la fin de l'anim
-            document.body.classList.add("fadeout");
-            setTimeout(() => {
-                window.location = link.href;
-            }, 400); // Doit correspondre à la transition CSS
-        }
+        e.preventDefault();
+        const target = this.href;
+
+        // Ajoute effet de sortie
+        document.body.classList.remove("loaded");
+        document.body.classList.add("fade-out");
+
+        // Attend la fin de l'anim (400ms) avant de changer de page
+        setTimeout(() => {
+          window.location = target;
+        }, 400);
       });
     }
   });
 }
 
-/* --- 6. Accessibilité Clavier --- */
-function initKeyboardAccessibility() {
-  document.querySelectorAll(".skill-card").forEach(card => {
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault(); // Empêcher le scroll sur espace
-        card.click();
-      }
+/* --- 6. Petit effet Glitch sur les Titres --- */
+function initGlitchEffect() {
+  const titles = document.querySelectorAll(".vice-title, .window-title");
+  
+  titles.forEach(title => {
+    title.addEventListener("mouseover", () => {
+      title.style.textShadow = "2px 0 #ff00ff, -2px 0 #00ffff";
+      setTimeout(() => {
+        title.style.textShadow = "none"; // Reset après un court instant
+      }, 200);
     });
   });
 }

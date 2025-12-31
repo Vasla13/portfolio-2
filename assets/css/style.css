@@ -1,43 +1,43 @@
 /* =========================================
-   STYLE.CSS - VERSION FINALE (FOOTER FIXED & CYBER UI)
+   STYLE.CSS - VERSION FINALE RESPONSIVE
    ========================================= */
 
+/* --- 1. CONFIGURATION GÉNÉRALE --- */
 html {
   scroll-behavior: smooth;
   max-width: 100vw;
   overflow-x: hidden;
-  height: 100%; /* Indispensable pour le sticky footer */
+  height: 100%;
 }
 
 body {
   margin: 0;
   font-family: 'JetBrains Mono', 'Press Start 2P', monospace;
   background-color: #0c0c1e;
-  /* --- FIX FOOTER CLÉ --- */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* ---------------------- */
   color: #fffbe7;
   overflow-x: hidden;
-  font-size: 13px;
+  font-size: 14px; /* Taille de base légèrement augmentée pour lisibilité */
+  opacity: 0; transition: opacity 0.4s ease-in; /* Pour effet de fade-in */
 }
 
-/* Le main prend tout l'espace libre pour pousser le footer */
+/* Effet d'apparition de page */
+body.loaded { opacity: 1; }
+body.fade-out { opacity: 0; }
+
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 40px 20px; /* Padding latéral pour ne pas coller aux bords sur mobile */
   position: relative;
   z-index: 5;
 }
 
-/* =========================================
-   1. FOND SYNTHWAVE
-   ========================================= */
+/* --- 2. FOND SYNTHWAVE --- */
 .synthwave-bg {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: linear-gradient(to bottom, #02001c 0%, #180c2e 50%, #3a0e36 100%);
@@ -79,21 +79,22 @@ main {
   pointer-events: none; z-index: 10;
 }
 
-/* =========================================
-   2. UI & NAVIGATION
-   ========================================= */
+/* --- 3. NAVIGATION (RESPONSIVE) --- */
 .retro-menu {
   position: sticky; top: 0; width: 100%;
   background: rgba(24, 21, 55, 0.95); backdrop-filter: blur(5px);
   border-bottom: 1px solid #00faff; box-shadow: 0 0 15px rgba(0, 250, 255, 0.2);
-  display: flex; align-items: center; z-index: 100; height: 55px;
+  display: flex; align-items: center; z-index: 100; height: 60px;
+  padding: 0 20px; box-sizing: border-box;
 }
 .retro-title {
-  font-family: 'Press Start 2P'; color: #00faff; margin-left: 20px; font-size: 0.9em;
-  text-shadow: 0 0 5px #00faff;
+  font-family: 'Press Start 2P'; color: #00faff; font-size: 1em;
+  text-shadow: 0 0 5px #00faff; white-space: nowrap;
 }
 .vice-glitch { color: #ff62d6; text-shadow: 0 0 8px #ff62d6; }
-.retro-menu ul { display: flex; list-style: none; margin-left: auto; margin-right: 20px; gap: 25px; }
+.retro-menu ul {
+  display: flex; list-style: none; margin-left: auto; gap: 25px; padding: 0;
+}
 .retro-menu a {
   text-decoration: none; color: #fff; font-family: 'Press Start 2P'; font-size: 0.7em;
   transition: 0.3s; text-transform: uppercase;
@@ -102,7 +103,17 @@ main {
 .skip-link { position: absolute; left: -999px; z-index: 9999; background:#00faff; padding:5px; color:#000;}
 .skip-link:focus { left: 10px; top: 10px;}
 
-/* FENÊTRES GÉNÉRALES */
+/* Media Query MENU MOBILE */
+@media (max-width: 768px) {
+  .retro-menu { padding: 0 10px; height: auto; flex-direction: column; padding-bottom: 10px; }
+  .retro-title { margin: 10px 0; font-size: 0.9em; }
+  .retro-menu ul { 
+    margin: 0; gap: 10px; flex-wrap: wrap; justify-content: center; width: 100%; 
+  }
+  .retro-menu a { font-size: 0.6em; padding: 5px; }
+}
+
+/* --- 4. FENÊTRES & CONTENEURS --- */
 .retro-window {
   width: min(92vw, 900px); margin: 0 auto 40px auto;
   background: rgba(15, 12, 35, 0.92);
@@ -114,18 +125,173 @@ main {
   background: linear-gradient(90deg, #110f26 0%, #221a38 100%);
   border-bottom: 1px solid #00faff;
   height: 32px; display: flex; align-items: center; justify-content: space-between;
-  padding: 0 12px; color: #00faff; font-family: 'Press Start 2P'; font-size: 0.75em;
-  text-shadow: 0 0 5px #00faffaa; letter-spacing: 1px;
+  padding: 0 12px; color: #00faff; font-family: 'Press Start 2P'; font-size: 0.7em;
+  text-shadow: 0 0 5px #00faffaa; letter-spacing: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .window-buttons .win-btn {
   display: inline-block; width: 10px; height: 10px; border-radius: 50%;
   margin-left: 6px; border: 1px solid rgba(255,255,255,0.1); background: #333;
+  flex-shrink: 0; /* Empêche l'écrasement sur mobile */
 }
 .win-btn.close { background: #ff5555; } .win-btn.min { background: #ffbd44; } .win-btn.max { background: #00ca4e; }
 
-/* =========================================
-   3. BOUTONS & ELEMENTS CYBER
-   ========================================= */
+/* --- 5. TERMINAL --- */
+.terminal-window .window-body { background: #0c0c1e; padding: 20px; }
+.terminal-text {
+  color: #00faff; font-family: 'VT323', monospace; font-size: 1.2em;
+  margin: 0; white-space: pre-wrap; text-shadow: 0 0 4px #00faffaa; min-height: 100px;
+}
+.terminal-text::after {
+  content: "▋"; display: inline-block; margin-left: 2px;
+  animation: blink-cursor 0.9s steps(2, start) infinite; color: #00faff;
+}
+@keyframes blink-cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* --- 6. PROFIL (À PROPOS) RESPONSIVE --- */
+.profile-layout-clean {
+  display: flex; align-items: center; gap: 2.5em; padding: 2.5em;
+  background: radial-gradient(circle at top right, rgba(0, 250, 255, 0.05), transparent 40%);
+}
+.profile-photo-container { flex: 0 0 160px; display: flex; justify-content: center; }
+.cyber-img-wrap {
+  width: 160px; height: 160px; border-radius: 12px;
+  border: 2px solid #ff62d6; box-shadow: 0 0 20px #ff62d655;
+  overflow: hidden; position: relative; background: #191437;
+  display: flex; justify-content: center; align-items: center;
+}
+.cyber-img-wrap img { width: 100%; height: 100%; object-fit: cover; z-index: 1;}
+.cyber-img-wrap::after {
+  content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 30%;
+  background: linear-gradient(to bottom, transparent, rgba(0, 250, 255, 0.4), transparent);
+  opacity: 0.5; animation: photo-scan 3s linear infinite; z-index: 2; pointer-events: none;
+}
+@keyframes photo-scan { 0% { top: -30%; } 100% { top: 100%; } }
+
+.profile-info-clean { flex: 1; }
+.vice-title-large {
+  font-family: 'Press Start 2P'; color: #fff; font-size: 1.5em;
+  text-shadow: 3px 3px 0px #ff62d6, -2px -2px 0px #00faff; margin: 0 0 15px 0;
+}
+.profile-badges { display: flex; gap: 10px; margin-bottom: 1.5em; flex-wrap: wrap; }
+.cyber-badge {
+  font-family: 'JetBrains Mono'; font-size: 0.85em; color: #00faff;
+  border: 1px solid #00faff; padding: 4px 10px; border-radius: 4px; background: rgba(0, 250, 255, 0.1);
+}
+.status-ok { color: #00ca4e; border-color: #00ca4e; background: rgba(0, 202, 78, 0.1); }
+.profile-bio-clean {
+  font-size: 1em; line-height: 1.6; color: #e0e0e0;
+  border-left: 4px solid #ff62d6; padding-left: 20px; margin-bottom: 2em;
+}
+.tech-stack-clean { display: flex; flex-wrap: wrap; gap: 10px; }
+.tech-stack-clean span {
+  font-family: 'Press Start 2P'; font-size: 0.7em;
+  background: #191437; border: 1px solid #ff62d6; color: #ff62d6;
+  padding: 8px 12px; border-radius: 6px; display: flex; align-items: center; gap: 8px;
+  transition: 0.3s;
+}
+.tech-stack-clean span:hover {
+  background: #ff62d6; color: #191437; box-shadow: 0 0 15px #ff62d6; transform: translateY(-3px);
+}
+
+/* Media Query PROFIL MOBILE */
+@media (max-width: 800px) {
+  .profile-layout-clean { flex-direction: column; text-align: center; padding: 1.5em; }
+  .profile-bio-clean { border-left: none; border-top: 3px solid #ff62d6; padding-left: 0; padding-top: 20px;}
+  .profile-badges, .tech-stack-clean { justify-content: center; }
+  .vice-title-large { font-size: 1.2em; }
+}
+
+/* --- 7. CARTES PROJETS & COMPÉTENCES --- */
+.skills-body { padding: 2em; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.skill-card {
+  width: 280px; background: rgba(255,255,255,0.03); border: 1px solid #ff62d655;
+  padding: 1.5em; border-radius: 6px; text-decoration: none; color: inherit;
+  transition: 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+.skill-card:hover {
+  transform: translateY(-5px); border-color: #00faff; background: rgba(0, 250, 255, 0.05);
+  box-shadow: 0 5px 20px rgba(0, 250, 255, 0.15);
+}
+.skill-header { font-family: 'Press Start 2P'; font-size: 0.85em; color: #00faff; margin-bottom: 10px; line-height: 1.4;}
+.skill-desc { font-family: 'JetBrains Mono'; font-size: 0.9em; color: #ccc; line-height: 1.5; }
+
+.skill-header-tech {
+  font-family: 'Press Start 2P'; color: #00faff; font-size: 0.9em; margin-bottom: 1.2em;
+  border-bottom: 2px dashed #ffffff33; padding-bottom: 12px;
+}
+.ue-id { display: block; font-size: 0.8em; color: #ff62d6; margin-bottom: 8px; opacity: 0.9; }
+.skill-specs { list-style: none; padding: 0; margin: 0; font-family: 'JetBrains Mono'; font-size: 0.85em; color: #ddd; }
+.skill-specs li { margin-bottom: 8px; display: flex; align-items: center; }
+.neon-bullet { margin-right: 10px; color: #ff62d6; font-size: 0.8em; text-shadow: 0 0 5px #ff62d6; }
+
+/* Media Query CARTES MOBILE */
+@media (max-width: 500px) {
+  .skill-card { width: 100%; } /* Pleine largeur sur mobile */
+}
+
+/* --- 8. CONTACT DASHBOARD --- */
+.contact-dashboard { padding: 2.5em; background: rgba(0,0,0,0.4); }
+.contact-grid-wrapper { display: flex; gap: 25px; flex-wrap: wrap; }
+.contact-col {
+  flex: 1; min-width: 260px; background: rgba(0, 250, 255, 0.05);
+  padding: 20px; border-radius: 8px; border: 1px solid rgba(0, 250, 255, 0.2);
+}
+.retro-sub-title {
+  font-family: 'Press Start 2P'; color: #ff62d6; font-size: 0.85em; margin: 0 0 15px 0;
+  border-left: 4px solid #00faff; padding-left: 12px; letter-spacing: 1px;
+}
+.contact-grid a.social-btn {
+  display: flex; align-items: center; width: 100%; padding: 12px 15px; margin-bottom: 12px;
+  background: rgba(0,0,0,0.3); border: 1px solid #00faff55;
+  color: #fff; text-decoration: none; font-family: 'Press Start 2P'; font-size: 0.75em;
+  transition: 0.3s; border-radius: 4px; box-sizing: border-box;
+}
+.contact-grid a.social-btn:hover {
+  border-color: #ff62d6; box-shadow: 0 0 15px #ff62d655; transform: translateX(5px);
+  background: rgba(255, 98, 214, 0.1);
+}
+.contact-grid i { width: 30px; text-align: center; margin-right: 10px; font-size: 1.3em; color: #00faff; }
+.contact-grid a:hover i { color: #ff62d6; }
+
+/* Media Query CONTACT MOBILE */
+@media (max-width: 700px) {
+  .contact-dashboard { padding: 1.5em; }
+  .contact-grid-wrapper { flex-direction: column; gap: 15px; }
+  .contact-col { min-width: auto; width: 100%; box-sizing: border-box; }
+}
+
+/* --- 9. ÉLÉMENTS DE PAGES PROJETS --- */
+.vice-title { font-family: 'Press Start 2P'; font-size: 1.2em; color: #00faff; text-shadow: 2px 2px 0px #ff62d6; margin-bottom: 15px; }
+
+.img-showcase {
+  text-align: center; margin-bottom: 1.5em; padding: 15px;
+  background: rgba(0,0,0,0.2); border-bottom: 1px dashed #ffffff22;
+}
+.img-showcase img {
+  max-width: 140px; height: auto; border-radius: 6px;
+  border: 2px solid #ff62d6; box-shadow: 0 0 15px rgba(255, 98, 214, 0.3);
+  transition: transform 0.3s ease;
+}
+.img-showcase img:hover { transform: scale(1.05); border-color: #00faff; }
+
+/* Panneau Résumé */
+.project-summary-panel {
+  background: rgba(0, 250, 255, 0.05); border-left: 3px solid #00faff;
+  padding: 1.2em; margin: 1.5em 0; border-radius: 0 4px 4px 0;
+}
+.project-summary-list { margin: 0; padding-left: 0; list-style: none; }
+.project-summary-list li { margin-bottom: 0.6em; color: #e0e0e0; display: flex; align-items: baseline; }
+.project-summary-list li::before {
+  content: ">"; color: #00faff; margin-right: 8px; font-weight: bold; font-family: 'JetBrains Mono';
+}
+.project-summary-list .label {
+  font-family: 'Press Start 2P'; font-size: 0.7em; color: #ff62d6; margin-right: 8px;
+}
+
+.text-block { margin: 2em 0; line-height: 1.8; color: #ccc; text-align: justify; font-size: 1.05em; }
+
+/* Boutons Navigation */
+.action-buttons { display: flex; gap: 15px; justify-content: center; margin-top: 2em; flex-wrap: wrap; }
 .press-start-btn, .home-btn {
   font-family: 'Press Start 2P', monospace; font-size: 0.75em;
   background: rgba(0, 250, 255, 0.05); color: #00faff; border: 1px solid #00faff;
@@ -137,136 +303,15 @@ main {
   background: #00faff; color: #0c0c1e; box-shadow: 0 0 20px rgba(0, 250, 255, 0.6); transform: translateY(-2px);
 }
 .press-start-btn.alt-color {
-  border-color: #ff62d6; color: #ff62d6; background: rgba(255, 98, 214, 0.05); box-shadow: 0 0 5px rgba(255, 98, 214, 0.1);
+  border-color: #ff62d6; color: #ff62d6; background: rgba(255, 98, 214, 0.05);
 }
 .press-start-btn.alt-color:hover {
   background: #ff62d6; color: #0c0c1e; box-shadow: 0 0 20px rgba(255, 98, 214, 0.6);
 }
-.action-buttons { display: flex; gap: 15px; justify-content: center; margin-top: 2em; flex-wrap: wrap; }
 
-/* =========================================
-   4. STYLES DES PAGES PROJETS (AMÉLIORÉ)
-   ========================================= */
-
-/* Cadre de l'image façon "Hologramme" */
-.cyber-frame {
-  text-align: center; margin-bottom: 1.5em; padding: 20px;
-  background: radial-gradient(circle, rgba(0, 250, 255, 0.1) 0%, transparent 70%);
-  border: 1px solid rgba(0, 250, 255, 0.3);
-  box-shadow: inset 0 0 20px rgba(0, 250, 255, 0.2);
-  position: relative;
-}
-.cyber-frame::before, .cyber-frame::after {
-    content: ""; position: absolute; width: 10px; height: 10px; border-color: #00faff; border-style: solid;
-}
-.cyber-frame::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
-.cyber-frame::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
-
-.cyber-frame img {
-  max-width: 140px; height: auto; border-radius: 4px;
-  border: 2px solid #ff62d6; box-shadow: 0 0 15px rgba(255, 98, 214, 0.4);
-  transition: transform 0.3s ease;
-}
-.cyber-frame img:hover { transform: scale(1.05); border-color: #00faff; }
-
-/* Titre principal du projet */
-.project-main-title {
-  text-align: center; margin-bottom: 1em; font-size: 1.4em;
-}
-
-/* Panneau de résumé style "Data Readout" */
-.cyber-panel {
-  background: rgba(0, 10, 20, 0.6);
-  border: 1px solid rgba(0, 250, 255, 0.4);
-  border-left: 4px solid #ff62d6; /* Bordure rose sur le côté */
-  padding: 1.2em; margin: 1.5em 0;
-  border-radius: 2px;
-  position: relative;
-  box-shadow: 0 0 15px rgba(255, 98, 214, 0.1);
-}
-.cyber-panel::after {
-    content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%;
-    background: linear-gradient(transparent 50%, rgba(0, 250, 255, 0.05) 50%);
-    background-size: 100% 4px; pointer-events: none; z-index: 1;
-}
-
-.project-summary-list { margin: 0; padding-left: 0; list-style: none; position: relative; z-index: 2;}
-.project-summary-list li {
-    margin-bottom: 0.8em; color: #e0e0e0; display: flex; align-items: baseline;
-}
-.project-summary-list li::before {
-    content: "\f0da"; /* Flèche FontAwesome */
-    font-family: "Font Awesome 6 Free"; font-weight: 900;
-    color: #00faff; margin-right: 10px; font-size: 1.1em; text-shadow: 0 0 5px #00faff;
-}
-.project-summary-list .label {
-    font-family: 'Press Start 2P'; font-size: 0.7em; color: #ff62d6; margin-right: 8px;
-}
-.text-block { margin: 2em 0; line-height: 1.8; color: #ccc; text-align: justify; font-size: 1.05em;}
-.text-block p { margin-bottom: 1em; }
-
-/* =========================================
-   5. FOOTER (QUI RESTE EN BAS)
-   ========================================= */
+/* --- 10. FOOTER --- */
 .retro-footer {
-  text-align: center; padding: 25px; font-family: 'Press Start 2P'; font-size: 0.75em;
+  text-align: center; padding: 25px; font-family: 'Press Start 2P'; font-size: 0.7em;
   color: #ff62d6; background: #0c0c1e; border-top: 1px solid #00faff;
   position: relative; z-index: 10; margin-top: auto;
 }
-
-/* --- AUTRES SECTIONS --- */
-/* Terminal */
-.terminal-window .window-body { background: #0c0c1e; padding: 15px; }
-.terminal-text { color: #00faff; font-family: 'VT323', monospace; font-size: 1.3em; margin: 0; white-space: pre-wrap; text-shadow: 0 0 4px #00faffaa; min-height: 60px; }
-.terminal-text::after { content: "▋"; display: inline-block; margin-left: 2px; animation: blink-cursor 0.9s steps(2, start) infinite; color: #00faff; }
-@keyframes blink-cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-/* Titres génériques */
-.vice-title { font-family: 'Press Start 2P'; font-size: 1.3em; color: #00faff; text-shadow: 2px 2px 0px #ff62d6; margin-bottom: 15px; }
-
-/* À Propos Styles */
-.profile-layout-clean { display: flex; align-items: center; gap: 2.5em; padding: 2.5em; background: radial-gradient(circle at top right, rgba(0, 250, 255, 0.05), transparent 40%); }
-.profile-photo-container { flex: 0 0 160px; }
-.cyber-img-wrap { width: 160px; height: 160px; border-radius: 12px; border: 2px solid #ff62d6; box-shadow: 0 0 20px #ff62d655; overflow: hidden; position: relative; background: #191437; display: flex; justify-content: center; align-items: center; }
-.cyber-img-wrap img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1;}
-.cyber-img-wrap::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 30%; background: linear-gradient(to bottom, transparent, rgba(0, 250, 255, 0.4), transparent); opacity: 0.5; animation: photo-scan 3s linear infinite; z-index: 2; pointer-events: none; }
-@keyframes photo-scan { 0% { top: -30%; } 100% { top: 100%; } }
-.profile-info-clean { flex: 1; }
-.vice-title-large { font-family: 'Press Start 2P'; color: #fff; font-size: 1.8em; text-shadow: 3px 3px 0px #ff62d6, -2px -2px 0px #00faff; margin: 0 0 15px 0; }
-.profile-badges { display: flex; gap: 10px; margin-bottom: 1.5em; flex-wrap: wrap; }
-.cyber-badge { font-family: 'JetBrains Mono'; font-size: 0.85em; color: #00faff; border: 1px solid #00faff; padding: 4px 10px; border-radius: 4px; background: rgba(0, 250, 255, 0.1); }
-.status-ok { color: #00ca4e; border-color: #00ca4e; background: rgba(0, 202, 78, 0.1); }
-.profile-bio-clean { font-size: 1.05em; line-height: 1.6; color: #e0e0e0; border-left: 4px solid #ff62d6; padding-left: 20px; margin-bottom: 2em; }
-.tech-stack-clean { display: flex; flex-wrap: wrap; gap: 12px; }
-.tech-stack-clean span { font-family: 'Press Start 2P'; font-size: 0.7em; background: #191437; border: 1px solid #ff62d6; color: #ff62d6; padding: 8px 12px; border-radius: 6px; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
-.tech-stack-clean span:hover { background: #ff62d6; color: #191437; box-shadow: 0 0 15px #ff62d6; transform: translateY(-3px); }
-@media (max-width: 800px) { .profile-layout-clean { flex-direction: column; text-align: center; } .profile-bio-clean { border-left: none; border-top: 3px solid #ff62d6; padding-left: 0; padding-top: 20px;} }
-
-/* Cartes Projets/Skills */
-.skills-body { padding: 2em; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-.skill-card { width: 280px; background: rgba(255,255,255,0.03); border: 1px solid #ff62d655; padding: 1.5em; border-radius: 6px; text-decoration: none; color: inherit; transition: 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
-.skill-card:hover { transform: translateY(-5px); border-color: #00faff; background: rgba(0, 250, 255, 0.05); box-shadow: 0 5px 20px rgba(0, 250, 255, 0.15); }
-.skill-header { font-family: 'Press Start 2P'; font-size: 0.9em; color: #00faff; margin-bottom: 10px; }
-.skill-desc { font-family: 'JetBrains Mono'; font-size: 0.9em; color: #ccc; line-height: 1.5; }
-.skill-header-tech { font-family: 'Press Start 2P'; color: #00faff; font-size: 0.95em; margin-bottom: 1.2em; border-bottom: 2px dashed #ffffff33; padding-bottom: 12px; }
-.ue-id { display: block; font-size: 0.8em; color: #ff62d6; margin-bottom: 8px; opacity: 0.9; }
-.skill-specs { list-style: none; padding: 0; margin: 0; font-family: 'JetBrains Mono'; font-size: 0.9em; color: #ddd; }
-.skill-specs li { margin-bottom: 8px; display: flex; align-items: center; }
-.neon-bullet { margin-right: 10px; color: #ff62d6; font-size: 0.8em; text-shadow: 0 0 5px #ff62d6; }
-
-/* Contact Dashboard */
-.contact-dashboard { padding: 2.5em; background: rgba(0,0,0,0.4); }
-.contact-grid-wrapper { display: flex; gap: 25px; flex-wrap: wrap; }
-.contact-col { flex: 1; min-width: 260px; background: rgba(0, 250, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(0, 250, 255, 0.2); }
-.retro-sub-title { font-family: 'Press Start 2P'; color: #ff62d6; font-size: 0.85em; margin: 0 0 15px 0; border-left: 4px solid #00faff; padding-left: 12px; letter-spacing: 1px; }
-.contact-grid a.social-btn { display: flex; align-items: center; width: 100%; padding: 12px 15px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid #00faff55; color: #fff; text-decoration: none; font-family: 'Press Start 2P'; font-size: 0.75em; transition: 0.3s; border-radius: 4px; box-sizing: border-box; }
-.contact-grid a.social-btn:hover { border-color: #ff62d6; box-shadow: 0 0 15px #ff62d655; transform: translateX(5px); background: rgba(255, 98, 214, 0.1); }
-.contact-grid i { width: 30px; text-align: center; margin-right: 10px; font-size: 1.3em; color: #00faff; }
-.contact-grid a:hover i { color: #ff62d6; }
-
-/* Page 404 */
-body.error-page-body { display: flex; flex-direction: column; justify-content: center; align-items: center; background: transparent; }
-.error-window { max-width: 450px; text-align: center; padding: 3em; background: rgba(15, 12, 35, 0.95); border: 2px solid #ff62d6; box-shadow: 0 0 30px rgba(255, 98, 214, 0.2); }
-.error-title { font-family: 'Press Start 2P'; font-size: 4em; color: #ff62d6; margin-bottom: 20px; text-shadow: 4px 4px 0px #00faff; animation: glitch-404 2s infinite; }
-@keyframes glitch-404 { 0%, 100% { transform: translate(0); } 20% { transform: translate(-2px, 2px); } 40% { transform: translate(-2px, -2px); } 60% { transform: translate(2px, 2px); } 80% { transform: translate(2px, -2px); } }
-.error-text { font-size: 1.2em; margin-bottom: 30px; line-height: 1.5; }
