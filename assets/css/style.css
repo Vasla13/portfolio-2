@@ -1,5 +1,5 @@
 /* =========================================
-   STYLE.CSS - VERSION COMPLÈTE & CORRIGÉE
+   STYLE.CSS - SYNTHWAVE EDITION ULTIME
    ========================================= */
 
 html {
@@ -8,625 +8,327 @@ html {
   overflow-x: hidden;
 }
 
-/* --- Accessibilité: skip-link --- */
-.skip-link {
-  position: absolute;
-  left: -999px; top: 5px;
-  background: #ff62d6;
-  color: #191437;
-  padding: 0.55em 1.4em;
-  z-index: 5000;
-  font-family: 'Press Start 2P', monospace;
-  border-radius: 8px;
-  box-shadow: 0 3px 16px #00faff99;
-  transition: left 0.2s;
-  outline: none;
-}
-.skip-link:focus {
-  left: 10px;
-}
-
-/* ---- Body & Night Mode ---- */
 body {
   margin: 0;
-  font-family: 'JetBrains Mono', 'Press Start 2P', 'Consolas', monospace, Arial, sans-serif;
-  background: #18152b;
+  font-family: 'JetBrains Mono', 'Press Start 2P', monospace;
+  background-color: #0c0c1e; /* Fond de secours */
   min-height: 100vh;
   color: #fffbe7;
   overflow-x: hidden;
   font-size: 13px;
-  transition: background 0.5s, color 0.5s, opacity 0.7s cubic-bezier(.6,-0.5,.3,1.3);
-  opacity: 1;
-}
-body.fadeout { opacity: 0; }
-
-/* ---- Focus Accessibilité ---- */
-a:focus, button:focus, .project-link a:focus, .skill-card:focus-within {
-  outline: 3px solid #ff62d6;
-  outline-offset: 2px;
-  background: #191437;
-  color: #00faff;
-  box-shadow: 0 0 0 4px #00faff55;
-  z-index: 50;
 }
 
-/* --------- Synthwave BG + Soleil + Tron --------- */
+/* =========================================
+   1. FOND SYNTHWAVE ANIMÉ (SCENE 3D)
+   ========================================= */
+
 .synthwave-bg {
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 300px;
-  z-index: 0;
-  pointer-events: none;
-  user-select: none;
-}
-.miami-sun {
-  position: absolute;
-  left: 50%; top: 0;
-  transform: translateX(-50%);
-  width: 480px;
-  height: 180px;
-  opacity: 0.8;
-  z-index: 2;
-  pointer-events: none;
-  filter: drop-shadow(0 0 70px #ff62d6bb) drop-shadow(0 0 80px #00faff66);
-  transition: filter 1s;
-}
-@media (max-width: 600px) {
-  .miami-sun { width: 98vw; height: 38vw; min-width: 0; }
-}
-.scanlines-sun rect {
-  animation: scanbands 3s linear infinite alternate;
-}
-@keyframes scanbands {
-  0% { opacity: 0.11; }
-  25% { opacity: 0.23; }
-  50% { opacity: 0.17; }
-  75% { opacity: 0.25; }
-  100% { opacity: 0.12; }
-}
-.mountains polygon {
-  animation: moveMountain 6s linear infinite alternate;
-}
-@keyframes moveMountain {
-  0% { filter: brightness(1); }
-  50% { filter: brightness(1.22) hue-rotate(6deg); }
-  100% { filter: brightness(1); }
-}
-.scanlines {
-  position: absolute;
-  top: 0; left: 0; width: 100vw; height: 100%;
-  background: repeating-linear-gradient(
-    to bottom, 
-    rgba(255,255,255,0.06) 0px, 
-    rgba(255,255,255,0.06) 1px,
-    transparent 2px,
-    transparent 6px
-  );
-  opacity: 0.13;
-  pointer-events: none;
-  z-index: 2;
-}
-#tronGrid, #starfield {
-  position: fixed;
-  pointer-events: none;
-}
-#tronGrid {
-  left: 0; bottom: 0;
-  width: 100vw; height: 260px;
-  z-index: 1;
-  opacity: 0.37;
-  filter: blur(0.3px) contrast(2);
-}
-#starfield {
-  top: 0; left: 0;
-  width: 100vw; height: 260px;
-  z-index: 2;
-}
-.star {
-  position: absolute;
-  background: #fff;
-  border-radius: 50%;
-  transition: left 0.13s linear, opacity 0.15s;
-  pointer-events: none;
-  z-index: 3;
-}
-
-/* ---- Menu ---- */
-.retro-menu {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background: linear-gradient(90deg, #271642 50%, #e24bcf 200%);
-  border-bottom: 2px solid #00f8ff;
-  box-shadow: 0 3px 18px #0009;
-  display: flex;
-  align-items: center;
-  z-index: 10;
-  height: 50px;
-  transition: height 0.25s, background 0.2s, box-shadow 0.21s;
-}
-.retro-menu.shrink, .retro-menu.scrolled {
-  height: 38px;
-  background: linear-gradient(90deg, #18154e 60%, #ff62d6 200%);
-  box-shadow: 0 6px 22px #000a, 0 0px 8px #00faff33;
-}
-.retro-title {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.97rem;
-  color: #00faff;
-  letter-spacing: 2.2px;
-  padding: 0 1.4em;
-  text-shadow: 0 2px 10px #00f8ff66, 0 0px 2px #fff2;
-  display: flex;
-  align-items: center;
-  gap: 0.6em;
-  transition: font-size 0.25s, padding 0.2s;
-}
-.retro-title.shrink { font-size: 0.68rem; padding: 0 0.7em; }
-.vice-glitch {
-  color: #ff62d6;
-  text-shadow: 0 2px 10px #ff62d6bb, 0 0 3px #fff4;
-  display: inline-block;
-  animation: glitch 1.8s infinite steps(2, end) alternate;
-}
-@keyframes glitch {
-  0% { transform: translateY(0) skewX(0);}
-  15% { transform: translateY(-1.5px) skewX(3deg);}
-  17% { transform: translateY(2.5px) skewX(-5deg);}
-  22% { transform: translateY(-0.5px) skewX(4deg);}
-  26% { transform: translateY(1.5px) skewX(-3deg);}
-  100% { transform: translateY(0) skewX(0);}
-}
-.retro-menu ul {
-  display: flex;
-  list-style: none;
-  gap: 1.5em;
-  margin-left: auto;
-  margin-right: 2em;
-  padding: 0;
-}
-.retro-menu ul li a {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.86em;
-  color: #ff62d6;
-  background: #00000033;
-  border-radius: 8px;
-  text-decoration: none;
-  padding: 0.38em 0.98em;
-  transition: color 0.16s, background 0.19s, box-shadow 0.17s;
-  box-shadow: 0 1.5px 6px #00e7ff22, 0 0.7px 1px #fff1;
-  border-bottom: 1.7px solid #00faff;
-  display: flex;
-  align-items: center;
-  gap: 0.46em;
-}
-.retro-menu ul li a:hover,
-.retro-menu ul li a:focus,
-.retro-menu ul li a.active-nav {
-  color: #00faff;
-  background: #202659c9;
-  box-shadow: 0 3px 9px #00e7ff99, 0 1px 4px #fff2;
-}
-
-/* ---- Fenêtres rétro ---- */
-main { z-index: 2; position: relative; padding-bottom: 2vw; }
-.retro-window {
-  width: min(97vw, 800px);
-  margin: 2.2em auto 1.4em auto;
-  border-radius: 10px;
-  box-shadow: 0 7px 28px #000a, 0 0 0 2px #00faff33;
-  background: linear-gradient(115deg, #282045 60%, #ff62d631 120%);
-  border: 2.1px solid #fff2;
-  overflow: hidden;
-  position: relative;
-  animation: window-pop .7s cubic-bezier(.25,1.7,.25,1) both;
-  min-width: 0;
-}
-@keyframes window-pop {
-  0% { transform: scale(0.89) translateY(32px); opacity: 0; }
-  100% { transform: none; opacity: 1; }
-}
-.window-bar {
-  height: 28px;
-  background: linear-gradient(90deg, #00faff 15%, #ff62d6 90%);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 0.9em 0 0.5em;
-  font-family: 'Press Start 2P', monospace;
-  color: #282045;
-  font-size: 0.93em;
-  border-bottom: 1.3px solid #fff2;
-  user-select: none;
-}
-.window-title { font-size: 0.94em; letter-spacing: 1.1px; }
-.window-buttons { display: flex; gap: 0.16em; }
-.win-btn {
-  display: inline-block; width: 10px; height: 10px;
-  border-radius: 3px; margin-left: 2px; margin-right: 2px;
-  box-shadow: 0 0.8px 2px #0007;
-  border: 1px solid #fff9;
-}
-.win-btn.close { background: #ff4281; }
-.win-btn.min { background: #f9e784; }
-.win-btn.max { background: #00faff; }
-.win-btn[aria-label] { cursor: pointer; }
-.window-body { padding: 1.1em 1.1em; background: #191437e2; font-size: 0.98em; }
-
-/* ---- Terminal ---- */
-.terminal-window { font-family: 'VT323', 'Consolas', monospace; background: #18152b; }
-.terminal-window .window-bar { background: #15143a; color: #00faff; }
-.terminal-text {
-  color: #f9e784;
-  font-size: 1.11em;
-  background: transparent;
-  min-height: 40px;
-  letter-spacing: 0.37px;
-  padding-left: 0.4em;
-  white-space: pre-wrap;
-  word-break: break-all;
-  text-shadow: 0 1px 7px #000b;
-}
-.terminal-text::after {
-  content: "_";
-  animation: blink 1.05s steps(1) infinite;
-  color: #00faff;
-  font-weight: bold;
-}
-@keyframes blink { 0%, 49% { opacity: 1; } 50%,100% { opacity: 0; } }
-
-/* ---- À propos ---- */
-.about-body {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5em;
-  flex-wrap: wrap;
-  margin-bottom: 0.4em;
-}
-.vice-title {
-  font-size: 1.18em;
-  font-family: 'Press Start 2P', monospace;
-  color: #00faff;
-  letter-spacing: 2px;
-  margin: 0;
-  text-shadow:
-    0 3px 16px #00faff66,
-    0 1px 0 #fff,
-    0 0px 20px #ff62d655;
-  display: inline-block;
-  font-weight: normal;
-}
-.vice-sub {
-  display: block;
-  color: #ff62d6;
-  font-size: 0.61em;
-  letter-spacing: 1px;
-  text-shadow: 0 1.5px 12px #ff62d688;
-}
-.color-miami { color: #ff62d6; text-shadow: 0 2px 10px #ff62d666; }
-
-/* ---- Badges compétences interactifs ---- */
-.about-skills {
-  margin-top: 0.7em;
-  display: flex; flex-wrap: wrap; gap: 0.7em;
-}
-.badge-skill {
-  background: linear-gradient(90deg,#ff62d6 10%, #00faff 90%);
-  color: #191437; font-size: 0.98em;
-  border-radius: 7px;
-  padding: 0.15em 0.82em 0.12em 0.5em;
-  font-family: 'Press Start 2P', monospace;
-  margin-right: 2px;
-  margin-bottom: 3px;
-  box-shadow: 0 1.2px 7px #00e7ff44;
-  border: 1px solid #fff2;
-  display: flex; align-items: center; gap: 0.25em;
-  cursor: pointer;
-  position: relative;
-  transition: filter 0.17s, box-shadow 0.17s, transform 0.14s;
-  filter: none;
-}
-.badge-skill:hover, .badge-skill.active, .badge-skill:focus {
-  box-shadow: 0 2px 16px #00faff77, 0 0 10px #ff62d6aa;
-  filter: brightness(1.16) drop-shadow(0 0 2px #fff);
-  transform: scale(1.04);
-}
-.badge-skill:active {
-  filter: brightness(1.4) drop-shadow(0 0 4px #ff62d6);
-  transform: scale(0.96) rotate(-2deg);
-}
-#skillDesc {
-  min-height: 18px;
-  color: #ff62d6;
-  font-family: 'JetBrains Mono', monospace;
-  margin-top: 0.22em;
-  font-size: 0.98em;
-  text-shadow: 0 2px 8px #ff62d6aa;
-}
-
-/* ---- Compétences (cartes synthwave) + Projets ---- */
-.skills-body {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
-  justify-content: center;
-  align-items: stretch;
-  margin-top: 1em;
-}
-.skill-card {
-  background: linear-gradient(110deg, #232045 60%, #00faff22 130%);
-  border: 2.5px solid #ff62d6cc;
-  border-radius: 16px;
-  box-shadow: 0 4px 22px #00faff55, 0 0 22px #ff62d655;
-  width: 320px;
-  min-height: 170px;
-  padding: 1.4em 1.1em 1.3em 1.2em;
-  margin-bottom: 1.1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  transition: box-shadow 0.2s, border 0.2s, transform 0.18s;
-  cursor: pointer;
-}
-.skill-card:hover, .skill-card:focus-within {
-  box-shadow: 0 10px 32px #ff62d6bb, 0 0 36px #00faff99;
-  border-color: #00faff;
-  transform: translateY(-4px) scale(1.018);
-}
-.skill-card:active {
-  box-shadow: 0 6px 24px #00faffdd, 0 0 26px #ff62d6cc;
-  transform: scale(0.97) rotate(-1deg);
-}
-.skill-header {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 1em;
-  color: #00faff;
-  margin-bottom: 0.8em;
-  text-shadow: 0 2px 16px #00faff99, 0 1px 6px #ff62d677;
-  letter-spacing: 0.7px;
-}
-.skill-desc {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1em;
-  color: #fffbe7;
-  line-height: 1.45;
-  text-shadow: 0 2px 7px #23204588;
-}
-@media (max-width: 900px) {
-  .skills-body { flex-direction: column; gap: 1.1em; align-items: center;}
-  .skill-card { width: 97vw; min-width: 0; }
-}
-
-/* ---- Boutons rétro synthwave ---- */
-.press-start-btn, .home-btn {
-  font-family: 'Press Start 2P', monospace;
-  background: linear-gradient(90deg, #00faff 20%, #ff62d6 120%);
-  color: #191437;
-  border-radius: 8px;
-  padding: 0.75em 2.3em 0.66em 2.2em;
-  text-decoration: none;
-  font-size: 1.13em;
-  border: none;
-  box-shadow: 0 2px 12px #00faff77, 0 0 12px #ff62d677;
-  letter-spacing: 2px;
-  transition: box-shadow 0.22s, transform 0.18s, color 0.18s, background 0.19s;
-  cursor: pointer;
-  margin-top: 1.1em;
-  display: inline-block;
-}
-.press-start-btn:hover, .press-start-btn:focus, .home-btn:hover, .home-btn:focus {
-  box-shadow: 0 6px 28px #ff62d6bb, 0 0 18px #00faff88;
-  transform: scale(1.05) rotate(-2deg);
-  color: #00faff;
-  background: #191437;
-}
-
-/* ---- Footer ---- */
-.retro-footer {
-  width: 100vw;
-  background: #110f26f2;
-  border-top: 1.5px solid #00faff88;
-  padding: 0.7em 0;
-  color: #ff62d6;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.8em;
-  letter-spacing: 1.1px;
-  text-align: center;
-  margin-top: 2.4em;
-  box-shadow: 0 -3px 22px #00faff44;
-}
-
-/* ---- Responsive ---- */
-@media (max-width: 650px) {
-  .retro-window { margin: 1.2em 0.2em 1em 0.2em; }
-  .window-body { padding: 0.7em 0.2em; }
-}
-@media (max-width: 500px) {
-  .window-bar, .retro-title { font-size: 0.69em; }
-  .press-start-btn, .home-btn { font-size: 0.99em; padding: 0.65em 1.3em 0.6em 1.3em;}
-}
-
-/* Bouton LinkedIn flashy */
-a.linkedin-btn {
-  background: linear-gradient(92deg,#0A66C2 30%,#00cfff 100%) !important;
-  color: #fff !important;
-  box-shadow: 0 2px 22px #0A66C2bb, 0 0 12px #00cfff77 !important;
-  border-radius: 11px !important;
-  border: none !important;
-  font-weight: bold;
-  font-size: 1.16em;
-  letter-spacing: 1.5px;
-  transition: box-shadow 0.19s, background 0.19s, color 0.15s, transform 0.14s;
-}
-
-a.linkedin-btn:hover, a.linkedin-btn:focus {
-  background: linear-gradient(92deg,#00cfff 20%,#0A66C2 120%) !important;
-  color: #fffbe7 !important;
-  box-shadow: 0 6px 36px #0A66C2dd, 0 0 22px #00cfffcc !important;
-  transform: scale(1.05) rotate(-1.6deg);
-}
-
-/* =========================================
-   NOUVELLES CLASSES UTILITAIRES (AJOUTÉES)
-   ========================================= */
-
-/* Conteneur principal style "Fiche Projet" */
-.project-summary-panel {
-  background: linear-gradient(90deg, #232045 80%, rgba(255, 98, 214, 0.33) 120%);
-  border-left: 4px solid #00faff;
-  border-radius: 7px;
-  padding: 1em 1.3em;
-  margin: 1.1em 0;
-}
-
-/* Liste à l'intérieur du panneau */
-.project-summary-list {
-  margin: 0;
-  padding: 0 0 0 1em;
-  list-style: square;
-}
-
-/* Texte justifié ou margé */
-.text-block {
-  margin: 1.3em 0;
-  line-height: 1.6;
-}
-
-/* Conteneur d'images centrées avec ombre */
-.img-showcase {
-  text-align: center;
-  margin-bottom: 1.2em;
-}
-
-.img-showcase img {
-  max-width: 180px;
-  border-radius: 12px;
-  box-shadow: 0 3px 22px rgba(0, 250, 255, 0.73);
-  transition: transform 0.3s ease;
-}
-
-.img-showcase img:hover {
-  transform: scale(1.05);
-}
-
-/* Groupe de boutons d'action */
-.action-buttons {
-  display: flex;
-  gap: 1em;
-  justify-content: center;
-  margin-top: 2.1em;
-  flex-wrap: wrap;
-}
-
-/* Bouton variante rose/cyan */
-.press-start-btn.alt-color {
-  background: linear-gradient(90deg, #ff62d6 30%, #00faff 100%);
-  color: #191437;
-}
-.press-start-btn.alt-color:hover {
-  background: #191437;
-  color: #ff62d6;
-}
-
-/* Conteneur Vidéo YouTube */
-.video-container {
-  margin: 2.2em auto 0 auto;
-  max-width: 420px;
-}
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* Ratio 16:9 */
-  height: 0;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 3px 22px rgba(0, 250, 255, 0.6);
-  margin-bottom: 1.2em;
-}
-.video-wrapper iframe {
-  position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  border-radius: 15px;
+  background: linear-gradient(to bottom, #02001c 0%, #180c2e 60%, #3a0e36 100%);
+  z-index: -1;
+  overflow: hidden;
+  perspective: 1000px; /* Important pour la 3D */
 }
 
-/* Navigation des pages UE */
-.ue-nav-buttons {
-  display: flex; 
-  gap: 1.2em; 
-  justify-content: center; 
-  margin-top: 2.2em;
-  flex-wrap: wrap;
+/* --- Le Soleil Géant --- */
+.sun-container {
+  position: absolute;
+  top: 15%; /* Positionné plus bas pour être bien visible */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; /* Beaucoup plus gros */
+  height: 300px;
+  z-index: 1;
 }
-.ue-nav-buttons .press-start-btn {
-  min-width: 180px; 
-  text-align: center;
+
+.glitch-sun {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #ffe7fd 0%, #ff62d6 50%, #ff9a00 100%);
+  box-shadow: 0 0 60px #ff62d6, 0 0 100px #ff9a00aa;
+  position: relative;
+  /* Masque pour faire les bandes du soleil */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%, black 50%,
+    transparent 50%, transparent 52%,
+    black 52%, black 60%,
+    transparent 60%, transparent 63%,
+    black 63%, black 70%,
+    transparent 70%, transparent 75%,
+    black 75%, black 85%,
+    transparent 85%, transparent 100%
+  );
+  mask-image: linear-gradient(...); /* Standard syntax same as above */
+}
+
+/* --- La Grille 3D (Sol Mouvant) --- */
+.retro-grid-wrap {
+  position: absolute;
+  bottom: -30%; /* Pour couvrir le bas de l'écran */
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  transform: rotateX(75deg); /* Effet de perspective sol */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.retro-grid {
+  width: 100%; height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 98, 214, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 98, 214, 0.5) 1px, transparent 1px);
+  background-size: 60px 60px; /* Taille des carreaux */
+  box-shadow: 0 0 50px rgba(255, 98, 214, 0.3) inset;
+  animation: grid-move 3s linear infinite;
+}
+
+@keyframes grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 60px; } /* Doit matcher background-size */
+}
+
+/* --- Montagnes (Optionnel : Forme simple en CSS) --- */
+.mountain-range {
+  position: absolute;
+  bottom: 25%; /* Juste au dessus de la grille */
+  left: 0; width: 100%; height: 150px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,120 L0,100 L150,50 L300,100 L400,20 L550,120 Z" fill="%23130d24" opacity="0.8"/><path d="M500,120 L650,40 L800,120 L950,30 L1200,120 Z" fill="%23130d24" opacity="0.8"/></svg>');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 2;
+  filter: drop-shadow(0 -5px 10px #ff62d644);
+}
+
+/* --- Étoiles --- */
+#starfield {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+}
+
+/* --- Scanlines --- */
+.scanlines {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: 10;
 }
 
 /* =========================================
-   STYLES SPÉCIFIQUES PAGE 404
+   2. INTERFACE & MENUS
    ========================================= */
 
-body.error-page-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(110deg, #18152b 65%, rgba(255, 98, 214, 0.15) 120%);
-}
-
-.error-window {
-  max-width: 420px;
-  margin: 2em auto;
-  border-radius: 12px;
-  background: linear-gradient(105deg, #232045 75%, rgba(255, 98, 214, 0.19) 120%);
-  border: 2.4px solid #00faff;
-  box-shadow: 0 7px 32px rgba(0, 250, 255, 0.13), 0 0 42px rgba(255, 98, 214, 0.33);
-  padding: 2em 1.7em 2.6em 1.7em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.error-title {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 3.1em;
-  letter-spacing: 6px;
-  color: #ff62d6;
-  margin-bottom: 0.14em;
-  position: relative;
-  text-shadow: 0 2px 22px rgba(255, 98, 214, 0.6), 0 0px 14px rgba(0, 250, 255, 0.4);
-  animation: glitch-404 1.9s infinite alternate;
-}
-
-@keyframes glitch-404 {
-  0%, 100% { filter: none; transform: none;}
-  10% { filter: blur(0.8px); transform: skewX(-2deg);}
-  17% { filter: hue-rotate(9deg) blur(0.5px); }
-  32% { filter: contrast(1.2); transform: skewX(1.6deg);}
-  44% { filter: none;}
-}
-
-.error-text {
-  font-family: 'JetBrains Mono', monospace;
-  color: #fffbe7;
-  font-size: 1.13em;
-  text-align: center;
-  margin-bottom: 1.7em;
-  text-shadow: 0 1.5px 13px rgba(0, 250, 255, 0.47);
-}
-
-.error-scanlines {
+.skip-link {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    to bottom, 
-    rgba(255,255,255,0.03) 0px, 
-    rgba(255,255,255,0.03) 1px,
-    transparent 2px,
-    transparent 6px
-  );
-  opacity: 0.15;
-  z-index: 2;
-  border-radius: 12px;
+  left: -999px; top: 5px;
+  background: #ff62d6; color: #191437;
+  padding: 0.5em 1em; z-index: 5000;
+}
+.skip-link:focus { left: 10px; }
+
+/* Menu */
+.retro-menu {
+  position: sticky; top: 0; width: 100%;
+  background: rgba(24, 21, 55, 0.9);
+  backdrop-filter: blur(5px);
+  border-bottom: 2px solid #00faff;
+  box-shadow: 0 0 15px #00faff55;
+  display: flex; align-items: center; z-index: 100;
+  height: 50px;
+}
+
+.retro-title {
+  font-family: 'Press Start 2P'; color: #00faff;
+  margin-left: 20px; font-size: 0.9em;
+  text-shadow: 0 0 5px #00faff;
+}
+.vice-glitch { color: #ff62d6; text-shadow: 0 0 5px #ff62d6; }
+
+.retro-menu ul {
+  display: flex; list-style: none; margin-left: auto; margin-right: 20px; gap: 20px;
+}
+.retro-menu a {
+  text-decoration: none; color: #ff62d6; font-family: 'Press Start 2P'; font-size: 0.7em;
+  transition: 0.3s;
+}
+.retro-menu a:hover, .retro-menu a.active-nav {
+  color: #00faff; text-shadow: 0 0 8px #00faff;
+}
+
+/* Fenêtres */
+main { position: relative; z-index: 5; padding-top: 20px; }
+
+.retro-window {
+  width: min(95vw, 850px);
+  margin: 30px auto;
+  background: rgba(25, 20, 55, 0.85); /* Semi-transparent */
+  border: 1px solid #00faff;
+  box-shadow: 0 0 20px rgba(0, 250, 255, 0.15);
+  border-radius: 6px;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+
+.window-bar {
+  background: linear-gradient(90deg, #00faff 0%, #ff62d6 100%);
+  height: 25px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10px; color: #191437; font-weight: bold; font-family: 'Press Start 2P'; font-size: 0.7em;
+}
+
+.window-buttons .win-btn {
+  display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  margin-left: 5px; border: 1px solid rgba(0,0,0,0.2);
+}
+.win-btn.close { background: #ff5555; }
+.win-btn.min { background: #ffbd44; }
+.win-btn.max { background: #00ca4e; }
+
+/* =========================================
+   3. NOUVEAU STYLE : À PROPOS (PROFIL)
+   ========================================= */
+
+.profile-layout {
+  display: flex;
+  gap: 2em;
+  padding: 2em;
+}
+
+/* Colonne Avatar */
+.profile-sidebar {
+  flex: 0 0 200px; /* Largeur fixe */
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5em;
+  border-radius: 8px;
+  border: 1px dashed #ff62d6;
+}
+
+.avatar-frame {
+  width: 120px; height: 120px;
+  margin: 0 auto 15px auto;
+  background: #110f26;
+  border: 3px solid #00faff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 15px #00faff66;
+}
+
+.avatar-icon { font-size: 3.5em; color: #ff62d6; }
+.avatar-img { width: 100%; height: 100%; object-fit: cover; }
+
+.status-light {
+  display: inline-block; width: 8px; height: 8px; background: #00ca4e;
+  border-radius: 50%; box-shadow: 0 0 5px #00ca4e; margin-right: 5px;
+}
+.profile-status {
+  font-family: 'Press Start 2P'; font-size: 0.6em; color: #00ca4e; margin-bottom: 10px;
+}
+.profile-role {
+  font-family: 'JetBrains Mono'; color: #00faff; font-size: 0.9em;
+  border-top: 1px solid #ffffff33; padding-top: 10px;
+}
+
+/* Colonne Infos */
+.profile-info { flex: 1; }
+
+.vice-title {
+  font-family: 'Press Start 2P'; color: #00faff; font-size: 1.5em;
+  text-shadow: 2px 2px #ff62d6; margin: 0 0 5px 0;
+}
+.vice-sub { font-size: 0.9em; color: #ff62d6; font-family: 'JetBrains Mono'; }
+
+.profile-bio {
+  margin-top: 1.5em; line-height: 1.6;
+  border-left: 3px solid #ff62d6; padding-left: 15px; background: rgba(255,98,214,0.05);
+}
+
+.tech-stack-label {
+  margin-top: 2em; font-family: 'Press Start 2P'; font-size: 0.7em; color: #fff;
+  border-bottom: 2px solid #00faff; display: inline-block; margin-bottom: 1em;
+}
+
+.about-skills { display: flex; flex-wrap: wrap; gap: 10px; }
+.badge-skill {
+  background: linear-gradient(45deg, #2b102f, #191437);
+  border: 1px solid #00faff; color: #00faff;
+  padding: 5px 10px; font-family: 'Press Start 2P'; font-size: 0.7em; border-radius: 4px;
+  cursor: default; transition: 0.2s;
+}
+.badge-skill:hover {
+  background: #00faff; color: #191437; box-shadow: 0 0 10px #00faff;
+}
+
+/* Responsive Profil */
+@media (max-width: 700px) {
+  .profile-layout { flex-direction: column; align-items: center; }
+  .profile-sidebar { width: 100%; flex: auto; }
+}
+
+/* =========================================
+   4. STYLES GÉNÉRAUX & CARTES
+   ========================================= */
+
+/* Compétences & Projets */
+.skills-body { padding: 2em; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+
+.skill-card {
+  width: 300px;
+  background: rgba(0,0,0,0.4); border: 1px solid #ff62d6;
+  padding: 1.5em; border-radius: 8px; text-decoration: none; color: inherit;
+  transition: 0.3s; position: relative; overflow: hidden;
+}
+.skill-card:hover {
+  transform: translateY(-5px); box-shadow: 0 5px 15px #ff62d666; border-color: #00faff;
+}
+
+/* Style des cartes "Tech" (IUT) */
+.skill-header-tech {
+  font-family: 'Press Start 2P'; color: #00faff; font-size: 0.9em; margin-bottom: 1em;
+  border-bottom: 1px dashed #ffffff44; padding-bottom: 10px;
+}
+.ue-id { display: block; font-size: 0.7em; color: #ff62d6; margin-bottom: 5px; }
+.skill-specs { list-style: none; padding: 0; margin: 0; font-family: 'JetBrains Mono'; font-size: 0.85em; }
+.skill-specs li { margin-bottom: 5px; display: flex; align-items: center; }
+.neon-bullet { margin-right: 8px; color: #ff62d6; font-size: 0.7em; }
+
+/* Dashboard Contact */
+.contact-dashboard { padding: 2em; background: rgba(0,0,0,0.6); }
+.contact-grid-wrapper { display: flex; gap: 20px; flex-wrap: wrap; }
+.contact-col { flex: 1; min-width: 250px; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 6px; }
+.retro-sub-title { font-family: 'Press Start 2P'; color: #ff62d6; font-size: 0.8em; margin-bottom: 15px; border-left: 3px solid #00faff; padding-left: 10px; }
+
+.contact-grid a.social-btn {
+  display: flex; align-items: center; width: 100%; padding: 10px; margin-bottom: 10px;
+  background: #191437; border: 1px solid #00faff55; color: #fff; text-decoration: none;
+  font-family: 'Press Start 2P'; font-size: 0.7em; transition: 0.3s;
+}
+.contact-grid a.social-btn:hover {
+  background: #00faff; color: #191437; border-color: #fff;
+}
+.contact-grid i { width: 25px; text-align: center; margin-right: 10px; font-size: 1.2em; }
+
+/* Terminal */
+.terminal-text {
+  color: #00faff; font-family: 'VT323'; font-size: 1.2em;
+  padding: 10px; min-height: 50px; text-shadow: 0 0 2px #00faff;
+}
+
+/* Footer */
+.retro-footer {
+  text-align: center; padding: 20px; font-family: 'Press Start 2P'; font-size: 0.7em;
+  color: #ff62d6; background: #0c0c1e; border-top: 2px solid #00faff;
+  position: relative; z-index: 10;
 }

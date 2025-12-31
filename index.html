@@ -4,12 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eric Petersen – Portfolio</title>
-  <meta name="description" content="Portfolio synthwave d'Eric Petersen, étudiant R&T Cyber. Compétences, projets, stage, cybersécurité, réseaux, développement.">
-  <meta name="keywords" content="Eric Petersen, portfolio, cybersécurité, réseaux, retro, synthwave, IUT Colmar">
-  <meta name="author" content="Eric Petersen">
+  <meta name="description" content="Portfolio synthwave d'Eric Petersen, étudiant R&T Cyber.">
   
   <meta property="og:title" content="Eric Petersen – Vice Portfolio">
-  <meta property="og:description" content="Portfolio rétro synthwave d'Eric Petersen, étudiant en cybersécurité et réseaux à l'IUT de Colmar.">
+  <meta property="og:description" content="Portfolio rétro synthwave d'Eric Petersen.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/profil.jpg">
 
@@ -24,44 +22,23 @@
 <body>
   <a href="#about" class="skip-link">Aller au contenu principal</a>
 
-  <div class="synthwave-bg" aria-hidden="true" style="pointer-events:none;">
-    <svg class="miami-sun" viewBox="0 0 480 180" width="480" height="180" aria-label="Coucher de soleil synthwave">
-      <defs>
-        <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#ffe7fd"/>
-          <stop offset="90%" stop-color="#ff62d6"/>
-        </linearGradient>
-        <linearGradient id="horizonGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#2cd8fd"/>
-          <stop offset="100%" stop-color="#6b47ff"/>
-        </linearGradient>
-        <linearGradient id="mountainGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#0ffbf9"/>
-          <stop offset="100%" stop-color="#ff62d6"/>
-        </linearGradient>
-      </defs>
-      <g>
-        <circle cx="240" cy="95" r="54" fill="url(#sunGrad)" opacity="0.93"/>
-        <g class="scanlines-sun">
-          <rect x="186" y="78" width="108" height="7" fill="#18152b" opacity="0.17"/>
-          <rect x="186" y="92" width="108" height="7" fill="#18152b" opacity="0.22"/>
-          <rect x="186" y="106" width="108" height="7" fill="#18152b" opacity="0.13"/>
-          <rect x="186" y="120" width="108" height="7" fill="#18152b" opacity="0.18"/>
-        </g>
-        <ellipse cx="240" cy="108" rx="70" ry="24" fill="#ff62d6" opacity="0.18"/>
-      </g>
-      <g class="mountains">
-        <polygon points="100,170 180,120 250,145 330,115 410,170" fill="url(#mountainGrad)" opacity="0.67"/>
-        <polygon points="0,180 100,170 410,170 480,180" fill="url(#horizonGrad)" opacity="0.73"/>
-        <polygon points="180,170 230,135 270,170" fill="#ff62d6" opacity="0.22"/>
-      </g>
-    </svg>
-    <canvas id="tronGrid"></canvas>
+  <div class="synthwave-bg" aria-hidden="true">
     <div id="starfield"></div>
+    
+    <div class="sun-container">
+      <div class="glitch-sun"></div>
+    </div>
+
+    <div class="mountain-range"></div>
+
+    <div class="retro-grid-wrap">
+      <div class="retro-grid"></div>
+    </div>
+    
     <div class="scanlines"></div>
   </div>
 
-  <nav class="retro-menu" role="navigation" aria-label="Navigation principale">
+  <nav class="retro-menu" role="navigation">
     <div class="retro-title">
       <i class="fas fa-sun"></i> Eric<span class="vice-glitch">Petersen</span>
     </div>
@@ -74,13 +51,11 @@
   </nav>
 
   <main>
-    <section class="retro-window terminal-window" aria-label="Présentation terminal rétro">
+    <section class="retro-window terminal-window">
       <div class="window-bar">
         <span class="window-title"><i class="fas fa-terminal"></i> Terminal</span>
         <span class="window-buttons">
-          <span class="win-btn close" aria-label="Fermer"></span>
-          <span class="win-btn min" aria-label="Minimiser"></span>
-          <span class="win-btn max" aria-label="Maximiser"></span>
+          <span class="win-btn close"></span><span class="win-btn min"></span><span class="win-btn max"></span>
         </span>
       </div>
       <div class="window-body">
@@ -88,80 +63,110 @@
       </div>
     </section>
 
-    <section id="about" class="retro-window" aria-label="À propos d'Eric Petersen">
+    <section id="about" class="retro-window" aria-label="À propos">
       <div class="window-bar">
-        <span class="window-title"><i class="fas fa-address-card"></i> À propos</span>
+        <span class="window-title"><i class="fas fa-id-card"></i> PROFIL UTILISATEUR</span>
         <span class="window-buttons">
-          <span class="win-btn close" aria-label="Fermer"></span>
-          <span class="win-btn min" aria-label="Minimiser"></span>
-          <span class="win-btn max" aria-label="Maximiser"></span>
+          <span class="win-btn close"></span><span class="win-btn min"></span><span class="win-btn max"></span>
         </span>
       </div>
-      <div class="window-body about-body">
-        <div>
-          <h2 class="vice-title">Eric Petersen</h2>
-          <span class="vice-sub">Étudiant en R&T Cyber</span>
-          <p>
-            Passionné de <span class="color-miami">cybersécurité</span>, <span class="color-miami">réseaux</span> et <span class="color-miami">développement</span>.<br>
-            J’aime fusionner technologie & style rétro pour apprendre et innover.
-          </p>
-          <div class="about-skills">
-            <span data-desc="Langage scripting polyvalent" class="badge-skill" tabindex="0" aria-label="Compétence Python"><i class="fab fa-python"></i> Python</span>
-            <span data-desc="Maîtrise des systèmes Linux" class="badge-skill" tabindex="0" aria-label="Compétence Linux"><i class="fab fa-linux"></i> Linux</span>
-            <span data-desc="Défense & offensive sécurité" class="badge-skill" tabindex="0" aria-label="Compétence Cyber"><i class="fas fa-shield-alt"></i> Cyber</span>
-            <span data-desc="JS web & app" class="badge-skill" tabindex="0" aria-label="Compétence JavaScript"><i class="fab fa-js-square"></i> JavaScript</span>
-            <span data-desc="Développement back" class="badge-skill" tabindex="0" aria-label="Compétence PHP"><i class="fab fa-php"></i> PHP</span>
-            <span data-desc="SQL – BDD" class="badge-skill" tabindex="0" aria-label="Compétence SQL"><i class="fas fa-database"></i> SQL</span>
+      
+      <div class="window-body profile-layout">
+        <div class="profile-sidebar">
+          <div class="avatar-frame">
+            <i class="fas fa-user-astronaut avatar-icon"></i>
+            </div>
+          <div class="profile-status">
+            <span class="status-light online"></span> EN LIGNE
           </div>
-          <div id="skillDesc" aria-live="polite"></div>
+          <div class="profile-role">
+            CYBER-ANALYZER<br>LVL. 2025
+          </div>
+        </div>
+
+        <div class="profile-info">
+          <h2 class="vice-title">Eric Petersen</h2>
+          <span class="vice-sub">> Étudiant en R&T Cyber @ IUT Colmar</span>
+          
+          <p class="profile-bio">
+            Initialisation...<br><br>
+            Passionné de <span class="color-miami">cybersécurité</span>, <span class="color-miami">réseaux</span> et <span class="color-miami">développement</span>. J’aime fusionner technologie & style rétro pour apprendre et innover.
+          </p>
+          
+          <div class="tech-stack-label">STACK TECHNIQUE_</div>
+          <div class="about-skills">
+            <span class="badge-skill" tabindex="0"><i class="fab fa-python"></i> Python</span>
+            <span class="badge-skill" tabindex="0"><i class="fab fa-linux"></i> Linux</span>
+            <span class="badge-skill" tabindex="0"><i class="fas fa-shield-alt"></i> Cyber</span>
+            <span class="badge-skill" tabindex="0"><i class="fab fa-js-square"></i> JS</span>
+            <span class="badge-skill" tabindex="0"><i class="fab fa-php"></i> PHP</span>
+            <span class="badge-skill" tabindex="0"><i class="fas fa-database"></i> SQL</span>
+          </div>
+          <div id="skillDesc"></div>
         </div>
       </div>
     </section>
 
-    <section id="skills" class="retro-window" aria-label="Compétences IUT R&T">
+    <section id="skills" class="retro-window">
       <div class="window-bar">
-        <span class="window-title">Compétences IUT R&T</span>
+        <span class="window-title">MODULES DE COMPÉTENCES R&T</span>
         <span class="window-buttons">
-          <span class="win-btn close" aria-label="Fermer"></span>
-          <span class="win-btn min" aria-label="Minimiser"></span>
-          <span class="win-btn max" aria-label="Maximiser"></span>
+          <span class="win-btn close"></span><span class="win-btn min"></span><span class="win-btn max"></span>
         </span>
       </div>
       <div class="window-body skills-body">
-        <a class="skill-card" href="pages/ue-1.html" tabindex="0">
-          <div class="skill-header">[U.E.1] Administrer les réseaux et l'internet</div>
-          <div class="skill-desc">
-            Configuration, supervision et sécurisation d’infrastructures réseaux : routage, VLAN, Wi-Fi, firewall, DNS/DHCP, adressage IP…
+        <a class="skill-card retro-tech-card" href="pages/ue-1.html" tabindex="0">
+          <div class="skill-header-tech">
+            <span class="ue-id">[U.E.1]</span> RESERVAUX & NET ADMIN
           </div>
+          <ul class="skill-specs">
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Routage & Commutation</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Services (DNS, DHCP)</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Admin Linux/Windows</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Adressage IP & VLAN</li>
+          </ul>
         </a>
-        <a class="skill-card" href="pages/ue-2.html" tabindex="0">
-          <div class="skill-header">[U.E.2] Connecter les entreprises et les usagers</div>
-          <div class="skill-desc">
-            Interconnexion, VPN, accès distants, téléphonie IP, réseaux d’entreprise et IoT.
+        <a class="skill-card retro-tech-card" href="pages/ue-2.html" tabindex="0">
+          <div class="skill-header-tech">
+            <span class="ue-id">[U.E.2]</span> INTERCONNEXION & IoT
           </div>
+          <ul class="skill-specs">
+            <li><i class="fas fa-chevron-right neon-bullet"></i> VPN & Accès distants</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Téléphonie IP (ToIP)</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Réseaux IoT & Capteurs</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Fibre & Sans-fil</li>
+          </ul>
         </a>
-        <a class="skill-card" href="pages/ue-3.html" tabindex="0">
-          <div class="skill-header">[U.E.3] Créer des outils et des applications informatiques</div>
-          <div class="skill-desc">
-            Développement Python, web, SQL, scripts d’admin, outils métiers, automatisation et interfaces web/app.
+        <a class="skill-card retro-tech-card" href="pages/ue-3.html" tabindex="0">
+          <div class="skill-header-tech">
+            <span class="ue-id">[U.E.3]</span> DEV & AUTOMATISATION
           </div>
+          <ul class="skill-specs">
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Scripting (Python, Bash)</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Développement Web</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Bases de données (SQL)</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Outils métiers</li>
+          </ul>
         </a>
-        <a class="skill-card" href="pages/ue-4-5.html" tabindex="0">
-          <div class="skill-header">[U.E.4-5] Administrer & Surveiller un SI sécurisé</div>
-          <div class="skill-desc">
-            Gestion des incidents, pentest, supervision, sécurité opérationnelle, sauvegardes et conformité.
+        <a class="skill-card retro-tech-card" href="pages/ue-4-5.html" tabindex="0">
+          <div class="skill-header-tech">
+            <span class="ue-id">[U.E.4-5]</span> CYBER & SUPERVISION
           </div>
+          <ul class="skill-specs">
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Pentesting & Audit</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Supervision SI</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Gestion d'incidents</li>
+            <li><i class="fas fa-chevron-right neon-bullet"></i> Sécurité Ops</li>
+          </ul>
         </a>
       </div>
     </section>
 
-    <section id="projects" class="retro-window" aria-label="Projets">
+    <section id="projects" class="retro-window">
       <div class="window-bar">
         <span class="window-title"><i class="fas fa-list"></i> Projets phares</span>
         <span class="window-buttons">
-          <span class="win-btn close" aria-label="Fermer"></span>
-          <span class="win-btn min" aria-label="Minimiser"></span>
-          <span class="win-btn max" aria-label="Maximiser"></span>
+          <span class="win-btn close"></span><span class="win-btn min"></span><span class="win-btn max"></span>
         </span>
       </div>
       <div class="window-body skills-body">
@@ -198,43 +203,48 @@
       </div>
     </section>
 
-    <section id="contact" class="retro-window" aria-label="Contact">
+    <section id="contact" class="retro-window">
       <div class="window-bar">
-        <span class="window-title"><i class="fas fa-envelope"></i> Contact</span>
+        <span class="window-title"><i class="fas fa-satellite-dish"></i> CENTRE DE COMMUNICATION</span>
         <span class="window-buttons">
-          <span class="win-btn close" aria-label="Fermer"></span>
-          <span class="win-btn min" aria-label="Minimiser"></span>
-          <span class="win-btn max" aria-label="Maximiser"></span>
+          <span class="win-btn close"></span><span class="win-btn min"></span><span class="win-btn max"></span>
         </span>
       </div>
-      <div class="window-body">
-        <p>
-          <b>Une question ? Un projet ? Contactez-moi :</b>
+      <div class="window-body contact-dashboard">
+        <p style="text-align: center; margin-bottom: 1.5em; font-family: 'Press Start 2P', monospace; font-size: 0.9em; color:#00faff;">
+          >> ÉTABLIR UNE LIAISON SÉCURISÉE ? <<
         </p>
-        <div class="contact-socials">
-          <a href="mailto:eric.petersen@uha.fr" class="press-start-btn social-btn" style="background:linear-gradient(90deg,#ff62d6 45%,#00faff 120%);color:#fff;">
-            <i class="fas fa-envelope"></i> Mail
-          </a>
-          <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" rel="noopener"
-             class="press-start-btn social-btn linkedin-btn">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://github.com/Vasla13" target="_blank" rel="noopener"
-             class="press-start-btn social-btn github-btn">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-          <a href="https://x.com/eripet05" target="_blank" rel="noopener"
-             class="press-start-btn social-btn twitter-btn">
-            <i class="fab fa-x-twitter"></i> Twitter/X
-          </a>
-          <a href="https://discord.com/users/623836221000515604" target="_blank" rel="noopener"
-             class="press-start-btn social-btn discord-btn">
-            <i class="fab fa-discord"></i> Discord
-          </a>
-          <a href="assets/docs/cv-eric-petersen.pdf" class="press-start-btn social-btn cv-btn"
-             target="_blank" rel="noopener" style="background:linear-gradient(90deg,#00faff 45%,#ff62d6 120%);color:#191437;">
-            <i class="fas fa-file-pdf"></i> CV PDF
-          </a>
+
+        <div class="contact-grid-wrapper">
+          <div class="contact-col">
+            <h3 class="retro-sub-title">PRO LINKS_</h3>
+            <div class="contact-grid">
+               <a href="mailto:eric.petersen@uha.fr" class="press-start-btn social-btn mail-btn">
+                <i class="fas fa-envelope-open-text"></i> Mail Pro
+              </a>
+              <a href="https://www.linkedin.com/in/eric-petersen-51a138277/" target="_blank" rel="noopener" class="press-start-btn social-btn linkedin-btn">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+              </a>
+              <a href="assets/docs/cv-eric-petersen.pdf" class="press-start-btn social-btn cv-btn" target="_blank" rel="noopener">
+                <i class="fas fa-file-contract"></i> CV_v2025.pdf
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-col">
+            <h3 class="retro-sub-title">SOCIAL & DEV_</h3>
+            <div class="contact-grid">
+               <a href="https://github.com/Vasla13" target="_blank" rel="noopener" class="press-start-btn social-btn github-btn">
+                <i class="fab fa-github-alt"></i> GitHub
+              </a>
+              <a href="https://x.com/eripet05" target="_blank" rel="noopener" class="press-start-btn social-btn twitter-btn">
+                <i class="fab fa-x-twitter"></i> Twitter/X
+              </a>
+              <a href="https://discord.com/users/623836221000515604" target="_blank" rel="noopener" class="press-start-btn social-btn discord-btn">
+                <i class="fab fa-discord"></i> Discord
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
